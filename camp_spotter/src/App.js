@@ -1,12 +1,11 @@
 import './App.css';
+import MyMap from './Components/Map_page' 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <h1>Welcome to Camp Spotter</h1>
+      <MyMap />
 
-      </header>
     </div>
   );
 }
