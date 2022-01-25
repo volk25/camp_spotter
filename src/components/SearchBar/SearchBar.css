@@ -1,0 +1,17 @@
+.search-bar {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.s-bar {
+  border: none;
+  width: 300px;
+}
+
+.s-button {
+  display: none;
+}
+
+.fa-location-arrow {
+  color: grey;
+}

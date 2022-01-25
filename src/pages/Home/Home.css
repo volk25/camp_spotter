@@ -1,0 +1,34 @@
+.background {
+  /* The image used */
+  background: url(../../images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg) no-repeat
+    center center fixed;
+
+  /* Center and scale the image nicely */
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: "100vw";
+  height: "100vh";
+}
+
+.Home {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: "100vw";
+  height: "100vh";
+}
+
+.contact-header {
+  text-align: center;
+  color: white;
+}
