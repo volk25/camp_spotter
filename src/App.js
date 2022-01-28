@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Settings from "./pages/Settings/Settings";
 import Navbar from "./components/Navbar/Navbar";
-import MyMap from "./components/Map_Page.js";
+import MyMap from "./components/Map_Page";
 
 function App() {
   return (

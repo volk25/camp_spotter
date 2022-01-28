@@ -49,7 +49,7 @@ function MyMap() {
 // Sets custom icon to every camp spot on the map instead of default pin
 function GetIcon(_iconSize) {
     return  L.icon({
-            iconUrl: require("../Static/Icons/tent_icon_for_map.png"),
+            iconUrl: require("./Static/Icons/tent_icon_for_map.png"),
             iconSize: [_iconSize]
         })
 }
