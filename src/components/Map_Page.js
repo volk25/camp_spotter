@@ -3,8 +3,10 @@ import L from 'leaflet';
 import { MapContainer, useMap,TileLayer, Marker, Popup} from 'react-leaflet';
 import { GeoSearchControl, AlgoliaProvider } from 'leaflet-geosearch';
 import { useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 import campingsList from './campingsList.json' ;
+
 
 
 function MyMap() {
@@ -35,12 +37,15 @@ function MyMap() {
         
 {/* adding markers to the map. Data are taken from campingsList.json*/}
             {campingsList.map((camping) => (
-                <Marker position={camping.position} icon={GetIcon(50)}>
-                <Popup>
-                    {camping.name}
-                </Popup>
-
-            </Marker> ))} 
+                <Marker position={camping.position} icon={GetIcon(50)} key={camping.slug}>
+                    <Popup>
+                        <Link to ={'/camps/' + camping.slug}>
+                        <span>
+                            {camping.name}                       
+                        </span>  
+                        </Link> 
+                    </Popup>               
+                </Marker> ))} 
         </MapContainer>      
     )
 }

@@ -1,5 +1,7 @@
 [
     {
+        "id": 1,
+        "slug": "wild-camping-dam-square",
         "name": "Wild Camping Dam Square",
         "position": [52.37, 4.89],
         "rating": 4,
@@ -8,6 +10,8 @@
     },
     
     {
+        "id": 2,
+        "slug": "perfect-camp-spot-amsterdam-nord",
         "name": "Perfect camp spot Amsterdam Nord",
         "position": [52.39, 4.92],
         "rating": 2,
@@ -16,6 +20,8 @@
     },
     
     {
+        "id": 3,
+        "slug": "camp-in-amstel-park",
         "name": "Camp in Amstel park",
         "position": [52.32, 4.89],
         "rating": 5,
