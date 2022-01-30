@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 import campingsList from './campingsList.json' ;
 
 
-
+/**
+ * Create a map, include search bar on it, load all camping spots from json and mark them with customized tent icon. 
+ * @returns map with camp spots displayed on it 
+ */
 function MyMap() {
     const position = [52.3676, 4.9041] //position of Amsterdam at which map will always open
     const prov = new AlgoliaProvider();
@@ -20,7 +23,7 @@ function MyMap() {
         <MapContainer className="map" center={position} zoom={10} style={{height:"100vh", width: "100%"}}> 
          <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
             contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>   
-
+        
         <SearchControl 
                 provider={prov}
                 style={'bar'}
@@ -51,7 +54,12 @@ function MyMap() {
 }
 
 
-// Sets custom icon to every camp spot on the map instead of default pin
+ 
+/**
+ * Sets custom icon to every camp spot on the map instead of default pin
+ * @param {*} _iconSize 
+ * @returns icon from local png in the given size
+ */
 function GetIcon(_iconSize) {
     return  L.icon({
             iconUrl: require("../images/Icons/tent_icon_for_map.png"),
@@ -59,7 +67,12 @@ function GetIcon(_iconSize) {
         })
 }
 
-// Here SearchControl element is being created which is inputed in the function as a tag
+
+/**
+ * Here SearchControl element is being created which is inputed in the function as a tag
+ * @param {*} props 
+ * @returns nothing
+ */
 const SearchControl = (props) => {
     const map = useMap();
   

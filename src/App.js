@@ -4,8 +4,8 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Settings from "./pages/Settings/Settings";
 import Navbar from "./components/Navbar/Navbar";
-import MyMap from "./components/Map_Page";
-import CampDetails from "./components/Camp_Details";
+import MyMap from "./components/MapPage";
+import CampDetails from "./components/CampDetails";
 
 function App() {
   return (
