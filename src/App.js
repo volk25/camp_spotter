@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/Settings" element={<Settings />} />
-          <Route exact path="/Map" element={<MyMap/>} />
+          <Route exact path="/settings" element={<Settings />} />
+          <Route exact path="/map" element={<MyMap/>} />
         </Routes>
       </div>
     </Router>
