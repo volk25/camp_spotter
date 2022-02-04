@@ -3,7 +3,8 @@
         "id": 1,
         "slug": "wild-camping-dam-square",
         "name": "Wild Camping Dam Square",
-        "position": [52.37, 4.89],
+        "latitude": 52.37, 
+        "longitude": 4.89,
         "rating": 4,
         "campDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "locationDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
@@ -13,7 +14,8 @@
         "id": 2,
         "slug": "perfect-camp-spot-amsterdam-nord",
         "name": "Perfect camp spot Amsterdam Nord",
-        "position": [52.39, 4.92],
+        "latitude": 52.39, 
+        "longitude": 4.92,
         "rating": 2,
         "campDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "locationDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
@@ -23,7 +25,8 @@
         "id": 3,
         "slug": "camp-in-amstel-park",
         "name": "Camp in Amstel park",
-        "position": [52.32, 4.89],
+        "latitude": 52.32, 
+        "longitude": 4.89,
         "rating": 5,
         "campDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "locationDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
