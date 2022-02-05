@@ -3,6 +3,7 @@ import L from 'leaflet';
 import { MapContainer, useMap,TileLayer, Marker, Popup} from 'react-leaflet';
 import { GeoSearchControl, AlgoliaProvider } from 'leaflet-geosearch';
 import { Link } from "react-router-dom";
+import LocationMarker from "./geolocation.js"
 
 
 /**
@@ -52,7 +53,7 @@ function MyMap(props) {
          <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
             contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>  
   
-
+        <LocationMarker/>
         <SearchControl 
                 provider={prov}
                 style={'bar'}
@@ -66,6 +67,7 @@ function MyMap(props) {
                 keepResult={false}
                 // position={"topright"}
         />
+        
         {/* adding markers to the map. Data are taken from campingsList.json*/}
         {result.map((camping) => (
             <Marker position={[camping.latitude, camping.longitude]} icon={GetIcon(50)} key={camping.slug}>

@@ -1,17 +1,8 @@
 .search-bar {
-  text-align: center;
-  margin-top: 200px;
+  margin-top: 300px;
 }
 
-.s-bar {
-  border: none;
-  width: 300px;
-}
-
-.s-button {
-  display: none;
-}
-
-.fa-location-arrow {
-  color: grey;
+input {
+  height: 35px;
+  width: 400px;
 }

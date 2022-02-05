@@ -8,6 +8,7 @@ import MyMap from "./pages/MapPage/MapPage";
 import CampDetails from "./pages/CampDetails/CampDetails";
 
 
+
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/settings" element={<Settings />} />
           <Route exact path="/map" element={<MyMap />} />
           <Route  path="/camps/:camp_id" element={<CampDetails/>} />
+
         </Routes>
       </div>
     </Router>
