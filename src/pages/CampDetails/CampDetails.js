@@ -72,7 +72,7 @@ function CampDetails () {
                     <div key={camp.id}>
                         {/* Camp image with camp name displayed on it */}
                         <div className="position-relative text-center" >
-                            <img src="https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2018/08/01/02628b68-354a-464f-84e9-75e03454db04/lake-district-camping" className="radius" width="100%" height= "200" alt="mainCampImage" />
+                            <img src={camp.image} className="radius" width="100%" height= "200" alt="mainCampImage" />
                             <div className='box bg-secondary bg-opacity-75'>
                                 <p className="position-absolute  bottom-0 start-50 translate-middle-x  text-white fs-2">{camp.name}</p>
                             </div>
@@ -104,7 +104,7 @@ function CampDetails () {
                         <div className='text-white fw-bold fs-2'>Reviews</div> 
                         <div className='d-flex justify-content-evenly w-20'  >
                             <div className='me-3'>
-                                <img src="https://cdn1.iconfinder.com/data/icons/app-user-interface-glyph/64/user_man_user_interface_app_person-512.png"  alt="user image" width="70" height= "70"></img>
+                                <img src={review.image}  alt="user image" width="70" height= "70"></img>
                                 <div className='w-25 text-center text-black'>{review.author}</div>
                             </div>
                             
