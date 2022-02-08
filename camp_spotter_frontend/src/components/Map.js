@@ -15,20 +15,26 @@ function MyMap(props) {
     const prov = new AlgoliaProvider();
 
     //Setting a state for camps, data loading  and errors
-    const [result, setCamps] = useState([]); 
+    const [result, setResult] = useState([]); 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
-    useEffect ( () => {
-        fetch ('http://localhost:3000/campingsList.json')
+    useEffect (() => {
+        fetch ('http://127.0.0.1:8000/camps/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token d73ca4caf7d4160f3310fb57a559e6572bd29ce4'
+            }
+        })
         .then (resp => resp.json())
-        .then (
-            (result) => {
-            setCamps(result);
+        .then (result => {
+            setResult(result);
+            console.log(result)
         })
         .catch((err) => {
             setError(err);
-            console.log(err)
+            console.log(error)
         })
         .finally(() => {
             setLoading(false);
