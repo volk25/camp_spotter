@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -141,3 +142,14 @@ REST_FRAMEWORK = {
 # Don't forget to add 'pillow' app to 'INSTALLED_APPS' list!
 # Don't forget to specify the 'MEDIA_ROOT' and 'MEDIA_URL'!
 
+# ======================================================================================================================
+#                                           3. Corsheaders settings
+# ======================================================================================================================
+
+# Don't forget to add 'corsheaders' app to 'INSTALLED_APPS' list!
+# Don't forget to add 'corsheaders.middleware.CorsMiddleware' middleware to 'MIDDLEWARE' list!
+
+# Define from which addresses the API will be accessible
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
