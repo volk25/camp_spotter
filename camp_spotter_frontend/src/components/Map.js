@@ -11,45 +11,47 @@ import LocationMarker from "./geolocation.js"
  * @returns map with camp spots displayed on it 
  */
 function MyMap(props) {
+
+    // Define the variables/constants/states
     const position = [52.3676, 4.9041] //position of Amsterdam at which map will always open
     const prov = new AlgoliaProvider();
-
-    //Setting a state for camps, data loading  and errors
-    const [result, setResult] = useState([]); 
-    const [loading, setLoading] = useState(false);
+    const [campList, setCampList] = useState([]); 
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
-
+    
+    // Define what to do when the page is loaded
     useEffect (() => {
+
+        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
         fetch ('http://127.0.0.1:8000/camps/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Token d73ca4caf7d4160f3310fb57a559e6572bd29ce4'
             }
         })
-        .then (resp => resp.json())
-        .then (result => {
-            setResult(result);
-            console.log(result)
-        })
-        .catch((err) => {
-            setError(err);
-            console.log(error)
-        })
-        .finally(() => {
-            setLoading(false);
-            });    
-    },[]); 
-    //in case data will be fetched slowly, "data loading" will appear on the screen.
+
+        // Get the response in a json format and set the data to campList variable
+        .then (response => response.json())
+        .then (data => setCampList(data))
+
+        // Catch the error if present and set it to the error variable
+        .catch((err) => setError(err))
+
+        // Set to false the loading variable
+        .finally(() => setLoading(false));
+
+    },[]);
+
+    // If loading variable is still set to true, notify it to the user
     if (loading) {
         return <p>Data is loading...</p>;
         }
     //if json doesn't have an array, this error will be displayed on the screen. For map function to work, json has to be an array
-    if (error || !Array.isArray(result)) {
+    if (error || !Array.isArray(campList)) {
     return <p>There was an error loading your data!</p>;
     }
-    // if everything went well, display our page
 
+    // If data is loaded and there are no errors, show the map page
     return (
        
        //adding the map and making it fit 100% of the page
@@ -73,14 +75,14 @@ function MyMap(props) {
                 keepResult={false}
                 // position={"topright"}
         />
-        
-        {/* adding markers to the map. Data are taken from campingsList.json*/}
-        {result.map((camping) => (
-            <Marker position={[camping.latitude, camping.longitude]} icon={GetIcon(50)} key={camping.slug}>
+
+        {/* Add markers to the map */}
+        {campList.map((camp) => (
+            <Marker position={[camp.latitude, camp.longitude]} icon={GetIcon(50)} key={camp.slug}>
                 <Popup>
-                    <Link to ={'/camps/' + camping.slug}>
+                    <Link to ={'/camps/' + camp.slug}>
                     <span>
-                        {camping.name}                       
+                        {camp.title}                       
                     </span>  
                     </Link> 
                 </Popup>               
@@ -91,7 +93,6 @@ function MyMap(props) {
 }
 
 
- 
 /**
  * Sets custom icon to every camp spot on the map instead of default pin
  * @param {*} _iconSize 
