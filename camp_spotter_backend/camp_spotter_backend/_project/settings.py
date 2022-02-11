@@ -112,10 +112,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# Media files (images)
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -141,6 +137,10 @@ REST_FRAMEWORK = {
 
 # Don't forget to add 'pillow' app to 'INSTALLED_APPS' list!
 # Don't forget to specify the 'MEDIA_ROOT' and 'MEDIA_URL'!
+
+# Media files (images)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # ======================================================================================================================
 #                                           3. Corsheaders settings
