@@ -63,7 +63,7 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
 
         User = get_user_model()
         model = User
-        fields = ['id', 'username', 'password', 'password2', 'slug', 'email', 'first_name', 'last_name']
+        fields = ['id', 'username', 'image', 'password', 'password2', 'slug', 'email', 'first_name', 'last_name']
 
     def validate(self, attrs):
         """
@@ -88,6 +88,7 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
         User = get_user_model()
         user_object = User.objects.create(
             username=validated_data['username'],
+            image=validated_data['image'],
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name']
@@ -111,6 +112,7 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
         user_object.email = validated_data['email']
         user_object.first_name = validated_data['first_name']
         user_object.last_name = validated_data['last_name']
+        user_object.image = validated_data['image']
 
         # Set the password to the user object and save it
         user_object.set_password(validated_data['password'])

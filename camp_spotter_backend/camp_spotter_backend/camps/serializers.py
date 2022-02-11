@@ -12,6 +12,7 @@
 
 from rest_framework import serializers
 from .models import Camp, Review
+from django.contrib.auth import get_user_model
 
 # ======================================================================================================================
 #                                               1. Camp serializer
@@ -40,7 +41,8 @@ class CampSerializer(serializers.ModelSerializer):
     def get_rating(self, obj):
         """
         Calculate the rating of a camp (average between all its reviews).
-        Please note: the rating field is not present in the database so it will only be only serialized.
+        Please note: the rating field is not present in the database so it will only be serialized
+        (and only in read_only mode).
         """
 
         # Loop through ratings of the camp and calculate the average between them
@@ -63,6 +65,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     camp = serializers.StringRelatedField()
     author = serializers.StringRelatedField()
+    author_image = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         """
@@ -72,3 +75,18 @@ class ReviewSerializer(serializers.ModelSerializer):
         # Take the Review model as a starting point and serialize/deserialize all its fields
         model = Review
         fields = '__all__'
+
+    def get_author_image(self, obj):
+        """
+        Define the image of the author that posted the review (average between all its reviews).
+        Please note: the author_image field is not present in the database so it will only be serialized
+        (and only in read_only mode).
+        """
+
+        # Retrieve the url of the author image
+        User = get_user_model()
+        author_user_object = User.objects.get(username=obj.author)
+        request = self.context.get('request')
+        author_image = request.build_absolute_uri(author_user_object.image.url)
+
+        return author_image
