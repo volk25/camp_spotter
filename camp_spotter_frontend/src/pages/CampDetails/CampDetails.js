@@ -1,15 +1,19 @@
-import React, {useState, useEffect} from 'react' ;
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "./CampDetails.css";
 import { MapContainer, TileLayer, Marker} from 'react-leaflet';
 import { GetIcon } from '../../components/Map';
 import Navbar from "../../components/Navbar/Navbar";
+import {useParams} from 'react-router-dom'
 
 /**
  * Render the camp detail page with camp title, image, main body, position body, map position, and reviews. 
  * @returns renders the page
  */
 function CampDetails () {
+
+    // Define the parameters coming from outside the component
+    const params = useParams()
 
     // Define the variables/constants/states
     const [campDetails, setCampDetails] = useState([]);
@@ -22,7 +26,7 @@ function CampDetails () {
     useEffect (() => {
 
         // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
-        fetch ('http://127.0.0.1:8000/camps/camp-california/', {
+        fetch (`http://127.0.0.1:8000/camps/${params.slug}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +46,7 @@ function CampDetails () {
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
-        fetch ('http://127.0.0.1:8000/camps/camp-california/reviews/', {
+        fetch (`http://127.0.0.1:8000/camps/${params.slug}/reviews/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,8 +68,8 @@ function CampDetails () {
     // If loading variable is still set to true, notify it to the user
     if (loading) {
         return <p>Data is loading...</p>;
-      }
-    //if json doesn't have an array, this error will be displayed on the screen. For map function to work, json has to be an array
+    }
+    // If there are no errors
     if (campError) {
         return <p>An error occurred while loading the Camp details!</p>;
     }
@@ -75,12 +79,12 @@ function CampDetails () {
 
     // Define the reviews snippet to be inserted in the main return
     let reviews = <div className='text-white fw-italic fs-5'>This camp site has no reviews yet...</div>
-    if (reviewList.length>0) {
+    if (reviewList.length > 0) {
         reviews = reviewList.map(review => (                      
             <div key={review.id}>                       
                 <div className='d-flex justify-content-evenly w-20'  >
                     <div className='me-3'>
-                        <img src={review.image} alt="user image" width="70" height= "70"></img>
+                        <img src={review.author_image} alt="user image" width="70" height= "70"/>
                         <div className='w-25 text-center text-black'>
                             {review.author}
                         </div>
