@@ -143,7 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # ======================================================================================================================
-#                                           3. Corsheaders settings
+#                                           4. Corsheaders settings
 # ======================================================================================================================
 
 # Don't forget to add 'corsheaders' app to 'INSTALLED_APPS' list!
