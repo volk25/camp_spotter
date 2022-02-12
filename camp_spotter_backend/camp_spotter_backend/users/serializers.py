@@ -30,6 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False, validators=[UniqueValidator(queryset=User.objects.all())])
     first_name = serializers.CharField(required=False)
     last_name = serializers.CharField(required=False)
+    date_joined = serializers.DateTimeField(read_only=True)
 
     class Meta:
         """
@@ -38,7 +39,7 @@ class UserSerializer(serializers.ModelSerializer):
 
         User = get_user_model()
         model = User
-        fields = ['id', 'username', 'image', 'email', 'slug', 'first_name', 'last_name']
+        fields = ['id', 'username', 'image', 'email', 'slug', 'first_name', 'last_name', 'date_joined']
 
 
 class UserCreateUpdateSerializer(serializers.ModelSerializer):
@@ -54,7 +55,9 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False, validators=[UniqueValidator(queryset=User.objects.all())])
     first_name = serializers.CharField(required=False)
     last_name = serializers.CharField(required=False)
+    date_joined = serializers.DateTimeField(read_only=True)
     slug = serializers.SlugField(read_only=True)
+
 
     class Meta:
         """
@@ -63,7 +66,8 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
 
         User = get_user_model()
         model = User
-        fields = ['id', 'username', 'image', 'password', 'password2', 'slug', 'email', 'first_name', 'last_name']
+        fields = ['id', 'username', 'image', 'password', 'password2', 'slug', 'email', 'first_name', 'last_name',
+                  'date_joined']
 
     def validate(self, attrs):
         """
