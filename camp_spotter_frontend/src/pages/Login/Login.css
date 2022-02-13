@@ -1,6 +1,6 @@
 @media all and (min-width: 480px) {
     .Login {
-      padding: 60px 0;
+   
       /* The image used */
       background: url(../../images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg)
         no-repeat center center fixed;
@@ -10,12 +10,11 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size: cover;
+      background-size: 100% 100%;
       background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
-      width: "100vw";
-      height: "100vh";
+      width: "130vw";
+      height: "130vh";
     }
   
     .Login form {
@@ -31,5 +30,5 @@
       color: white;
       text-align: center;
     }
-  }
+}
   

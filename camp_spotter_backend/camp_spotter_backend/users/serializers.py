@@ -58,7 +58,6 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
     date_joined = serializers.DateTimeField(read_only=True)
     slug = serializers.SlugField(read_only=True)
 
-
     class Meta:
         """
         Defines the data to be taken directly from the model.
