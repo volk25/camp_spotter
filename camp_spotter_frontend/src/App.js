@@ -1,19 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home/Home";
-import Contact from "./pages/Contact/Contact";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
-import MapPage from "./pages/MapPage/MapPage";
-import CampDetails from "./pages/CampDetails/CampDetails";
-import AddCamp from "./pages/AddCamp/AddCamp";
+import Signup from "./pages/Signup";
+import MapPage from "./pages/MapPage";
+import CampDetails from "./pages/CampDetails";
+import AddCamp from "./pages/AddCamp";
+import Navbar from "./components/Navbar/Navbar";
 
 
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App background">
+      <div className='position-relative'><Navbar/></div>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login/>}/>

@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import "./CampDetails.css";
+import "../App.css";
 import { MapContainer, TileLayer, Marker} from 'react-leaflet';
-import { GetIcon } from '../../components/Map';
-import Navbar from "../../components/Navbar/Navbar";
+import { GetIcon } from '../components/Map';
 import {useParams} from 'react-router-dom'
 
 /**
@@ -103,13 +102,9 @@ function CampDetails () {
         <div> 
 
             <div className='overlay'></div>
-            {/* Navbar on the page */}
-            <div className='mb-5 position-relative'>
-                <Navbar/>
-            </div>
-            <div className='container position-relative'>           
+            <div className=' container campDetails position-relative'>           
                 {/* Camp image with camp name displayed on it */}
-                <div className="position-relative text-center" >
+                <div className="position-relative text-center mt-5" >
                     <img src={campDetails.image} className="radius" width="100%" height= "200" alt="mainCampImage" />
                     <div className='box bg-secondary bg-opacity-75'>
                         <p className="position-absolute  bottom-0 start-50 translate-middle-x  text-white fs-2">
@@ -141,7 +136,8 @@ function CampDetails () {
                     {reviews}
                 </div>
                             
-            </div>  
+            </div> 
+            <div style={{ height: "50vh" }}> </div> 
         </div>
     )}
        

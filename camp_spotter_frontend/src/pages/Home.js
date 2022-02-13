@@ -1,13 +1,10 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import "./Home.css";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 const Home = () => {
   return (
     <div className="background">
       {/* <p>home</p> */}
-      <Navbar />
       <SearchBar />
       <div style={{ height: "100vh" }}> </div>
     </div>

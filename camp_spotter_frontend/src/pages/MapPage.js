@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import MyMap from "../../components/Map"
+import MyMap from "../components/Map"
 
 /**
  * Render the map page with all the camps. 
@@ -9,7 +8,6 @@ import MyMap from "../../components/Map"
 const MapPage = () => {
   return (
     <div className="bg-success">
-      <Navbar/>
       <MyMap/>
     </div>
   );
