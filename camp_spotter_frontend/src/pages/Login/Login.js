@@ -5,32 +5,98 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Login.css";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
+  // Define the variables/constants/states
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState();
+
+  /**
+   * Form validator (it will be also validated in the backend)
+   * @returns
+   */
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return username.length > 0 && password.length > 0;
   }
 
+  /**
+   * Event handler for Login credentials submission
+   * @param {*} event
+   */
   function handleSubmit(event) {
+
     event.preventDefault();
+
+    // Fetch the data to the API (keep in mind that the current requesting address should be authorized in the API)
+    fetch('http://127.0.0.1:8000/api-token-auth/', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+
+    // Process the response if it is ok, otherwise throw an error
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      response.json()
+      console.log(response)
+    })
+
+    // Set the token to a variable in the localStorage
+    .then(result => {
+      localStorage.setItem('token', result.token)
+    })
+
+    // Catch the error if present, and specify an error message for it
+    .catch(err => {
+      if (err.message === 'Bad Request') {
+        setError('Invalid username and/or password, please check your credentials.')
+      }
+    })
+
+    
+
   }
 
   return (
     <div className="Login">
+
+      {/* Insert the navbar */}
       <Navbar />
+
+      {/* Create a header */}
       <h1 className="login-header">Login</h1>
-      <div style={{ height: "50vh" }}> </div>
+      <div style={{ height: "50vh" }}></div>
+
+      { error ?
+        <div class="alert alert-danger" role="alert">
+         {error}
+        </div>
+        :
+        <div></div>
+      }
+
+      {/* Initialize the form */}
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="form-group" size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
+
+        {/* Username input group */}
+        <Form.Group className="form-group" size="lg" controlId="username">
+          <Form.Label>Username</Form.Label>
           <Form.Control
             autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
+
+        {/* Password input group */}
         <Form.Group className="form-group" size="lg" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -38,10 +104,15 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
+        {/* Login button group */}
         </Form.Group>
-        <Button size="lg" type="submit" disabled={!validateForm()}>
-          Login
-        </Button>
+        <div className="text-center">
+          <Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">
+            Login
+          </Button>
+        </div>
+
       </Form>
     </div>
   );
