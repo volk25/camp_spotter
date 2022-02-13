@@ -22,7 +22,6 @@ function App() {
           <Route exact path="/map" element={<MapPage/>}/>
           <Route  path="/camps/:slug" element={<CampDetails/>}/>
           <Route exact path="/camps/add" element={<AddCamp/>}/>
-
         </Routes>
       </div>
     </Router>

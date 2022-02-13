@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
@@ -10,6 +11,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
+  let navigate = useNavigate()
 
   /**
    * Form validator (it will be also validated in the backend)
@@ -42,25 +44,23 @@ export default function Login() {
     // Process the response if it is ok, otherwise throw an error
     .then(response => {
       if (!response.ok) {
-        throw Error(response.statusText)
-      }
-      response.json()
-      console.log(response)
+         throw Error(response.statusText) 
+      };
+      return response.json()
     })
 
-    // Set the token to a variable in the localStorage
+    // Set the token to a variable in the localStorage and redirect the user
     .then(result => {
       localStorage.setItem('token', result.token)
+      navigate('/map')
     })
 
     // Catch the error if present, and specify an error message for it
     .catch(err => {
       if (err.message === 'Bad Request') {
-        setError('Invalid username and/or password, please check your credentials.')
-      }
+        setError('Invalid username and/or password, please check your credentials.');
+      } 
     })
-
-    
 
   }
 
@@ -74,8 +74,9 @@ export default function Login() {
       <h1 className="login-header">Login</h1>
       <div style={{ height: "50vh" }}></div>
 
+      {/* Create an allert for notifying about wrong credentials */}
       { error ?
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger fixed-bottom w-25 mx-3" role="alert">
          {error}
         </div>
         :
@@ -114,6 +115,7 @@ export default function Login() {
         </div>
 
       </Form>
+      <div style={{ height: "100vh" }}> </div>
     </div>
   );
 }
