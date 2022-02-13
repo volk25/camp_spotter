@@ -93,3 +93,18 @@ body,
       color: white;
       text-align: center;
     }
+
+    /* Styles for Login page */
+    .Login form {
+      margin: 0 auto;
+      max-width: 320px;
+      position: relative;
+      top: -250px;
+    }
+    .form-group {
+      color: white;
+    }
+    .login-header {
+      color: white;
+      text-align: center;
+    }

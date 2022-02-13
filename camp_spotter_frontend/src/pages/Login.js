@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Navbar from "../../components/Navbar/Navbar";
-import "./Login.css";
+import "../App.css";
 
 /**
  * Login page of the application
@@ -74,8 +73,6 @@ export default function Login() {
   return (
     <div className="Login">
 
-      {/* Insert the navbar */}
-      <Navbar />
 
       {/* Create a header */}
       <h1 className="login-header">Login</h1>
