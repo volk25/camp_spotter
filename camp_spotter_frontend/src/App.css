@@ -1,3 +1,24 @@
+@media all and (min-width: 480px) {
+  .background {
+    /* padding: 60px 0; */
+    /* The image used */
+    background: url(./images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg)
+      no-repeat center center fixed;
+
+    /* Center and scale the image nicely */
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: "100vw";
+    height: "100vh";
+    position: relative;
+  }
+
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -16,3 +37,59 @@ body,
 .App {
   font-family: "Reem Kufi", sans-serif;
 }
+}
+
+
+/* Styles for CampDetails page  */
+.overlay {
+  position:absolute;
+  min-height: 100%;
+  min-width: 100%;
+  background: url(./images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg) no-repeat
+  center center fixed;
+  filter: blur(8px);
+  -webkit-filter: blur(4px);
+}
+
+.leaflet-container {    height: 20vh;    }
+
+.container .campDetails {
+    max-width: 850px;
+    font-family: 'Reem Kufi', sans-serif;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+
+.radius {
+  border-radius: 10px;
+}
+
+/* Styles for Contact page */
+.Contact form {
+  margin: 0 auto;
+  max-width: 500px;
+  position: relative;
+  top: -400px;
+}
+
+/* Styles for Signup page */
+.form {
+      margin: 0 auto;
+      max-width: 500px;
+      position: relative;
+    }
+    .form-group {
+      color: white;
+      margin-bottom: 10px;
+    }
+    .bottom-text {
+      color: white;
+      text-align: center;
+      position: relative;
+      font-size: 1.2em;
+    }
+    .signup-header {
+      color: white;
+      text-align: center;
+    }

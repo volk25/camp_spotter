@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Navbar from "../../components/Navbar/Navbar";
-import "./Signup.css";
+import "../App.css";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -22,17 +21,17 @@ export default function Signup() {
   }
 
   return (
-    <div className="Signup">
-      <div><Navbar/></div>
-      <h1 className="signup-header">Signup</h1>
-      <div className="bottom-text mt-5">
+    <div className="form">
+
+      <h1 className="signup-header text-center text-white">Signup</h1>
+      <div className="bottom-text">
         Already have an account? <Link to="/login" style={{ color: '#055d3d', textDecoration: 'inherit'}}><span className="fw-bold">Login here</span></Link>
       </div>
-      <div style={{ height: "50vh" }}> </div>
+      
       
 
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="form-group" size="lg" controlId="username">
+        <Form.Group className="form-group mt-5" size="lg" controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
             autoFocus
@@ -106,13 +105,13 @@ export default function Signup() {
             onChange={(e) => setImage(e.target.value)}
           />
         </Form.Group>
-        <div className="text-center button">
+        <div className="text-center button mb-5">
         <Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">
           Signup
         </Button>
         </div>
       </Form>
-     
+      <div style={{ height: "5vh" }}> </div>
     </div>
   );
 }

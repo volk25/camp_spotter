@@ -1,7 +1,7 @@
 import React, {useState} from 'react' ;
 import { MapContainer,Marker, TileLayer,  useMapEvents} from 'react-leaflet';
-import { GetIcon } from '../../components/Map';
-import LocationMarker from "../../components/geolocation.js"
+import { GetIcon } from '../components/Map';
+import LocationMarker from "../components/geolocation.js"
 
 
 function AddCamp () {

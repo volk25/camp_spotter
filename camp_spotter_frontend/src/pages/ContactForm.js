@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Navbar from "../../components/Navbar/Navbar";
-import "./ContactForm.css";
+import "../App.css";
 
 export default function ContactForm() {
   const [email, setEmail] = useState("");
@@ -18,7 +17,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="Contact">
+    <div className="Contact text-white">
       <div style={{ height: "50vh" }}> </div>
 
       <Form onSubmit={handleSubmit}>
