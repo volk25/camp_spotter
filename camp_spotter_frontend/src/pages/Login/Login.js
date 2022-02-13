@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
 
+/**
+ * Login page of the application
+ * After inputting the credentials, if they are correct, the token is memorized in the localStorage and used for further
+ * authentication on website pages. If the credentials are not correct an alert notifying about it is displayed.
+ * @returns Login page
+ */
 export default function Login() {
 
   // Define the variables/constants/states
@@ -52,7 +58,7 @@ export default function Login() {
     // Set the token to a variable in the localStorage and redirect the user
     .then(result => {
       localStorage.setItem('token', result.token)
-      navigate('/map')
+      navigate('/map') // this can be changed further on!!!
     })
 
     // Catch the error if present, and specify an error message for it
@@ -64,6 +70,7 @@ export default function Login() {
 
   }
 
+  // Render the page
   return (
     <div className="Login">
 
@@ -74,7 +81,7 @@ export default function Login() {
       <h1 className="login-header">Login</h1>
       <div style={{ height: "50vh" }}></div>
 
-      {/* Create an allert for notifying about wrong credentials */}
+      {/* Create an allert for notifying about wrong credentials if this is the case*/}
       { error ?
         <div class="alert alert-danger fixed-bottom w-25 mx-3" role="alert">
          {error}
