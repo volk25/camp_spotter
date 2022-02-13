@@ -73,7 +73,6 @@ export default function Login() {
   return (
     <div className="Login">
 
-
       {/* Create a header */}
       <h1 className="login-header">Login</h1>
       <div style={{ height: "50vh" }}></div>
