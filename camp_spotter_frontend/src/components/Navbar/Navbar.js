@@ -13,7 +13,7 @@ class Navbar extends Component {
     return (
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
-          Campspotter <i className="fas fa-campground"></i>
+          <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>Campspotter</Link> <i className="fas fa-campground"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i

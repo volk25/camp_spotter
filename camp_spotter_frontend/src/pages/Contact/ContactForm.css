@@ -1,11 +1,35 @@
-.contact {
-  text-align: center;
-}
+@media all and (min-width: 480px) {
+  .Contact {
+    padding: 60px 0;
+    /* The image used */
+    background: url(../../images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg)
+      no-repeat center center fixed;
 
-.form-control {
-  width: 300px;
-}
+    /* Center and scale the image nicely */
 
-.form-group {
-  color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: "100vw";
+    height: "100vh";
+  }
+
+  .Contact form {
+    margin: 0 auto;
+    max-width: 320px;
+    position: relative;
+    top: -250px;
+  }
+  .form-group {
+    color: white;
+  }
+
+  .signup-header {
+    color: white;
+    text-align: center;
+  }
 }
