@@ -20,18 +20,19 @@
 
     .Signup form {
       margin: 0 auto;
-      max-width: 320px;
+      max-width: 500px;
       position: relative;
-      top: -350px;
+      top: -400px;
     }
     .form-group {
       color: white;
+      margin-bottom: 10px;
     }
     .bottom-text {
       color: white;
       text-align: center;
       position: relative;
-      /* bottom: 200px; */
+      font-size: 1.2em;
     }
     .signup-header {
       color: white;

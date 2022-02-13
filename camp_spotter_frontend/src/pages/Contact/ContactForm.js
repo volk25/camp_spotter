@@ -28,6 +28,7 @@ export default function ContactForm() {
             autoFocus
             type="name"
             value={name}
+            placeholder="Enter your name here"
             onChange={(e) => setFullName(e.target.value)}
           />
         </Form.Group>
@@ -37,15 +38,18 @@ export default function ContactForm() {
             autoFocus
             type="email"
             value={email}
+            placeholder="Enter your email address here"
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
 
-        <Form.Group className="form-group" size="lg" controlId="message">
+        <Form.Group className="form-group" size="lg" controlId="message" >
           <Form.Label>Enter your message</Form.Label>
           <Form.Control
             type="message"
             value={message}
+            componentClass="textarea" 
+            style={{ height: 300}}
             onChange={(e) => setMessage(e.target.value)}
           />
         </Form.Group>

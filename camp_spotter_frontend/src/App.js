@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import MapPage from "./pages/MapPage/MapPage";
 import CampDetails from "./pages/CampDetails/CampDetails";
+import AddCamp from "./pages/AddCamp/AddCamp";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/contact" element={<Contact/>}/>
           <Route exact path="/map" element={<MapPage/>}/>
           <Route  path="/camps/:slug" element={<CampDetails/>}/>
+          <Route exact path="/camps/add" element={<AddCamp/>}/>
 
         </Routes>
       </div>

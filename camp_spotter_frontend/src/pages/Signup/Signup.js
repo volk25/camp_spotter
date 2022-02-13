@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Navbar from "../../components/Navbar/Navbar";
@@ -25,7 +26,7 @@ export default function Signup() {
       <div><Navbar/></div>
       <h1 className="signup-header">Signup</h1>
       <div className="bottom-text mt-5">
-        Already have an account? <a href="/login">Login here</a>
+        Already have an account? <Link to="/login" style={{ color: '#055d3d', textDecoration: 'inherit'}}><span className="fw-bold">Login here</span></Link>
       </div>
       <div style={{ height: "50vh" }}> </div>
       
@@ -37,6 +38,7 @@ export default function Signup() {
             autoFocus
             type="username"
             value={username}
+            placeholder="Please enter your username"
             onChange={(e) => setUserName(e.target.value)}
           />
         </Form.Group>
@@ -47,6 +49,7 @@ export default function Signup() {
             autoFocus
             type="firstname"
             value={firstname}
+            placeholder="Please enter your first name"
             onChange={(e) => setFirstName(e.target.value)}
           />
         </Form.Group>
@@ -57,6 +60,7 @@ export default function Signup() {
             autoFocus
             type="lastname"
             value={lastname}
+            placeholder="Please enter your last name"
             onChange={(e) => setLastName(e.target.value)}
           />
         </Form.Group>
@@ -67,6 +71,7 @@ export default function Signup() {
             autoFocus
             type="email"
             value={email}
+            placeholder="Please enter your email address"
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
@@ -75,6 +80,7 @@ export default function Signup() {
           <Form.Control
             type="password"
             value={password}
+            placeholder="Please create your password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
@@ -83,6 +89,7 @@ export default function Signup() {
           <Form.Control
             type="password"
             value={password}
+            placeholder="Please repeat your password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
