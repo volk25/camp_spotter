@@ -10,8 +10,15 @@ export const MenuItems = [
     cName: "nav-links",
   },
   {
+    title: "Add New Camp",
+    url: "/camps/add",
+    cName: "nav-links",
+  },
+
+  {
     title: "Contact",
     url: "/contact",
     cName: "nav-links",
   },
+
 ];

@@ -7,7 +7,7 @@ import Signup from "./pages/Signup";
 import MapPage from "./pages/MapPage";
 import CampDetails from "./pages/CampDetails";
 import AddCamp from "./pages/AddCamp";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
 
 
 
