@@ -16,7 +16,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   /**
    * Form validator (it will be also validated in the backend)
@@ -73,7 +73,6 @@ export default function Login() {
   return (
     <div className="Login">
 
-
       {/* Create a header */}
       <h1 className="login-header">Login</h1>
       <div style={{ height: "50vh" }}></div>
@@ -109,9 +108,9 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+        </Form.Group>
 
         {/* Login button group */}
-        </Form.Group>
         <div className="text-center">
           <Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">
             Login
