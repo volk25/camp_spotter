@@ -43,17 +43,10 @@ export default function Signup() {
     fetch('http://127.0.0.1:8000/users/', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type':'application/json',
       },
       body: JSON.stringify({
-        username: username,
-        image: image,
-        email: email,
-        first_name: firstname,
-        last_name: lastname,
-        password: password,
-        password2: password2,
+        username: username
       })
     })
 
@@ -65,13 +58,14 @@ export default function Signup() {
       return response.json()
     })
 
-    // Redirect the user
-    .then(result => {
-      navigate('/map') // this can be changed further on!!!
-    })
+    // // Redirect the user
+    // .then(result => {
+    //   navigate('/map') // this can be changed further on!!!
+    // })
 
     // Catch the error if present, and specify an error message for it
     .catch(err => {
+      console.log(err)
       if (err.message === 'Bad Request') {
         setError('Please fill in all the required fields');
       }
@@ -147,7 +141,7 @@ export default function Signup() {
             placeholder="Please enter your email address"
             onChange={(e) => setEmail(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group> 
 
         {/* Password input form */}
         <Form.Group className="form-group" size="lg" controlId="password">
@@ -169,7 +163,7 @@ export default function Signup() {
             placeholder="Please repeat your password"
             onChange={(e) => setPassword2(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group> 
 
         {/* Image upload form */}
         <Form.Group className="form-group" size="lg">
@@ -182,7 +176,7 @@ export default function Signup() {
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group> 
 
         {/* Signup button group */}
         <div className="text-center button mb-5">

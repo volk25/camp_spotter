@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
     """
 
     User = get_user_model()
+    image = serializers.ImageField(default='images/users/default.jpg')
     email = serializers.EmailField(required=False, validators=[UniqueValidator(queryset=User.objects.all())])
     first_name = serializers.CharField(required=False)
     last_name = serializers.CharField(required=False)
@@ -50,11 +51,12 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
     """
 
     User = get_user_model()
+    image = serializers.ImageField(default='images/users/default.jpg')
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
     email = serializers.EmailField(required=False, validators=[UniqueValidator(queryset=User.objects.all())])
-    first_name = serializers.CharField(required=False)
-    last_name = serializers.CharField(required=False)
+    first_name = serializers.CharField(required=False, allow_null=True)
+    last_name = serializers.CharField(required=False, allow_null=True)
     date_joined = serializers.DateTimeField(read_only=True)
     slug = serializers.SlugField(read_only=True)
 
