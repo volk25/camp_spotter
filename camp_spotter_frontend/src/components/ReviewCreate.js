@@ -82,7 +82,7 @@ import "../App.css";
             <Form onSubmit={handleReviewSubmit}>
 
                 {/* Review title input group */}
-                <Form.Group className="form-group" size="lg" controlId="title">
+                <Form.Group className="form-group " size="lg" controlId="title">
                     <Form.Label>Title</Form.Label>
                     <Form.Control
                         autoFocus
