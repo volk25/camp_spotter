@@ -55,7 +55,7 @@ export default function ContactForm() {
 
 		// Redirect the user
 		.then(() => {
-			navigate('/map') // this can be changed further on!!!
+			navigate('/thankyou') // this can be changed further on!!!
 		})
 
 		// Catch the error if present, and console.log it
