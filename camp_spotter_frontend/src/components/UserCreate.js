@@ -68,7 +68,6 @@ export default function UserCreate() {
 
 		// Catch the error if present, and specify an error message for it
 		.catch(err => {
-			console.log(err)
 			if (err.message === 'Bad Request') {
 				setError('Please fill in all the required fields');
 			}
@@ -77,7 +76,7 @@ export default function UserCreate() {
 	};
 
 	// Render the component
-  	return (
+  	return(
 
       	<div className="form">
 
@@ -86,7 +85,7 @@ export default function UserCreate() {
 				<div class="alert alert-danger fixed-bottom w-25 mx-3" role="alert">
 				{error}
 				</div>
-				:
+			:
 				<div></div>
 			}
 
@@ -105,7 +104,7 @@ export default function UserCreate() {
 					/>
 				</Form.Group>
 
-				{/* First name input form */}
+				{/* First name input group */}
 				<Form.Group className="form-group" size="lg" controlId="firstname">
 					<Form.Label>First Name</Form.Label>
 					<Form.Control
@@ -117,7 +116,7 @@ export default function UserCreate() {
 					/>
 				</Form.Group>
 
-				{/* Last name input form */}
+				{/* Last name input group */}
 				<Form.Group className="form-group" size="lg" controlId="lastname">
 					<Form.Label>Last Name</Form.Label>
 					<Form.Control
@@ -141,7 +140,7 @@ export default function UserCreate() {
 					/>
 				</Form.Group> 
 
-				{/* Password input form */}
+				{/* Password input group */}
 				<Form.Group className="form-group" size="lg" controlId="password">
 					<Form.Label>Password *</Form.Label>
 					<Form.Control
@@ -152,7 +151,7 @@ export default function UserCreate() {
 					/>
 				</Form.Group>
 
-				{/* Password confirmation form */}
+				{/* Password confirmation input group */}
 				<Form.Group className="form-group" size="lg" controlId="password2">
 					<Form.Label>Confirm Password *</Form.Label>
 					<Form.Control
@@ -163,7 +162,7 @@ export default function UserCreate() {
 					/>
 				</Form.Group> 
 
-				{/* Image upload form */}
+				{/* Image upload group */}
 				<Form.Group className="form-group" size="lg">
 					<Form.Label>Upload your profile image</Form.Label>
 					<Form.Control

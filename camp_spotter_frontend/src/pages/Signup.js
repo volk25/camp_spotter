@@ -4,13 +4,13 @@ import "../App.css";
 import UserCreate from '../components/UserCreate';
 
 /**
- * Signup page of the application
+ * Signup page of the application.
  * @returns renders the page
  */
 export default function Signup() {
 
 	// Render the page
-  	return (
+  	return(
 
     	<div>
 
