@@ -8,6 +8,7 @@ import MapPage from "./pages/MapPage";
 import CampDetailsPage from "./pages/CampDetailsPage";
 import AddCampPage from "./pages/AddCampPage";
 import Navbar from "./components/Navbar";
+import ThankYou from "./pages/ThankYouPage";
 
 /**
  * Renders the whole application.
@@ -36,6 +37,7 @@ export default function App() {
 					<Route exact path="/map" element={<MapPage/>}/>
 					<Route  path="/camps/:slug" element={<CampDetailsPage/>}/>
 					<Route exact path="/camps/add" element={<AddCampPage/>}/>
+          <Route exact path="/thankyou" element={<ThankYou/>}/>
 				</Routes>
 
       		</div>
