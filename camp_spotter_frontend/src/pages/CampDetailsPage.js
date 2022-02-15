@@ -21,7 +21,7 @@ import ReviewCreate from '../components/ReviewCreate';
         <div> 
 
             <div className='overlay'></div>
-            <div className=' container campDetails position-relative'>           
+            <div className='campDetails position-relative'>           
  
                 {/* General details of the camp of the camp */}
                 <div>
