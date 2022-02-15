@@ -14,7 +14,7 @@ export default function AddCampPage() {
 		<div>
 
 			{/* Create a header */}
-			<h1 className="text-center text-white">Create New Camp</h1>
+			<h1 className="text-center text-white">Add Camp</h1>
 		
 			{/* Insert the CampCreate component */}
 			<div>
@@ -26,4 +26,3 @@ export default function AddCampPage() {
     	</div>
   	);
 };
-
