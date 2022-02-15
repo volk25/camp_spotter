@@ -5,11 +5,15 @@ import "../App.css";
 
 export default function ContactForm() {
 
-
+  // Define the variables/constants/states
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [name, setFullName] = useState("");
 
+  /**
+	* Form validator
+	* @returns
+	*/
   function validateForm() {
     return email.length > 0 && message.length > 0 && name.length > 0;
   }
@@ -63,7 +67,7 @@ export default function ContactForm() {
         <div className="text-center">
           <Button block size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Send</Button>
         </div>
-        
+
       </Form>
     </div>
   );

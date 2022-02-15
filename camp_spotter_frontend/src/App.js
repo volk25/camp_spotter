@@ -9,15 +9,25 @@ import CampDetailsPage from "./pages/CampDetailsPage";
 import AddCampPage from "./pages/AddCampPage";
 import Navbar from "./components/Navbar";
 
+/**
+ * Renders the whole application.
+ * @returns renders the application
+ */
 export default function App() {
 
-	return (
+	// Render the application
+	return(
 
+		// Inirialize the router
 		<Router>
 			<div className="App background">
+
+				{/* Render the Navbar component */}
 				<div className='position-relative'>
 					<Navbar/>
 				</div>
+
+				{/* Define the general page routing */}
 				<Routes>
 					<Route exact path="/" element={<HomePage/>} />
 					<Route exact path="/login" element={<LoginPage/>}/>
@@ -27,8 +37,8 @@ export default function App() {
 					<Route  path="/camps/:slug" element={<CampDetailsPage/>}/>
 					<Route exact path="/camps/add" element={<AddCampPage/>}/>
 				</Routes>
+
       		</div>
     	</Router>
   	);
 };
-
