@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { GetIcon } from './Map';
-import LocationMarker from "./geolocation.js";
+import LocationMarker from "./Geolocation.js";
 import "../App.css";
 
 /**
@@ -31,7 +31,7 @@ export default function CampCreate() {
 	 * @returns
 	 */
 	function validateForm() {
-		return title.length > 0 && mainBody.length > 0 && latitude != "" && longitude != "";
+		return title.length > 0 && mainBody.length > 0 && latitude !== "" && longitude !== "";
 	};
 
 	/**

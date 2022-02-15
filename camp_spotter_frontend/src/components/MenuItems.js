@@ -14,7 +14,6 @@ export const MenuItems = [
     url: "/camps/add",
     cName: "nav-links",
   },
-
   {
     title: "Contact",
     url: "/contact",

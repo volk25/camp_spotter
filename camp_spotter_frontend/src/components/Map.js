@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react' ;
 import L from 'leaflet';
-import { MapContainer, useMap,TileLayer, Marker, Popup} from 'react-leaflet';
+import { MapContainer, useMap, TileLayer, Marker, Popup} from 'react-leaflet';
 import { GeoSearchControl, AlgoliaProvider } from 'leaflet-geosearch';
 import { Link } from "react-router-dom";
-import LocationMarker from "./geolocation.js"
+import LocationMarker from "./Geolocation.js"
 
 
 /**

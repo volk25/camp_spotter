@@ -10,7 +10,7 @@ class Navbar extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
   render() {
-
+    
     return(
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
@@ -33,7 +33,15 @@ class Navbar extends Component {
               );
             })}
 
-
+            {/* <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/settings">Settings</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li> */}
           </ul>
         </div>
       </nav>
