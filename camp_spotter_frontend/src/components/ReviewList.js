@@ -54,17 +54,26 @@ import "../App.css";
             { reviewList.length > 0 ?
 
                 reviewList.map(review => (                      
-                    <div key={review.id}>                       
+                    <div key={review.id}>  
+                                        
                         <div className='d-flex justify-content-evenly'  >
-                            <div className='me-3'>
+                            <div className='me-3 w-25' >
                                 <img src={review.author_image} alt="user image" width="70" height= "70"/>
-                                <div className='w-25 text-center text-black'>
+                                <div className=' text-left text-white'>
                                     {review.author}
                                 </div>
                             </div>
-                            <div className= 'p-3 mb-2 bg-secondary bg-opacity-50 text-white rounded-pill w-75'>
-                                {review.body}
-                            </div>   
+                            <div className='p-3 mb-2 w-75'>
+                                <div className='text-white'>{review.title}</div>
+                                <div className=''>{review.rating}</div>
+
+                                <div className= ' bg-secondary bg-opacity-50 text-white rounded-pill'>
+                                    {review.body}
+                                </div>  
+
+
+                            </div>
+                             
                         </div>    
                     </div>  
                 ))

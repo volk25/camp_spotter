@@ -53,11 +53,10 @@ body,
 
 .leaflet-container {    height: 20vh;    }
 
-.container .campDetails {
-    max-width: 850px;
+.campDetails {
+    max-width: 800px;
     font-family: 'Reem Kufi', sans-serif;
-    margin-left: 0;
-    margin-right: 0;
+    margin:auto;
 
 }
 
