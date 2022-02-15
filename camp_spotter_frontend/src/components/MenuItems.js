@@ -10,7 +10,7 @@ export const MenuItems = [
     cName: "nav-links",
   },
   {
-    title: "Add New Camp",
+    title: "Add Camp",
     url: "/camps/add",
     cName: "nav-links",
   },
