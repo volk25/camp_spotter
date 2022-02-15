@@ -21,7 +21,7 @@ import ReviewCreate from '../components/ReviewCreate';
         <div> 
 
             <div className='overlay'></div>
-            <div className=' container campDetails position-relative'>           
+            <div className='campDetails position-relative'>           
  
                 {/* General details of the camp of the camp */}
                 <div>
@@ -29,7 +29,7 @@ import ReviewCreate from '../components/ReviewCreate';
                 </div>
 
                 {/* Insert the list with reviews of the camp, if present */}
-                <div className='text-white fw-bold fs-2'>Reviews</div>
+                <div className='text-white fw-bold fs-2 mb-5'>Reviews</div>
                 <div>
                     <ReviewList slug={params.slug}/>
                 </div>

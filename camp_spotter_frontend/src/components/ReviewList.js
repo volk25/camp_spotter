@@ -44,7 +44,7 @@ import "../App.css";
     if (error) {
         return <p>An error occurred while loading the Review List!</p>;
     }
-
+    
     // Render the component
     return (
         
@@ -54,17 +54,23 @@ import "../App.css";
             { reviewList.length > 0 ?
 
                 reviewList.map(review => (                      
-                    <div key={review.id}>                       
-                        <div className='d-flex justify-content-evenly'  >
-                            <div className='me-3'>
+                    <div key={review.id}>  
+                                        
+                        <div className='d-flex justify-content-evenly mb-3'  >
+                            {/* user image and user name */}
+                            <div className='me-3  col-1' >
                                 <img src={review.author_image} alt="user image" width="70" height= "70"/>
-                                <div className='w-25 text-center text-black'>
-                                    {review.author}
-                                </div>
+                                <div className=' text-left text-white'>{review.author}</div>
                             </div>
-                            <div className= 'p-3 mb-2 bg-secondary bg-opacity-50 text-white rounded-pill w-75'>
-                                {review.body}
-                            </div>   
+                            {/* review title, rating and review body */}
+                            <div className=' mb-2 col-11'>
+                                <div >
+                                    <span className='text-white fw-bold p-3'>{review.title}</span>
+                                    {/* based on review.rating insert as many stars as mentioned in the rating */}
+                                    { [...Array(review.rating)].map((e, i) => <i className="fas fa-star text-success"></i>)}
+                                </div>
+                                <div className= ' bg-secondary bg-opacity-50 text-white rounded-pill p-3'> {review.body}</div>  
+                            </div>
                         </div>    
                     </div>  
                 ))
