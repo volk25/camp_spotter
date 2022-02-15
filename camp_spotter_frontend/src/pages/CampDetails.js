@@ -10,7 +10,7 @@ import ReviewCreate from '../components/ReviewCreate';
  * Render the camp details page. 
  * @returns renders the page
  */
-function CampDetails () {
+ export default function CampDetails() {
 
     // Define the parameters coming from outside
     const params = useParams()
@@ -28,14 +28,14 @@ function CampDetails () {
                     <CampRetrieve slug={params.slug}/>
                 </div>
 
-                {/* Reviews of the camp, if present */}
+                {/* Insert the list with reviews of the camp, if present */}
                 <div className='text-white fw-bold fs-2'>Reviews</div>
                 <div>
                     <ReviewList slug={params.slug}/>
                 </div>
 
-                {/* Create an add-review section  */}
-                <div className='text-white fw-bold fs-2'>Add your review here</div>
+                {/* Insert an add-review section  */}
+                <div className='text-white fw-bold fs-2'>Add your review</div>
                 <div>
                     <ReviewCreate slug={params.slug}/>
                 </div>
@@ -46,6 +46,3 @@ function CampDetails () {
         </div>
     )
 };
-       
-
-export default CampDetails

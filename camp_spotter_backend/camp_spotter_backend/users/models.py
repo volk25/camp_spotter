@@ -43,8 +43,8 @@ class User(AbstractUser):
 
     image = models.ImageField(upload_to=user_image_upload_to, default='images/users/default.jpg')
     slug = models.SlugField(max_length=100, unique=True, null=True)
-    first_name = models.CharField(max_length=100, null=True)
-    last_name = models.CharField(max_length=100, null=True)
+    first_name = models.CharField(max_length=100, blank=True)
+    last_name = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.username

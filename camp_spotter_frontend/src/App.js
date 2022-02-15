@@ -9,25 +9,26 @@ import CampDetails from "./pages/CampDetails";
 import AddCamp from "./pages/AddCamp";
 import Navbar from "./components/Navbar";
 
+export default function App() {
 
+	return (
 
-function App() {
-  return (
-    <Router>
-      <div className="App background">
-      <div className='position-relative'><Navbar/></div>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<Login/>}/>
-          <Route exact path="/signup" element={<Signup/>}/>
-          <Route exact path="/contact" element={<Contact/>}/>
-          <Route exact path="/map" element={<MapPage/>}/>
-          <Route  path="/camps/:slug" element={<CampDetails/>}/>
-          <Route exact path="/camps/add" element={<AddCamp/>}/>
-        </Routes>
-      </div>
-    </Router>
-  );
-}
+		<Router>
+			<div className="App background">
+				<div className='position-relative'>
+					<Navbar/>
+				</div>
+				<Routes>
+					<Route exact path="/" element={<Home/>} />
+					<Route exact path="/login" element={<Login/>}/>
+					<Route exact path="/signup" element={<Signup/>}/>
+					<Route exact path="/contact" element={<Contact/>}/>
+					<Route exact path="/map" element={<MapPage/>}/>
+					<Route  path="/camps/:slug" element={<CampDetails/>}/>
+					<Route exact path="/camps/add" element={<AddCamp/>}/>
+				</Routes>
+      		</div>
+    	</Router>
+  	);
+};
 
-export default App;

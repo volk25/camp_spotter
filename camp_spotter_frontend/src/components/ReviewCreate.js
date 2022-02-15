@@ -83,40 +83,38 @@ import "../App.css";
 
                 {/* Review title input group */}
                 <Form.Group className="form-group" size="lg" controlId="reviewTitle">
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                    autoFocus
-                    type="text"
-                    value={reviewTitle}
-                    onChange={(e) => setReviewTitle(e.target.value)}
-                />
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control
+                        autoFocus
+                        type="text"
+                        value={reviewTitle}
+                        onChange={(e) => setReviewTitle(e.target.value)}
+                    />
                 </Form.Group>
 
                 {/* Review body input group */}
                 <Form.Group className="form-group" size="lg" controlId="reviewBody">
-                <Form.Label>Body</Form.Label>
-                <Form.Control
-                    type="text"
-                    value={reviewBody}
-                    onChange={(e) => setReviewBody(e.target.value)}
-                />
+                    <Form.Label>Body</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={reviewBody}
+                        onChange={(e) => setReviewBody(e.target.value)}
+                    />
                 </Form.Group>
 
                 {/* Review rating input group */}
                 <Form.Group className="form-group" size="lg" controlId="reviewBody">
-                <Form.Label>Rating</Form.Label>
-                <Form.Control
-                    type="text"
-                    value={reviewRating}
-                    onChange={(e) => setReviewRating(e.target.value)}
-                />
+                    <Form.Label>Rating</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={reviewRating}
+                        onChange={(e) => setReviewRating(e.target.value)}
+                    />
                 </Form.Group>
 
                 {/* Login button group */}
                 <div className="text-center">
-                    <Button size="lg" type="submit" disabled={!validateReviewForm()} className="mt-3 btn-success">
-                        Submit
-                    </Button>
+                    <Button size="lg" type="submit" disabled={!validateReviewForm()} className="mt-3 btn-success">Submit</Button>
                 </div>
 
             </Form>

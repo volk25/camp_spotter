@@ -8,7 +8,8 @@ import "../App.css";
 
 
 export default function AddCamp() {
-// Setting states for input forms
+
+  // Setting states for input forms
   const [campname, setCampName] = useState("");
   const [campdescription, setCampDescription] = useState("");
   const [locationdescription, setLocationDescription] = useState("");

@@ -25,4 +25,4 @@ export default function Login() {
       <div style={{ height: "100vh" }}> </div>
     </div>
   );
-}
+};
