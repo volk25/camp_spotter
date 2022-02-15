@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import MapPage from "./pages/MapPage";
-import CampDetails from "./pages/CampDetails";
-import AddCamp from "./pages/AddCamp";
+import CampDetailsPage from "./pages/CampDetailsPage";
+import AddCampPage from "./pages/AddCampPage";
 import Navbar from "./components/Navbar";
 
 export default function App() {
@@ -19,13 +19,13 @@ export default function App() {
 					<Navbar/>
 				</div>
 				<Routes>
-					<Route exact path="/" element={<Home/>} />
-					<Route exact path="/login" element={<Login/>}/>
-					<Route exact path="/signup" element={<Signup/>}/>
-					<Route exact path="/contact" element={<Contact/>}/>
+					<Route exact path="/" element={<HomePage/>} />
+					<Route exact path="/login" element={<LoginPage/>}/>
+					<Route exact path="/signup" element={<SignupPage/>}/>
+					<Route exact path="/contact" element={<ContactPage/>}/>
 					<Route exact path="/map" element={<MapPage/>}/>
-					<Route  path="/camps/:slug" element={<CampDetails/>}/>
-					<Route exact path="/camps/add" element={<AddCamp/>}/>
+					<Route  path="/camps/:slug" element={<CampDetailsPage/>}/>
+					<Route exact path="/camps/add" element={<AddCampPage/>}/>
 				</Routes>
       		</div>
     	</Router>

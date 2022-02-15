@@ -5,27 +5,27 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
- * Render the add review component.
- * @param {*} props slug of the camp to which the review should belong
- * @returns renders the component
- */
+* Renders the review-create form, sends the form data in the body of a POST request (only with token).
+* @param {*} props slug of the camp to which the review should belong
+* @returns renders the component
+*/
  export default function ReviewCreate(props) {
 
     // Define the parameters coming from outside the component
     const token = localStorage.getItem('token')
 
     // Define the add review variables/constants/states
-    const [reviewTitle, setReviewTitle] = useState("");
-    const [reviewBody, setReviewBody] = useState("");
-    const [reviewRating, setReviewRating] = useState("");
-    const [reviewError, setReviewError] = useState();
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [rating, setRating] = useState("");
+    const [error, setError] = useState();
 
     /**
     * Review form validator
     * @returns
     */
     function validateReviewForm() {
-        return reviewTitle.length > 0 && reviewRating > 0;
+        return title.length > 0 && rating > 0;
     };
 
     /**
@@ -44,9 +44,9 @@ import "../App.css";
                 'Authorization': `Token ${token}`
             },
             body: JSON.stringify({
-                title: reviewTitle,
-                body: reviewBody,
-                rating: reviewRating
+                title: title,
+                body: body,
+                rating: rating
             })
         })
 
@@ -67,7 +67,7 @@ import "../App.css";
         .catch(err => {
             console.log(err)
             if (err.message === 'Bad Request') {
-                setReviewError('Please fill in all the required fields');
+                setError('Please fill in all the required fields');
             }
         })
 
@@ -82,33 +82,33 @@ import "../App.css";
             <Form onSubmit={handleReviewSubmit}>
 
                 {/* Review title input group */}
-                <Form.Group className="form-group" size="lg" controlId="reviewTitle">
+                <Form.Group className="form-group" size="lg" controlId="title">
                     <Form.Label>Title</Form.Label>
                     <Form.Control
                         autoFocus
                         type="text"
-                        value={reviewTitle}
-                        onChange={(e) => setReviewTitle(e.target.value)}
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
                     />
                 </Form.Group>
 
                 {/* Review body input group */}
-                <Form.Group className="form-group" size="lg" controlId="reviewBody">
+                <Form.Group className="form-group" size="lg" controlId="body">
                     <Form.Label>Body</Form.Label>
                     <Form.Control
                         type="text"
-                        value={reviewBody}
-                        onChange={(e) => setReviewBody(e.target.value)}
+                        value={body}
+                        onChange={(e) => setBody(e.target.value)}
                     />
                 </Form.Group>
 
                 {/* Review rating input group */}
-                <Form.Group className="form-group" size="lg" controlId="reviewBody">
+                <Form.Group className="form-group" size="lg" controlId="rating">
                     <Form.Label>Rating</Form.Label>
                     <Form.Control
                         type="text"
-                        value={reviewRating}
-                        onChange={(e) => setReviewRating(e.target.value)}
+                        value={rating}
+                        onChange={(e) => setRating(e.target.value)}
                     />
                 </Form.Group>
 

@@ -10,7 +10,7 @@ import ReviewCreate from '../components/ReviewCreate';
  * Render the camp details page. 
  * @returns renders the page
  */
- export default function CampDetails() {
+ export default function CampDetailsPage() {
 
     // Define the parameters coming from outside
     const params = useParams()
@@ -23,7 +23,7 @@ import ReviewCreate from '../components/ReviewCreate';
             <div className='overlay'></div>
             <div className=' container campDetails position-relative'>           
  
-                {/* General details of the camp of the camp*/}
+                {/* General details of the camp of the camp */}
                 <div>
                     <CampRetrieve slug={params.slug}/>
                 </div>

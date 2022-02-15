@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "../App.css";
 
 /**
- * Render the list review component.
+ * Renders the list with all the reviews of a camp after fetching the data with a GET request (all users are allowed).
  * @param {*} props slug of the camp to which the review list should belongs
  * @returns renders the component
  */
@@ -11,8 +11,8 @@ import "../App.css";
 
     // Define the review list variables/constants/states
     const [reviewList, setReviewList] = useState([]);
-    const [reviewListError, setReviewListError] = useState();
-    const [reviewListLoading, setReviewListLoading] = useState(true);
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(true);
 
     // Define what to do when the component is loaded
     useEffect (() => {
@@ -30,18 +30,18 @@ import "../App.css";
         .then (data => setReviewList(data))
 
         // Catch the error if present and set it to the error variable
-        .catch((err) => setReviewListError(err))
+        .catch((err) => setError(err))
 
         // Set to false the loading variable
-        .finally(() => setReviewListLoading(false));
+        .finally(() => setLoading(false));
 
     },[]);
 
     // If loading variable is still set to true, notify it to the user
-    if (reviewListLoading) {
+    if (loading) {
         return <p>Data is loading...</p>;
     }
-    if (reviewListError) {
+    if (error) {
         return <p>An error occurred while loading the Review List!</p>;
     }
 

@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
- * Render the user create component.
+ * Renders the user-create form, sends the form data in the body of a POST request (all users are allowed).
  * @returns user create component
  */
 export default function UserCreate() {

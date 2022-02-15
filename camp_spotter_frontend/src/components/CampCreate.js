@@ -8,7 +8,7 @@ import LocationMarker from "./geolocation.js";
 import "../App.css";
 
 /**
- * Render the camp create component.
+ * Renders the camp-create form, sends the form data in the body of a POST request (only with token).
  * @returns camp create component
  */
 export default function CampCreate() {

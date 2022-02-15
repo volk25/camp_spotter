@@ -6,7 +6,7 @@ import CampCreate from '../components/CampCreate';
  * Add camp page of the application.
  * @returns renders the page
  */
-export default function AddCamp() {
+export default function AddCampPage() {
 
 	// Render the page
   	return(

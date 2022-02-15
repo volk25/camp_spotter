@@ -6,7 +6,7 @@ import ObtainAuthToken from '../components/ObtainAuthToken';
  * Render the login page.
  * @returns renders the login page
  */
-export default function Login() {
+export default function LoginPage() {
 
   // Render the page
   return (
@@ -17,7 +17,7 @@ export default function Login() {
       <h1 className="login-header">Login</h1>
       <div style={{ height: "50vh" }}></div>
 
-      {/* Authentication form */}
+      {/* Render the Authentication form */}
       <div>
         <ObtainAuthToken/>
       </div>

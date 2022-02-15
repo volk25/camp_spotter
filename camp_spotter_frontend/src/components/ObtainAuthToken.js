@@ -5,8 +5,7 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
- * After inputting the credentials, if they are correct, the token is memorized in the localStorage and used for further
- * authentication on website pages. If the credentials are not correct an alert notifying about it is displayed.
+ * Renders the authentication form, sends the form data in the body of a POST request (all users are allowed).
  * @returns stores in localStorage the token
  */
 export default function ObtainAuthToken() {

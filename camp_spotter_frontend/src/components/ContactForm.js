@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 export default function ContactForm() {
+
+
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [name, setFullName] = useState("");
@@ -16,7 +18,9 @@ export default function ContactForm() {
     event.preventDefault();
   }
 
-  return (
+  // Render the component
+  return(
+
     <div className="Contact text-white">
       <div style={{ height: "50vh" }}> </div>
 
@@ -31,6 +35,8 @@ export default function ContactForm() {
             onChange={(e) => setFullName(e.target.value)}
           />
         </Form.Group>
+
+
         <Form.Group className="form-group" size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -42,6 +48,7 @@ export default function ContactForm() {
           />
         </Form.Group>
 
+
         <Form.Group className="form-group" size="lg" controlId="message" >
           <Form.Label>Enter your message</Form.Label>
           <Form.Control
@@ -52,11 +59,11 @@ export default function ContactForm() {
             onChange={(e) => setMessage(e.target.value)}
           />
         </Form.Group>
+
         <div className="text-center">
-          <Button block size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">
-            Send
-          </Button>
+          <Button block size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Send</Button>
         </div>
+        
       </Form>
     </div>
   );

@@ -32,7 +32,7 @@ function MyMap(props) {
 
         // Get the response in a json format and set the data to campList variable
         .then (response => response.json())
-        .then (data => setCampList(data))
+        .then (result => setCampList(result))
 
         // Catch the error if present and set it to the error variable
         .catch((err) => setError(err))
@@ -54,7 +54,7 @@ function MyMap(props) {
     // If data is loaded and there are no errors, show the map page
     return (
        
-       //adding the map and making it fit 100% of the page
+        //adding the map and making it fit 100% of the page
 
         <MapContainer className="map" center={position} zoom={10} style={{height:"100vh", width: "100%"}}> 
         

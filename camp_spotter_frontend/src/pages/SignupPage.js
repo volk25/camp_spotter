@@ -4,10 +4,10 @@ import "../App.css";
 import UserCreate from '../components/UserCreate';
 
 /**
- * Signup page of the application.
- * @returns renders the page
- */
-export default function Signup() {
+* Signup page of the application.
+* @returns renders the page
+*/
+export default function SignupPage() {
 
 	// Render the page
   	return(
@@ -20,7 +20,7 @@ export default function Signup() {
 				Already have an account? <Link to="/login" style={{ color: '#055d3d', textDecoration: 'inherit'}}><span className="fw-bold">Login here</span></Link>
 			</div>
 		
-			{/* Insert the user create form */}
+			{/* Render the UserCreate form */}
 			<div>
 				<UserCreate/>
 			</div>
