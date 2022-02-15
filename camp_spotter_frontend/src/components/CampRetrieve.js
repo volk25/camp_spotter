@@ -57,7 +57,7 @@ import { GetIcon } from './Map';
             <div className="position-relative text-center mt-5" >
                 <img src={campDetails.image} className="radius" width="100%" height= "200" alt="mainCampImage" />
                 <div className='box bg-secondary bg-opacity-75'>
-                    <p className="position-absolute  bottom-0 start-50 translate-middle-x  text-white fs-2">
+                    <p className="position-absolute  bottom-0 start-50 translate-middle-x  text-white fs-2 bg-secondary bg-opacity-50  w-100">
                     {campDetails.title}
                     </p>
                 </div>
