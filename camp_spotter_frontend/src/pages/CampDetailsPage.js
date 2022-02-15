@@ -35,7 +35,7 @@ import ReviewCreate from '../components/ReviewCreate';
                 </div>
 
                 {/* Insert an add-review section  */}
-                <div className='text-white fw-bold fs-2'>Add your review</div>
+                <div className='text-white fw-bold fs-2 mb-3 mt-3'>Add your review</div>
                 <div>
                     <ReviewCreate slug={params.slug}/>
                 </div>
