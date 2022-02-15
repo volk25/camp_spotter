@@ -8,21 +8,23 @@ import ObtainAuthToken from '../components/ObtainAuthToken';
  */
 export default function LoginPage() {
 
-  // Render the page
-  return (
+	// Render the page
+	return (
 
-    <div className="Login">
+		<div className="Login">
 
-      {/* Create a header */}
-      <h1 className="login-header">Login</h1>
-      <div style={{ height: "50vh" }}></div>
+			{/* Create a header */}
+			<h1 className="login-header mt-5">Login</h1>
+			<div style={{ height: "40vh" }}></div>
 
-      {/* Render the Authentication form */}
-      <div>
-        <ObtainAuthToken/>
-      </div>
+			{/* Render the Authentication form */}
+			<div>
+				<ObtainAuthToken/>
+			</div>
 
-      <div style={{ height: "100vh" }}> </div>
-    </div>
-  );
+			<div style={{ height: "100vh" }}></div>
+		
+		</div>
+
+	);
 };

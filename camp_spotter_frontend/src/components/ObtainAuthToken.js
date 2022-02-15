@@ -84,41 +84,41 @@ export default function ObtainAuthToken() {
 			{/* Initialize the form */}
 			<Form onSubmit={handleSubmit}>
 
-			{/* Username input group */}
-			<Form.Group className="form-group" size="lg" controlId="username">
-				<Form.Label>Username *</Form.Label>
-				<Form.Control
-					autoFocus
-					type="username"
-					value={username}
-					placeholder="Please enter your username"
-					onChange={(e) => setUsername(e.target.value)}
-				/>
-			</Form.Group>
+				{/* Username input group */}
+				<Form.Group className="form-group" size="lg" controlId="username">
+					<Form.Label>Username *</Form.Label>
+					<Form.Control
+						autoFocus
+						type="username"
+						value={username}
+						placeholder="Please enter your username"
+						onChange={(e) => setUsername(e.target.value)}
+					/>
+				</Form.Group>
 
-			{/* Password input group */}
-			<Form.Group className="form-group" size="lg" controlId="password">
-				<Form.Label>Password *</Form.Label>
-				<Form.Control
-					type="password"
-					value={password}
-					placeholder="Please enter your password"
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-			</Form.Group>
+				{/* Password input group */}
+				<Form.Group className="form-group" size="lg" controlId="password">
+					<Form.Label>Password *</Form.Label>
+					<Form.Control
+						type="password"
+						value={password}
+						placeholder="Please enter your password"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+				</Form.Group>
 
-			{/* Required fields warning */}
-			<div className="bottom-text">
-				Fields marked with  *  are the required ones.
-			</div>
+				{/* Required fields warning */}
+				<div className="bottom-text">
+					Fields marked with  *  are the required ones.
+				</div>
 
-			{/* Login button group */}
-			<div className="text-center">
-				<Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Login</Button>
-			</div>
+				{/* Login button group */}
+				<div className="text-center">
+					<Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Login</Button>
+				</div>
 
-      	</Form>
+      		</Form>
 
-    </div>
-  );
+    	</div>
+  	);
 };

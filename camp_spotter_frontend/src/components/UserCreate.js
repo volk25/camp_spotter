@@ -93,7 +93,7 @@ export default function UserCreate() {
 			<Form onSubmit={handleSubmit}>
 
 				{/* Username input group */}
-				<Form.Group className="form-group mt-5" size="lg" controlId="username">
+				<Form.Group className="form-group mt-3" size="lg" controlId="username">
 					<Form.Label>Username *</Form.Label>
 					<Form.Control
 						autoFocus

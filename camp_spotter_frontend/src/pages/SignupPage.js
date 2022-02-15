@@ -16,7 +16,7 @@ export default function SignupPage() {
 
 			{/* Create a header */}
 			<h1 className="signup-header text-center text-white">Signup</h1>
-			<div className="bottom-text">
+			<div className="bottom-text mt-3">
 				Already have an account? <Link to="/login" style={{ color: '#055d3d', textDecoration: 'inherit'}}><span className="fw-bold">Login here</span></Link>
 			</div>
 		
