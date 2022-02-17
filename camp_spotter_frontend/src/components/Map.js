@@ -3,8 +3,8 @@ import L from 'leaflet';
 import { MapContainer, useMap, TileLayer, Marker, Popup} from 'react-leaflet';
 import { GeoSearchControl, AlgoliaProvider } from 'leaflet-geosearch';
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 import LocationMarker from "./Geolocation.js"
-
 
 /**
  * Create a map, include search bar on it, load all camping spots from json and mark them with customized tent icon. 
@@ -32,8 +32,11 @@ function MyMap(props) {
 
         // Get the response in a json format and set the data to campList variable
         .then (response => response.json())
-        .then (result => setCampList(result))
-
+        .then (result => {
+            setCampList(result)
+            toast.success('Welcome! Here you can browse to your perfect camping spot, have fun!')
+        })
+        
         // Catch the error if present and set it to the error variable
         .catch((err) => setError(err))
 

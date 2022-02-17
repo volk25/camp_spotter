@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../App.css";
@@ -13,7 +14,7 @@ export default function ObtainAuthToken() {
 	// Define the variables/constants/states
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const [error, setError] = useState();
+	const responseOk = useRef(false)
 	let navigate = useNavigate();
 
 	/**
@@ -31,7 +32,7 @@ export default function ObtainAuthToken() {
 	function handleSubmit(event) {
 
 		event.preventDefault();
-
+		
 		// Fetch the data to the API (keep in mind that the current requesting address should be authorized in the API)
 		fetch('http://127.0.0.1:8000/api-token-auth/', {
 			method: 'POST',
@@ -44,28 +45,32 @@ export default function ObtainAuthToken() {
 			})
 		})
 
-		// Process the response if it is ok, otherwise throw an error
+		// Process the response
 		.then(response => {
-			if (!response.ok) {
-				throw Error(response.statusText) 
-			};
+			if (response.ok) {
+                responseOk.current = true
+            };
 			return response.json()
 		})
 
-		// Set the token to a variable in the localStorage, redirect the user and reload the page
+		// Store the token in localStorage redirect and reload the page if the reponse was ok, otherwise show toasts with the errors
 		// The page is reloaded in order for the navbar to realize the presence of the token and adjust its menu structure
-		.then(result => {
-			localStorage.setItem('token', result.token)
-			navigate('/map') // this can be changed further on!!!
-			window.location.reload(false);
+		.then((result) => {
+			if (responseOk.current) {
+				localStorage.setItem('token', result.token)
+				navigate('/map')
+				window.location.reload(false)
+			} else {
+				for(var i in result){
+					for(var k in result[i]){
+						toast.error(result[i][k])
+					}
+				}
+			}
 		})
 
-		// Catch the error if present, and specify an error message for it
-		.catch(err => {
-			if (err.message === 'Bad Request') {
-				setError('Invalid username and/or password, please check your credentials.');
-			} 
-		})
+		// Catch the other errors if present
+		.catch(err => console.log(err))
 
   	};
 
@@ -73,15 +78,6 @@ export default function ObtainAuthToken() {
 	return (
 
     	<div>
-
-			{/* Create an allert for notifying about wrong credentials if this is the case*/}
-			{ error ?
-				<div class="alert alert-danger fixed-bottom w-25 mx-3" role="alert">
-					{error}
-				</div>
-			:
-				<div></div>
-			}
 
 			{/* Initialize the form */}
 			<Form onSubmit={handleSubmit}>

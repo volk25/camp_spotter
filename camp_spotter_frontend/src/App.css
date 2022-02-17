@@ -51,7 +51,9 @@ body,
   -webkit-filter: blur(4px);
 }
 
-.leaflet-container {    height: 20vh;    }
+.leaflet-container {
+  height: 20vh;
+}
 
 .campDetails {
     max-width: 800px;
@@ -114,12 +116,6 @@ body,
     }
 
     /* Styles for Navbar */
-    .NavbarItems {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-    }
     
     .navbar-logo {
       color: white;
@@ -128,21 +124,10 @@ body,
       cursor: pointer;
       align-self: flex-start;
     }
-    
+
     .fa-campground {
       margin-left: 0.5rem;
       font-size: 1.6rem;
-    }
-    
-    .nav-menu {
-      display: grid;
-      grid-template-columns: repeat(5, auto);
-      grid-gap: 16px;
-      list-style: none;
-      text-align: center;
-      width: 70vw;
-      justify-content: end;
-      margin-right: 2rem;
     }
     
     .nav-links {

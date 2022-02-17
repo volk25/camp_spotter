@@ -29,11 +29,11 @@ export default function CampCreate() {
 	/**
 	* Redirect to the login page if without token
 	*/
-	// useEffect(() => {
-	// 	if (!token) {
-	// 		navigate('/login')
-	// 	}
-	// },[]);
+	useEffect(() => {
+		if (!token) {
+			navigate('/login')
+		}
+	},[]);
 
 	/**
 	 * Form validator (it will be also validated in the backend)

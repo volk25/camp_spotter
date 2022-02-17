@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
@@ -21,10 +23,23 @@ export default function App() {
 
 		<div className="App background">
 
+			{/* Add a tostify container for showing the messages */}
+			<ToastContainer
+			position="bottom-left"
+			autoClose={5000}
+			hideProgressBar={true}
+			newestOnTop={false}
+			closeOnClick
+			rtl={false}
+			pauseOnFocusLoss
+			pauseOnHover
+			/>
+
 			{/* Render the Navbar component */}
 			<div className='position-relative'>
 				<NavBar/>
 			</div>
+
 
 			{/* Inirialize the router and define the routing*/}
 			<Router>
@@ -39,6 +54,8 @@ export default function App() {
 					<Route exact path="/thankyou" element={<ThankYouPage/>}/>
 				</Routes>
 			</Router>
+			
 		</div>
+
   	);
 };

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../App.css";
@@ -18,7 +19,7 @@ export default function UserCreate() {
 	const [image, setImage] = useState("");
 	const [password, setPassword] = useState("");
 	const [password2, setPassword2] = useState("");
-	const [error, setError] = useState();
+	const responseOk = useRef(false)
 	let navigate = useNavigate();
 
 	/**
@@ -26,7 +27,7 @@ export default function UserCreate() {
 	 * @returns
 	 */
 	function validateForm() {
-	return email.length > 0 && password.length > 0 && password2.length > 0 && username.length > 0;
+	return email.length > 0 && password.length > 0 && password2.length > 0 && username.length > 0 && password === password2;
 	}
 
 	/**
@@ -53,25 +54,29 @@ export default function UserCreate() {
 			body: formData
 		})
 
-		// Process the response if it is ok, otherwise throw an error
+		// Process the response
 		.then(response => {
-			if (!response.ok) {
-				throw Error(response.statusText) 
-			};
+			if (response.ok) {
+                responseOk.current = true
+            };
 			return response.json()
 		})
 
-		// Redirect the user
-		.then(() => {
-			navigate('/thankyou') // this can be changed further on!!!
-		})
-
-		// Catch the error if present, and specify an error message for it
-		.catch(err => {
-			if (err.message === 'Bad Request') {
-				setError('Please fill in all the required fields');
+		// Redirect if the reponse was ok, otherwise show toasts with the errors
+		.then((result) => {
+			if (responseOk.current) {
+				navigate('/thankyou')
+			} else {
+				for(var i in result){
+					for(var k in result[i]){
+						toast.error(`${i}: ${result[i][k]}`)
+					}
+				}
 			}
 		})
+
+		// Catch the other errors if present
+		.catch(err => console.log(err))
 
 	};
 
@@ -79,15 +84,6 @@ export default function UserCreate() {
   	return(
 
       	<div className="form">
-
-			{/* Create an allert for notifying about wrong input */}
-			{ error ?
-				<div class="alert alert-danger fixed-bottom w-25 mx-3" role="alert">
-				{error}
-				</div>
-			:
-				<div></div>
-			}
 
 			{/* Initialize the form */}
 			<Form onSubmit={handleSubmit}>
