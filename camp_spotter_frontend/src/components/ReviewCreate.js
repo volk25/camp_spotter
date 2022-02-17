@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../App.css";
@@ -19,6 +21,7 @@ import "../App.css";
     const [body, setBody] = useState("");
     const [rating, setRating] = useState("");
     const [error, setError] = useState();
+    let navigate = useNavigate();
 
     /**
     * Review form validator
@@ -78,46 +81,60 @@ import "../App.css";
         
         <div>
 
-            {/* Initialize the form */}
-            <Form onSubmit={handleReviewSubmit}>
+            {/* Restrict the possibility to leave reviews only with token */}
+            { token ? 
+            
+                <div>
 
-                {/* Review title input group */}
-                <Form.Group className="form-group " size="lg" controlId="title">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </Form.Group>
+                    {/* Initialize the form */}
+                    <Form onSubmit={handleReviewSubmit}>
 
-                {/* Review body input group */}
-                <Form.Group className="form-group" size="lg" controlId="body">
-                    <Form.Label>Body</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                    />
-                </Form.Group>
+                        {/* Review title input group */}
+                        <Form.Group className="form-group " size="lg" controlId="title">
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control
+                                autoFocus
+                                type="text"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
+                        </Form.Group>
 
-                {/* Review rating input group */}
-                <Form.Group className="form-group" size="lg" controlId="rating">
-                    <Form.Label>Rating</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={rating}
-                        onChange={(e) => setRating(e.target.value)}
-                    />
-                </Form.Group>
+                        {/* Review body input group */}
+                        <Form.Group className="form-group" size="lg" controlId="body">
+                            <Form.Label>Body</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={body}
+                                onChange={(e) => setBody(e.target.value)}
+                            />
+                        </Form.Group>
 
-                {/* Login button group */}
-                <div className="text-center">
-                    <Button size="lg" type="submit" disabled={!validateReviewForm()} className="mt-3 btn-success">Submit</Button>
+                        {/* Review rating input group */}
+                        <Form.Group className="form-group" size="lg" controlId="rating">
+                            <Form.Label>Rating</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={rating}
+                                onChange={(e) => setRating(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        {/* Login button group */}
+                        <div className="text-center">
+                            <Button size="lg" type="submit" disabled={!validateReviewForm()} className="mt-3 btn-success">Submit</Button>
+                        </div>
+
+                    </Form>
+                
                 </div>
 
-            </Form>
+            :
+
+                <div className='text-white fw-italic fs-5'>
+                Please <Link to="/login" style={{ color: '#055d3d', textDecoration: 'inherit'}}><span className="fw-bold">Login</span></Link> or <Link to="/signup" style={{ color: '#055d3d', textDecoration: 'inherit'}}><span className="fw-bold">Signup</span></Link> for leaving a review!</div>
+            
+            }
 
         </div>
     )

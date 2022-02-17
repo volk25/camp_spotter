@@ -26,6 +26,7 @@ export default function ContactForm() {
 
 	/**
 	* Event handler for form submission
+	* As from the official formsubmit site https://formsubmit.co/ajax-documentation.
 	* @param {*} event
 	*/
 	function handleSubmit(event) {

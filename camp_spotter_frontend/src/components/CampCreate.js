@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { MapContainer,Marker, TileLayer,  useMapEvents} from 'react-leaflet';
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -25,6 +25,15 @@ export default function CampCreate() {
 	const [image, setImage] = useState("");
 	const [error, setError] = useState();
 	let navigate = useNavigate();
+
+	/**
+	* Redirect to the login page if without token
+	*/
+	// useEffect(() => {
+	// 	if (!token) {
+	// 		navigate('/login')
+	// 	}
+	// },[]);
 
 	/**
 	 * Form validator (it will be also validated in the backend)

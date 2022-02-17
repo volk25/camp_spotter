@@ -39,8 +39,8 @@ export default function ObtainAuthToken() {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-			username: username,
-			password: password,
+				username: username,
+				password: password,
 			})
 		})
 
@@ -52,10 +52,12 @@ export default function ObtainAuthToken() {
 			return response.json()
 		})
 
-		// Set the token to a variable in the localStorage and redirect the user
+		// Set the token to a variable in the localStorage, redirect the user and reload the page
+		// The page is reloaded in order for the navbar to realize the presence of the token and adjust its menu structure
 		.then(result => {
 			localStorage.setItem('token', result.token)
 			navigate('/map') // this can be changed further on!!!
+			window.location.reload(false);
 		})
 
 		// Catch the error if present, and specify an error message for it

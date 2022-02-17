@@ -1,52 +1,70 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { MenuItems } from "./MenuItems";
+import React from "react";
+import ClearAuthToken from './ClearAuthToken';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+
 import "../App.css";
 
-class Navbar extends Component {
-  state = { clicked: false };
+/**
+ * Renders the navbar.
+ * @returns the navbar component
+ */
+export default function NavBar() {
 
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
-  render() {
-    
-    return(
-      <nav className="NavbarItems">
-        <h1 className="navbar-logo">
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>Campspotter</Link> <i className="fas fa-campground"></i>
-        </h1>
-        <div className="menu-icon" onClick={this.handleClick}>
-          <i
-            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-          ></i>
-        </div>
-        <div>
-          <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-            {MenuItems.map((item, index) => {
-              return (
-                <li key={index}>
-                  <a className={item.cName} href={item.url}>
-                    {item.title}
-                  </a>
-                </li>
-              );
-            })}
+	// Define the parameters coming from outside the component
+	const token = localStorage.getItem('token')
 
-            {/* <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/settings">Settings</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li> */}
-          </ul>
-        </div>
-      </nav>
-    );
-  }
-}
+	// Render the component
+	return(
 
-export default Navbar;
+		<Navbar bg="" expand="lg">
+
+			{/* Put everything inside a container */}
+  			<Container>
+
+				{/* Create a navbar brand and the logo */}
+    			<Navbar.Brand href="/">
+            		<h1 className="navbar-logo">Campspotter<i className="fas fa-campground"></i></h1>
+          		</Navbar.Brand>
+
+				{/* Create a button for toggling the dropdown menu (for menu entries on the right in md) */}
+    			<Navbar.Toggle aria-controls="basic-navbar-nav" />
+    				<Navbar.Collapse id="basic-navbar-nav">
+      					<Nav className="ms-auto">
+
+						  	{/* Create the menu entries to be aligned on the right */}
+        					<Nav.Link className="text-white h5" href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
+        					<Nav.Link className="text-white h5" href="/contact">About Us</Nav.Link>
+
+							{/* Restrict the Login and Signup to be shown only without token */}
+							{ !token ?
+								<Nav>
+									<Nav.Link className="text-white h5" href="/login">Login</Nav.Link>
+									<Nav.Link className="text-white h5" href="/signup">Signup</Nav.Link>
+								</Nav>
+							:
+								<span></span>
+							}
+							
+							{/* Restrict the Profile dropdown menu to be shown only with token */}
+							{ token ?
+								<Nav>
+									<NavDropdown className="h5" title="Profile" id="basic-nav-dropdown">
+										<NavDropdown.Item className="h5" href="#">MyProfile</NavDropdown.Item>
+										<NavDropdown.Item className="h5" href="#">MyCamps</NavDropdown.Item>
+										<NavDropdown.Divider />
+										<NavDropdown.Item className="h5" href="" onClick = {ClearAuthToken}>LogOut</NavDropdown.Item>
+									</NavDropdown>			
+								</Nav>
+							:
+								<span></span>
+							}
+	
+      					</Nav>
+    				</Navbar.Collapse>
+
+  			</Container>
+
+		</Navbar>
+
+	)
+};

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
@@ -19,16 +19,15 @@ export default function App() {
 	// Render the application
 	return(
 
-		// Inirialize the router
-		<Router>
-			<div className="App background">
+		<div className="App background">
 
-				{/* Render the Navbar component */}
-				<div className='position-relative'>
-					<Navbar/>
-				</div>
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
 
-				{/* Define the general page routing */}
+			{/* Inirialize the router and define the routing*/}
+			<Router>
 				<Routes>
 					<Route exact path="/" element={<HomePage/>} />
 					<Route exact path="/login" element={<LoginPage/>}/>
@@ -37,10 +36,9 @@ export default function App() {
 					<Route exact path="/map" element={<MapPage/>}/>
 					<Route  path="/camps/:slug" element={<CampDetailsPage/>}/>
 					<Route exact path="/camps/add" element={<AddCampPage/>}/>
-          <Route exact path="/thankyou" element={<ThankYouPage/>}/>
+					<Route exact path="/thankyou" element={<ThankYouPage/>}/>
 				</Routes>
-
-      		</div>
-    	</Router>
+			</Router>
+		</div>
   	);
 };
