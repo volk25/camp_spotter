@@ -163,3 +163,10 @@ input {
   height: 35px;
   width: 400px;
 }
+
+/* Styles for Add Review */
+
+.AddReview {
+  max-width: 500px;
+  margin:0 auto;
+}

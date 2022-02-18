@@ -87,13 +87,13 @@ import "../App.css";
             {/* Restrict the possibility to leave reviews only with token */}
             { token ? 
             
-                <div>
+                <div className='AddReview'>
 
                     {/* Initialize the form */}
                     <Form onSubmit={handleReviewSubmit}>
 
                         {/* Review title input group */}
-                        <Form.Group className="form-group " size="lg" controlId="title">
+                        <Form.Group className="form-group" size="lg" controlId="title">
                             <Form.Label>Title</Form.Label>
                             <Form.Control
                                 autoFocus
@@ -109,6 +109,7 @@ import "../App.css";
                             <Form.Control
                                 type="text"
                                 value={body}
+                                style={{ height: 80}}
                                 onChange={(e) => setBody(e.target.value)}
                             />
                         </Form.Group>

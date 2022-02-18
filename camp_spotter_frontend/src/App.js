@@ -12,6 +12,7 @@ import CampDetailsPage from "./pages/CampDetailsPage";
 import AddCampPage from "./pages/AddCampPage";
 import ThankYouPage from "./pages/ThankYouPage";
 
+
 /**
  * Renders the whole application.
  * @returns renders the application
