@@ -17,10 +17,11 @@ from rest_framework import status  # used for specifying the status in the Respo
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.views import APIView
 from rest_framework.response import Response  # render the response (instead of JsonResponse)
 
 # REST Framework permissions and authentication functionalities
-from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAuthenticated
 
 # REST Framework parsers for image upload functionality
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -83,10 +84,11 @@ class UserRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
 # ======================================================================================================================
 
 
-class ObtainDeleteAuthToken(ObtainAuthToken):
+class TokenRetrieveDeleteView(ObtainAuthToken):
     """
     Custom view class for obtaining/deleting the authentication token (existing/new) of a user.
     Built from the Rest Framework generic ObtainAuthToken (http method behaviors should be defined).
+    Doesn't require a serializer.
     Allows the user to obtain a token (POST) or to delete the token (DELETE).
     """
 
@@ -140,6 +142,42 @@ class ObtainDeleteAuthToken(ObtainAuthToken):
 
         # If the deserialized user credentials are not valid, return the errors in a json response
         return Response(user_credentials_deserialized.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class IdentityRetrieveView(APIView):
+    """
+    Custom view class for obtaining user's own data based on the authentication token.
+    Built from the Rest Framework APIView (http method behaviors should be defined).
+    Doesn't require a serializer.
+    Allows the user to obtain the identity of a user based on the provided token (POST).
+    """
+
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        """
+        Allows the user to retrieve its own data based on the provided token.
+        Input:
+        - request: only POST request is accepted
+        Output:
+        - Returns the user's own data
+        """
+
+        # Get the current user object
+        user_object = self.request.user
+
+        # The image has still a relative path, therefore it should be converted to an absolute one
+        image = request.build_absolute_uri(user_object.image)
+
+        # Define the response data to be outputted and return the response
+        response_data = {
+            'id': user_object.id,
+            'username': user_object.username,
+            'image': image
+        }
+        return Response(response_data, status=status.HTTP_200_OK)
+
 
 
 

@@ -16,7 +16,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from camps.views import CampListCreateView, CampRetrieveUpdateDestroyView, ReviewListCreateView, ReviewDestroyView
-from users.views import UserListCreateView, UserRetrieveUpdateDestroyView, ObtainDeleteAuthToken
+from users.views import UserListCreateView, UserRetrieveUpdateDestroyView, TokenRetrieveDeleteView, IdentityRetrieveView
 
 # ======================================================================================================================
 #                                               1. URL patterns
@@ -43,7 +43,8 @@ urlpatterns = [
     # Users displaying, editing and authenticate functionalities
     path('users/', UserListCreateView.as_view(), name="user_list"),
     path('users/<slug:slug>/', UserRetrieveUpdateDestroyView.as_view(), name="user_details"),
-    path('api-token-auth/', ObtainDeleteAuthToken.as_view(), name="token"),
+    path('token/', TokenRetrieveDeleteView.as_view(), name="token"),
+    path('identity/', IdentityRetrieveView.as_view(), name="identity"),
 
     # Camps (and Reviews) displaying and editing functionalities
     path('camps/', CampListCreateView.as_view(), name="camp_list"),

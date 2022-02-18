@@ -2,7 +2,9 @@ import { useState } from "react";
 import "../App.css";
 import {Link} from "react-router-dom";
 
-const SearchBar = () => {
+export default function SearchBar() {
+
+  // Define the variables/constants/states
   const [text, setText] = useState("");
 
   // useEffect
@@ -36,5 +38,3 @@ const SearchBar = () => {
     </div>
   );
 };
-
-export default SearchBar;

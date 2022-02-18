@@ -34,7 +34,7 @@ export default function ObtainAuthToken() {
 		event.preventDefault();
 		
 		// Fetch the data to the API (keep in mind that the current requesting address should be authorized in the API)
-		fetch('http://127.0.0.1:8000/api-token-auth/', {
+		fetch('http://127.0.0.1:8000/token/', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
