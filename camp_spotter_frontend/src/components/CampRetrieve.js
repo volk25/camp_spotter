@@ -19,7 +19,7 @@ import { GetIcon } from './Map';
     // Define what to do when the component is loaded
     useEffect (() => {
 
-        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
+        // Fetch the data from the API
         fetch (`http://127.0.0.1:8000/camps/${props.slug}/`, {
             method: 'GET',
             headers: {

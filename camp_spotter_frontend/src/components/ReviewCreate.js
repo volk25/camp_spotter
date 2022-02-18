@@ -38,7 +38,7 @@ import "../App.css";
 
         event.preventDefault();
 
-        // Fetch the data to the API (keep in mind that the current requesting address should be authorized in the API)
+        // Fetch the data to the API
         fetch(`http://127.0.0.1:8000/camps/${props.slug}/reviews/`, {
             method: 'POST',
             headers: {

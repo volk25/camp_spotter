@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "../App.css";
+import ReviewDestroy from './ReviewDestroy';
 
 /**
  * Renders the list with all the reviews of a camp after fetching the data with a GET request (all users are allowed).
@@ -21,7 +22,7 @@ import "../App.css";
     // Fetch data about the user identity
     useEffect (() => {
 
-        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
+        // Fetch the data from the API
         fetch ('http://127.0.0.1:8000/identity/', {
             method: 'POST',
             headers: {
@@ -33,7 +34,6 @@ import "../App.css";
         // Get the response in a json format and set the data to the identity state
         .then (response => response.json())
         .then (result => {
-            console.log(result);
             setIdentity(result);
         })
 
@@ -48,7 +48,7 @@ import "../App.css";
     // Fetch data about review list
     useEffect (() => {
 
-        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
+        // Fetch the data from the API
         fetch (`http://127.0.0.1:8000/camps/${props.slug}/reviews/`, {
             method: 'GET',
             headers: {
@@ -68,6 +68,14 @@ import "../App.css";
 
     },[]);
 
+	/**
+	 * Event handler for Review deletion.
+	 * @param {*} props slug of the camp and id of the review
+	 */
+    function handleDelete(props) {
+        ReviewDestroy({slug: props.slug, id: props.id});
+    };
+
     // If loading variable is still set to true, notify it to the user
     if (loadingReviewList || loadingIdentity) {
         return <p>Data is loading...</p>;
@@ -77,7 +85,7 @@ import "../App.css";
     return (
         
         <div> 
-            <span className='text-white fw-bold p-3'>{identity.username}</span>
+
             {/* Render the reviews of the camp, if some are present */}
             { reviewList.length > 0 ?
 
@@ -85,22 +93,37 @@ import "../App.css";
                     <div key={review.id}>  
                                         
                         <div className='d-flex justify-content-evenly mb-3'>
+
                             {/* user image and user name */}
                             <div className='me-3  col-1' >
-                                <img src={review.author_image} alt="user image" width="70" height= "70" className='rounded-pill'/>
-                                <div className=' text-left text-white'>{review.author}</div>
+                                <img src={review.author_image} alt='user image' width='70' height= '70' className='rounded-pill'/>
+                                <div className='text-left text-white'>{review.author}</div>
                             </div>
+
                             {/* review title, rating and review body */}
                             <div className=' mb-2 col-11'>
-                                <div  className=''>
+
+                                {/* Create the review title and the star rating */}
+                                <div className=''>
                                     <span className='text-white fw-bold ms-4 me-3'>{review.title}</span>
-                                    {/* based on review.rating insert as many stars as mentioned in the rating */}
-                                    { [...Array(review.rating)].map((e, i) => <i className="fas fa-star text-success"></i>)}
-                                   
+                                    { [...Array(review.rating)].map((e, i) => <i className='fas fa-star text-success'></i>)}
                                 </div>
-                                <div  className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3 d-flex justify-content-between'>
-                                    <span> {review.body}</span>  
-                                    <button type="button" className="btn btn-outline-danger rounded-pill" >Delete</button>
+
+                                {/* Create the review body */}
+                                <div className='bg-secondary bg-opacity-50 text-white rounded-pill p-3 d-flex justify-content-between'>
+                                    <span>{review.body}</span>  
+
+                                    {/* If the current user is the author of the review create the delete button */}
+                                    { identity.username === review.author ?
+                                        <button 
+                                        className='btn btn-outline-danger rounded-pill' 
+                                        type='button' onClick={() => handleDelete({slug: props.slug, id: review.id})} >
+                                        Delete
+                                        </button>
+                                    :
+                                        <></>
+                                    }
+                                    
                                 </div>
                             </div>
                         </div>    

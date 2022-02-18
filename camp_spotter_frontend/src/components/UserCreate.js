@@ -48,7 +48,7 @@ export default function UserCreate() {
 		formData.append('password2', password2);
 		formData.append('image', image)
 
-		// Fetch the data to the API (keep in mind that the current requesting address should be authorized in the API)
+		// Fetch the data to the API
 		fetch('http://127.0.0.1:8000/users/', {
 			method: 'POST',
 			body: formData
