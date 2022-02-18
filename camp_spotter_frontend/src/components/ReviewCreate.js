@@ -68,7 +68,7 @@ import "../App.css";
 			} else {
 				for(var i in result){
 					for(var k in result[i]){
-						toast.error(result[i][k])
+						toast.error(`${i}: ${result[i][k]}`)
 					}
 				}
 			}
