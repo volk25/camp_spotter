@@ -42,21 +42,21 @@ export default function NavBar() {
 									<Nav.Link className="text-white h5" href="/signup">Signup</Nav.Link>
 								</Nav>
 							:
-								<span></span>
+								<></>
 							}
 							
 							{/* Restrict the Profile dropdown menu to be shown only with token */}
 							{ token ?
 								<Nav>
-									<NavDropdown className="h5" title="Profile" id="basic-nav-dropdown">
-										<NavDropdown.Item className="h5" href="#">MyProfile</NavDropdown.Item>
-										<NavDropdown.Item className="h5" href="#">MyCamps</NavDropdown.Item>
+									<NavDropdown className="h5" title={<i class="fas fa-user-circle h4 text-white"></i>} id="basic-nav-dropdown">
+										<NavDropdown.Item className="h6" href="#">MyProfile</NavDropdown.Item>
+										<NavDropdown.Item className="h6" href="#">MyCamps</NavDropdown.Item>
 										<NavDropdown.Divider />
-										<NavDropdown.Item className="h5" href="" onClick = {ClearAuthToken}>LogOut</NavDropdown.Item>
+										<NavDropdown.Item className="h6" href="" onClick = {ClearAuthToken}>LogOut</NavDropdown.Item>
 									</NavDropdown>			
 								</Nav>
 							:
-								<span></span>
+								<></>
 							}
 	
       					</Nav>

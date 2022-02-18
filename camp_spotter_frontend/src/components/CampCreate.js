@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { MapContainer,Marker, TileLayer,  useMapEvents} from 'react-leaflet';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { GetIcon } from './Map';
@@ -24,6 +25,7 @@ export default function CampCreate() {
 	const [positionBody, setPositionBody] = useState("");
 	const [image, setImage] = useState("");
 	const [error, setError] = useState();
+	const responseOk = useRef(false);
 	let navigate = useNavigate();
 
 	/**
@@ -69,25 +71,29 @@ export default function CampCreate() {
 			body: formData
 		})
 
-		// Process the response if it is ok, otherwise throw an error
+		// Process the response
 		.then(response => {
-			if (!response.ok) {
-				throw Error(response.statusText) 
-			};
+			if (response.ok) {
+                responseOk.current = true
+            };
 			return response.json()
 		})
 
-		// Redirect the user
-		.then(() => {
-			navigate('/thankyou') // this can be changed further on!!!
-		})
-
-		// Catch the error if present, and specify an error message for it
-		.catch(err => {
-			if (err.message === 'Bad Request') {
-				setError('Please fill in all the required fields');
+		// Redirect if the reponse was ok, otherwise show toasts with the errors
+		.then((result) => {
+			if (responseOk.current) {
+				navigate('/thankyou')
+			} else {
+				for(var i in result){
+					for(var k in result[i]){
+						toast.error(`${i}: ${result[i][k]}`)
+					}
+				}
 			}
 		})
+
+		// Catch the other errors if present
+		.catch(err => console.log(err))
 
 	};
 
@@ -106,15 +112,6 @@ export default function CampCreate() {
   	return(
 
     	<div className="addcampForm">
-    
-			{/* Create an allert for notifying about wrong input */}
-			{ error ?
-				<div class="alert alert-danger fixed-bottom w-25 mx-3" role="alert">
-					{error}
-				</div>
-			:
-				<div></div>
-			}
 
 			{/* Initialize the form */}
 			<Form onSubmit={handleSubmit}>

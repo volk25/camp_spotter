@@ -19,7 +19,7 @@ export default function UserCreate() {
 	const [image, setImage] = useState("");
 	const [password, setPassword] = useState("");
 	const [password2, setPassword2] = useState("");
-	const responseOk = useRef(false)
+	const responseOk = useRef(false);
 	let navigate = useNavigate();
 
 	/**

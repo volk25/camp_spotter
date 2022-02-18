@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../App.css";
@@ -19,14 +20,14 @@ import "../App.css";
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [rating, setRating] = useState("");
-    const [error, setError] = useState();
+    const responseOk = useRef(false);
 
     /**
     * Review form validator
     * @returns
     */
     function validateReviewForm() {
-        return title.length > 0 && rating > 0;
+        return title.length > 0 && body.length > 0;
     };
 
     /**
@@ -51,26 +52,30 @@ import "../App.css";
             })
         })
 
-        // Process the response if it is ok, otherwise throw an error
-        .then(response => {
-            if (!response.ok) {
-                throw Error(response.statusText) 
+		// Process the response
+		.then(response => {
+			if (response.ok) {
+                responseOk.current = true
             };
-            return response.json()
-        })
+			return response.json()
+		})
 
-        // Refresh the page
-        .then(() => {
-            window.location.reload(false)
-        })
+		// Reload the page if the reponse was ok, otherwise show toasts with the errors
+		// The page is reloaded in order for the submitted review to be shown
+		.then((result) => {
+			if (responseOk.current) {
+				window.location.reload(false)
+			} else {
+				for(var i in result){
+					for(var k in result[i]){
+						toast.error(result[i][k])
+					}
+				}
+			}
+		})
 
-        // Catch the error if present, and specify an error message for it
-        .catch(err => {
-            console.log(err)
-            if (err.message === 'Bad Request') {
-                setError('Please fill in all the required fields');
-            }
-        })
+		// Catch the other errors if present
+		.catch(err => console.log(err))
 
     };
 

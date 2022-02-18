@@ -14,7 +14,7 @@ export default function ObtainAuthToken() {
 	// Define the variables/constants/states
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const responseOk = useRef(false)
+	const responseOk = useRef(false);
 	let navigate = useNavigate();
 
 	/**

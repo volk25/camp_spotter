@@ -23,7 +23,7 @@ export default function App() {
 
 		<div className="App background">
 
-			{/* Add a tostify container for showing the messages */}
+			{/* Add a tostify container for showing the toast notifications */}
 			<ToastContainer
 			position="bottom-left"
 			autoClose={5000}

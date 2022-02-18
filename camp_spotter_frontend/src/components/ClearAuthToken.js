@@ -1,7 +1,7 @@
 import "../App.css";
 
 /**
- * Clear the localStorage and reload the page.
+ * Clear the localStorage and reload the page (all in frontend)
  * @returns clears the localStorage
  */
 export default function ClearAuthToken() {
