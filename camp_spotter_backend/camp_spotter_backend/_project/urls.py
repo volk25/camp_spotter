@@ -15,7 +15,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from camps.views import CampListCreateView, CampRetrieveUpdateDestroyView, ReviewListCreateView, ReviewDestroyView
+from camps.views import CampListView, CampListCreateView, CampRetrieveUpdateDestroyView, ReviewListCreateView, \
+    ReviewDestroyView
 from users.views import UserListCreateView, UserRetrieveUpdateDestroyView, TokenRetrieveDeleteView, IdentityRetrieveView
 
 # ======================================================================================================================
@@ -40,17 +41,20 @@ urlpatterns = [
     # REST Framework functionalities (default)
     path('api-auth/', include('rest_framework.urls')),  # this is just to add login functionality to the api-page
 
-    # Users displaying, editing and authenticate functionalities
+    # Users displaying, editing and removing functionalities
     path('users/', UserListCreateView.as_view(), name="user_list"),
-    path('users/<slug:slug>/', UserRetrieveUpdateDestroyView.as_view(), name="user_details"),
+    path('users/<slug:slug>/', UserRetrieveUpdateDestroyView.as_view(), name="user_retrieve"),
+    path('users/<slug:slug>/camps/', CampListView.as_view(), name="user_camps_list"),
+
+    # Authentication functionalities
     path('token/', TokenRetrieveDeleteView.as_view(), name="token"),
     path('identity/', IdentityRetrieveView.as_view(), name="identity"),
 
     # Camps (and Reviews) displaying and editing functionalities
     path('camps/', CampListCreateView.as_view(), name="camp_list"),
-    path('camps/<slug:slug>/', CampRetrieveUpdateDestroyView.as_view(), name="camp_details"),
-    path('camps/<slug:slug>/reviews/', ReviewListCreateView.as_view(), name="review_list"),
-    path('camps/<slug:slug>/reviews/<int:pk>/', ReviewDestroyView.as_view(), name="review_delete"),
+    path('camps/<slug:slug>/', CampRetrieveUpdateDestroyView.as_view(), name="camp_retrieve"),
+    path('camps/<slug:slug>/reviews/', ReviewListCreateView.as_view(), name="camp_review_list"),
+    path('camps/<slug:slug>/reviews/<int:pk>/', ReviewDestroyView.as_view(), name="camp_review_destroy"),
 
 ]
 
