@@ -1,5 +1,5 @@
 import React from "react";
-import ClearAuthToken from './ClearAuthToken';
+import TokenClear from './TokenClear';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
 import "../App.css";
@@ -52,7 +52,7 @@ export default function NavBar() {
 										<NavDropdown.Item className="h6" href="#">MyProfile</NavDropdown.Item>
 										<NavDropdown.Item className="h6" href="#">MyCamps</NavDropdown.Item>
 										<NavDropdown.Divider />
-										<NavDropdown.Item className="h6" href="" onClick = {ClearAuthToken}>LogOut</NavDropdown.Item>
+										<NavDropdown.Item className="h6" href="" onClick = {TokenClear}>LogOut</NavDropdown.Item>
 									</NavDropdown>			
 								</Nav>
 							:

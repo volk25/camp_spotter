@@ -9,7 +9,7 @@ import "../App.css";
  * Renders the authentication form, sends the form data in the body of a POST request (all users are allowed).
  * @returns stores in localStorage the token
  */
-export default function ObtainAuthToken() {
+export default function TokenObtain() {
 
 	// Define the variables/constants/states
 	const [username, setUsername] = useState("");

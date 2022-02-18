@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import ObtainAuthToken from '../components/ObtainAuthToken';
+import TokenObtain from '../components/TokenObtain';
 
 /**
  * Render the login page.
@@ -19,7 +19,7 @@ export default function LoginPage() {
 
 			{/* Render the Authentication form */}
 			<div>
-				<ObtainAuthToken/>
+				<TokenObtain />
 			</div>
 
 			<div style={{ height: "100vh" }}></div>
