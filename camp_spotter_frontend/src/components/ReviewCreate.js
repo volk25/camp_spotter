@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -20,7 +20,37 @@ import "../App.css";
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [rating, setRating] = useState("");
+    const [identity, setIdentity] = useState();
+    const [loadingIdentity, setLoadingIdentity] = useState(true);
     const responseOk = useRef(false);
+
+    // Fetch data about the user identity
+    useEffect (() => {
+
+        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
+        fetch ('http://127.0.0.1:8000/identity/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`,
+            }
+        })
+
+        // Get the response in a json format and set the data to the identity state
+        .then (response => response.json())
+        .then (result => {
+            console.log(result);
+            setIdentity(result);
+        })
+
+        // Catch the error if present and console log it
+        .catch((err) => console.log(err))
+
+        // Set to false the loading state
+        .finally(() => setLoadingIdentity(false));
+
+    },[]);
+    
 
     /**
     * Review form validator
@@ -79,6 +109,12 @@ import "../App.css";
 
     };
 
+    // If loading variable is still set to true, notify it to the user
+    if (loadingIdentity) {
+        return <p>Data is loading...</p>;
+    }
+
+
     // Render the component
     return (
         
@@ -90,46 +126,29 @@ import "../App.css";
                 <div className='AddReview'>
 
                     {/* Initialize the form */}
-                    <Form onSubmit={handleReviewSubmit}>
-
-                        {/* Review title input group */}
-                        <Form.Group className="form-group" size="lg" controlId="title">
-                            <Form.Label>Title</Form.Label>
-                            <Form.Control
-                                autoFocus
-                                type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </Form.Group>
-
-                        {/* Review body input group */}
-                        <Form.Group className="form-group" size="lg" controlId="body">
-                            <Form.Label>Body</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={body}
-                                style={{ height: 80}}
-                                onChange={(e) => setBody(e.target.value)}
-                            />
-                        </Form.Group>
-
-                        {/* Review rating input group */}
-                        <Form.Group className="form-group" size="lg" controlId="rating">
-                            <Form.Label>Rating</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={rating}
-                                onChange={(e) => setRating(e.target.value)}
-                            />
-                        </Form.Group>
-
-                        {/* Login button group */}
+                    <div className='d-flex justify-content-evenly mb-3'>
+                            {/* user image and user name */}
+                            <div className='me-3  col-1' >
+                                <img src={identity.image} alt="user image" width="70" height= "70" className='rounded-pill'/>
+                                <div className=' text-left text-white'>{identity.username}</div>
+                            </div>
+                            {/* set review title, rating and review body */}
+                            <div className=' mb-2 col-11'>
+                                <div className='text-white fw-bold ms-4 me-3 reviewInput d-flex justify-content-between'>
+                                    <input type='title' value={title} placeholder='Fill in your title' onChange={(e) => setTitle(e.target.value)}></input> 
+                                    <input type='rating' value={rating} placeholder='Rate this camp (1-5)' onChange={(e) => setRating(e.target.value)}></input> 
+                                </div>
+                                <div  className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3'>
+                                    <input type='body' value={body} placeholder='Your message' onChange={(e) => setBody(e.target.value)}></input> 
+                                </div>
+                            </div>
+                        </div>  
+                        {/* Submit button */}
                         <div className="text-center">
-                            <Button size="lg" type="submit" disabled={!validateReviewForm()} className="mt-3 btn-success">Submit</Button>
+                            <Button size="lg" type="submit" disabled={!validateReviewForm()} onClick={handleReviewSubmit} className="mt-3 btn-success">Submit</Button>
                         </div>
 
-                    </Form>
+                   
                 
                 </div>
 

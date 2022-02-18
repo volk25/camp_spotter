@@ -77,7 +77,6 @@ import "../App.css";
     return (
         
         <div> 
-            <span className='text-white fw-bold p-3'>{identity.username}</span>
             {/* Render the reviews of the camp, if some are present */}
             { reviewList.length > 0 ?
 
