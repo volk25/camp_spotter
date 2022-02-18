@@ -92,12 +92,16 @@ import "../App.css";
                             </div>
                             {/* review title, rating and review body */}
                             <div className=' mb-2 col-11'>
-                                <div >
-                                    <span className='text-white fw-bold p-3'>{review.title}</span>
+                                <div  className=''>
+                                    <span className='text-white fw-bold ms-4 me-3'>{review.title}</span>
                                     {/* based on review.rating insert as many stars as mentioned in the rating */}
                                     { [...Array(review.rating)].map((e, i) => <i className="fas fa-star text-success"></i>)}
+                                   
                                 </div>
-                                <div className= ' bg-secondary bg-opacity-50 text-white rounded-pill p-3'> {review.body}</div>  
+                                <div  className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3 d-flex justify-content-between'>
+                                    <span> {review.body}</span>  
+                                    <button type="button" className="btn btn-outline-danger rounded-pill" >Delete</button>
+                                </div>
                             </div>
                         </div>    
                     </div>  
