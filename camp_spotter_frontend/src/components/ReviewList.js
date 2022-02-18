@@ -9,12 +9,43 @@ import "../App.css";
  */
  export default function ReviewList(props) {
 
-    // Define the review list variables/constants/states
-    const [reviewList, setReviewList] = useState([]);
-    const [error, setError] = useState();
-    const [loading, setLoading] = useState(true);
+    // Define the parameters coming from outside the component
+    const token = localStorage.getItem('token')
 
-    // Define what to do when the component is loaded
+    // Define the review list variables/constants/states
+    const [identity, setIdentity] = useState()
+    const [reviewList, setReviewList] = useState([]);
+    const [loadingIdentity, setLoadingIdentity] = useState(true);
+    const [loadingReviewList, setLoadingReviewList] = useState(true);
+
+    // Fetch data about the user identity
+    useEffect (() => {
+
+        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
+        fetch ('http://127.0.0.1:8000/identity/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`,
+            }
+        })
+
+        // Get the response in a json format and set the data to the identity state
+        .then (response => response.json())
+        .then (result => {
+            console.log(result);
+            setIdentity(result);
+        })
+
+        // Catch the error if present and console log it
+        .catch((err) => console.log(err))
+
+        // Set to false the loading state
+        .finally(() => setLoadingIdentity(false));
+
+    },[]);
+
+    // Fetch data about review list
     useEffect (() => {
 
         // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
@@ -27,36 +58,33 @@ import "../App.css";
 
         // Get the response in a json format and set the data to the reviewList variable
         .then (response => response.json())
-        .then (data => setReviewList(data))
+        .then (result => setReviewList(result))
 
         // Catch the error if present and set it to the error variable
-        .catch((err) => setError(err))
+        .catch((err) => console.log(err))
 
         // Set to false the loading variable
-        .finally(() => setLoading(false));
+        .finally(() => setLoadingReviewList(false));
 
     },[]);
 
     // If loading variable is still set to true, notify it to the user
-    if (loading) {
+    if (loadingReviewList || loadingIdentity) {
         return <p>Data is loading...</p>;
     }
-    if (error) {
-        return <p>An error occurred while loading the Review List!</p>;
-    }
-    
+
     // Render the component
     return (
         
         <div> 
-
+            <span className='text-white fw-bold p-3'>{identity.username}</span>
             {/* Render the reviews of the camp, if some are present */}
             { reviewList.length > 0 ?
 
                 reviewList.map(review => (                      
                     <div key={review.id}>  
                                         
-                        <div className='d-flex justify-content-evenly mb-3'  >
+                        <div className='d-flex justify-content-evenly mb-3'>
                             {/* user image and user name */}
                             <div className='me-3  col-1' >
                                 <img src={review.author_image} alt="user image" width="70" height= "70"/>
