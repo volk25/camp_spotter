@@ -160,13 +160,25 @@ body,
 }
 
 input {
-  height: 35px;
-  width: 400px;
+  color: white;
+  background: transparent;
+  width:100%;
+  border: 0;
 }
 
-/* Styles for Add Review */
+input::placeholder{
+  opacity: 1;
+  color: grey;
+}
 
-.AddReview {
-  max-width: 500px;
-  margin:0 auto;
+@-webkit-keyframes autofill {
+  to {
+    color: grey;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
 }

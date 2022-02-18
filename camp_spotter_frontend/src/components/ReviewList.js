@@ -111,19 +111,19 @@ import ReviewDestroy from './ReviewDestroy';
 
                                 {/* Create the review body */}
                                 <div className='bg-secondary bg-opacity-50 text-white rounded-pill p-3 d-flex justify-content-between'>
-                                    <span>{review.body}</span>  
+                                    <span>{review.body}</span>
 
                                     {/* If the current user is the author of the review create the delete button */}
                                     { identity.username === review.author ?
-                                        <button 
-                                        className='btn btn-outline-danger rounded-pill' 
+                                        <button
+                                        className='btn btn-outline-danger rounded-pill'
                                         type='button' onClick={() => handleDelete({slug: props.slug, id: review.id})} >
                                         Delete
                                         </button>
                                     :
                                         <></>
                                     }
-                                    
+
                                 </div>
                             </div>
                         </div>    
