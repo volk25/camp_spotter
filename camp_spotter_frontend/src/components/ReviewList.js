@@ -95,10 +95,10 @@ import ReviewDestroy from './ReviewDestroy';
                                         
                         <div className='d-flex justify-content-evenly mb-3'>
 
-                            {/* user image and user name */}
-                            <div className='me-3  col-1' >
+                            {/* user image and username */}
+                            <div className='me-3 col-1' >
                                 <img src={review.author_image} alt='user image' width='70' height= '70' className='rounded-pill'/>
-                                <div className='text-left text-white'>{review.author}</div>
+                                <div className='text-center text-white'>{review.author}</div>
                             </div>
 
                             {/* review title, rating and review body */}

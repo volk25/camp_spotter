@@ -168,7 +168,7 @@ input {
 
 input::placeholder{
   opacity: 1;
-  color: grey;
+  color: white;
 }
 
 @-webkit-keyframes autofill {

@@ -168,7 +168,7 @@ class IdentityRetrieveView(APIView):
         user_object = self.request.user
 
         # The image has still a relative path, therefore it should be converted to an absolute one
-        image = request.build_absolute_uri(user_object.image)
+        image = request.build_absolute_uri(user_object.image.url)
 
         # Define the response data to be outputted and return the response
         response_data = {

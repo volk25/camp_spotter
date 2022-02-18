@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../App.css";
 
@@ -51,7 +50,6 @@ import "../App.css";
 
     },[]);
     
-
     /**
     * Review form validator
     * @returns
@@ -112,8 +110,7 @@ import "../App.css";
     // If loading variable is still set to true, notify it to the user
     if (loadingIdentity) {
         return <p>Data is loading...</p>;
-    }
-
+    };
 
     // Render the component
     return (
@@ -127,29 +124,30 @@ import "../App.css";
 
                     {/* Initialize the form */}
                     <div className='d-flex justify-content-evenly mb-3'>
-                            {/* user image and user name */}
-                            <div className='me-3  col-1' >
-                                <img src={identity.image} alt="user image" width="70" height= "70" className='rounded-pill'/>
-                                <div className=' text-left text-white'>{identity.username}</div>
+
+                            {/* Create the user image and username */}
+                            <div className='me-3 col-1' >
+                                <img src={identity.image} alt='user image' width='70' height= '70' className='rounded-pill'/>
+                                <div className='text-center text-white'>{identity.username}</div>
                             </div>
-                            {/* set review title, rating and review body */}
+
+                            {/* Create the review title, rating and body */}
                             <div className=' mb-2 col-11'>
-                                <div className='text-white fw-bold ms-4 me-3 reviewInput d-flex justify-content-between'>
-                                    <input type='title' value={title} placeholder='Fill in your title' onChange={(e) => setTitle(e.target.value)}></input> 
-                                    <input type='rating' value={rating} placeholder='Rate this camp (1-5)' onChange={(e) => setRating(e.target.value)}></input> 
+                                <div className='text-white fw-bold ms-3 me-3 reviewInput d-flex justify-content-between'>
+                                    <input className='fw-bold' type='title' value={title} placeholder='Fill in your title' onChange={(e) => setTitle(e.target.value)}></input> 
+                                    <input className='fw-bold' type='rating' value={rating} placeholder='Rate this camp (1-5)' onChange={(e) => setRating(e.target.value)}></input> 
                                 </div>
                                 <div  className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3'>
                                     <input type='body' value={body} placeholder='Your message' onChange={(e) => setBody(e.target.value)}></input> 
                                 </div>
                             </div>
                         </div>  
+
                         {/* Submit button */}
                         <div className="text-center">
                             <Button size="lg" type="submit" disabled={!validateReviewForm()} onClick={handleReviewSubmit} className="mt-3 btn-success">Submit</Button>
                         </div>
 
-                   
-                
                 </div>
 
             :
