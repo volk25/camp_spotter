@@ -74,6 +74,7 @@ import ReviewDestroy from './ReviewDestroy';
 	 */
     function handleDelete(props) {
         ReviewDestroy({slug: props.slug, id: props.id});
+        window.location.reload(false)
     };
 
     // If loading variable is still set to true, notify it to the user

@@ -23,9 +23,6 @@ export default function ReviewDestroy(props) {
         // Process the response
         .then(response => response.json())
 
-        // Reload the page
-        .then(() => window.location.reload(false))
-
         // Catch the other errors if present
         .catch(err => console.log(err)) 
 
