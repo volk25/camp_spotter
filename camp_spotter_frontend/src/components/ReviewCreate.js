@@ -27,7 +27,7 @@ import "../App.css";
     // Fetch data about the user identity
     useEffect (() => {
 
-        // Fetch the data from the API (keep in mind that the current requesting address should be authorized in the API)
+        // Fetch the data from the API
         fetch ('http://127.0.0.1:8000/identity/', {
             method: 'POST',
             headers: {
