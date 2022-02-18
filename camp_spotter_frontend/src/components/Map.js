@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react' ;
 import L from 'leaflet';
-import { MapContainer, useMap, TileLayer, Marker, Popup} from 'react-leaflet';
-import { GeoSearchControl, AlgoliaProvider } from 'leaflet-geosearch';
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
+import { AlgoliaProvider } from 'leaflet-geosearch';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import LocationMarker from "./Geolocation.js"
+import SearchControl from './SearchControl.js';
 
 /**
  * Create a map, include search bar on it, load all camping spots from json and mark them with customized tent icon. 
@@ -65,6 +66,7 @@ function MyMap(props) {
             contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>  
   
         <LocationMarker/>
+
         <SearchControl 
                 provider={prov}
                 style={'bar'}
@@ -95,7 +97,6 @@ function MyMap(props) {
     )
 }
 
-
 /**
  * Sets custom icon to every camp spot on the map instead of default pin
  * @param {*} _iconSize 
@@ -107,29 +108,6 @@ function GetIcon(_iconSize) {
             iconSize: [_iconSize]
         })
 }
-
-
-/**
- * Here SearchControl element is being created which is inputed in the function as a tag
- * @param {*} props 
- * @returns nothing
- */
-const SearchControl = (props) => {
-    const map = useMap();
-  
-    useEffect(() => {
-      const searchControl = new GeoSearchControl({
-        provider: props.provider,
-        ...props
-      });
-  
-      map.addControl(searchControl);
-      return () => map.removeControl(searchControl);
-    }, [map, props]);
-  
-    return null;
-  };
-
 
 export default MyMap;
 export  {GetIcon} 
