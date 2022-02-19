@@ -8,6 +8,8 @@ import CampCreate from '../components/CampCreate';
  */
 export default function AddCampPage() {
 
+	// TODO: add here the token and the redirection if without token!
+
 	// Render the page
   	return(
 
