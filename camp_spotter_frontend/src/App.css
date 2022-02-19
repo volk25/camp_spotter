@@ -115,15 +115,15 @@ body,
       text-align: center;
     }
 
-    /* Styles for Navbar */
+/* Styles for Navbar */
     
-    .navbar-logo {
-      color: white;
-      justify-self: start;
-      margin-left: 20px;
-      cursor: pointer;
-      align-self: flex-start;
-    }
+.navbar-logo {
+  color: white;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  align-self: flex-start;
+  }
 
     .fa-campground {
       margin-left: 0.5rem;
@@ -181,4 +181,21 @@ body,
 .AddReview input:-webkit-autofill {
   -webkit-animation-name: autofill;
   -webkit-animation-fill-mode: both;
+}
+
+/* Stylings of the AboutUs page */
+
+.profileform {
+  color: white;
+}
+
+.aboutUs {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userUpdate {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
