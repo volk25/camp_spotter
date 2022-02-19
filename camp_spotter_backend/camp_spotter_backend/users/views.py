@@ -80,7 +80,7 @@ class UserRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
 
 
 # ======================================================================================================================
-#                                   2. Token administration (class-based)
+#                                 2. Authorization and Identity (class-based)
 # ======================================================================================================================
 
 
@@ -153,7 +153,7 @@ class IdentityRetrieveView(APIView):
     """
 
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     def post(self, request, *args, **kwargs):
         """
@@ -174,9 +174,16 @@ class IdentityRetrieveView(APIView):
         response_data = {
             'id': user_object.id,
             'username': user_object.username,
-            'image': image
+            'image': image,
+            'slug': user_object.slug,
+            # 'email': user_object.email,
+            # 'first_name': user_object.first_name,
+            # 'last_name': user_object.last_name,
+            # 'date_joined': user_object.date_joined
         }
+
         return Response(response_data, status=status.HTTP_200_OK)
+
 
 
 

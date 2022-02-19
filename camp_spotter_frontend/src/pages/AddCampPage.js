@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 import CampCreate from '../components/CampCreate';
 
@@ -8,7 +9,20 @@ import CampCreate from '../components/CampCreate';
  */
 export default function AddCampPage() {
 
-	// TODO: add here the token and the redirection if without token!
+	// Define the parameters coming from outside the component
+	const token = localStorage.getItem('token')
+
+	// Define the variables/constants/states
+	let navigate = useNavigate();
+
+	/**
+	* Redirect to the login page if without token
+	*/
+	useEffect(() => {
+		if (!token) {
+			navigate('/login')
+		}
+	},[]);
 
 	// Render the page
   	return(
@@ -20,7 +34,7 @@ export default function AddCampPage() {
 		
 			{/* Insert the CampCreate component */}
 			<div>
-				<CampCreate/>
+				<CampCreate token={token}/>
 			</div>
 
 			<div style={{ height: "5vh" }}></div>

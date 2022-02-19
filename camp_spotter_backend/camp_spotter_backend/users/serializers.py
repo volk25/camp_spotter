@@ -126,4 +126,3 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
         return user_object
 
 
-

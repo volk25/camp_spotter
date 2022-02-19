@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import { MapContainer,Marker, TileLayer,  useMapEvents} from 'react-leaflet';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -10,12 +10,10 @@ import "../App.css";
 
 /**
  * Renders the camp-create form, sends the form data in the body of a POST request (only with token).
+ * @param {*} props token of the authenticated user
  * @returns camp create component
  */
-export default function CampCreate() {
-
-    // Define the parameters coming from outside the component
-    const token = localStorage.getItem('token')
+export default function CampCreate(props) {
 
 	// Define the variables/constants/states
 	const [title, setTitle] = useState("");
@@ -24,18 +22,8 @@ export default function CampCreate() {
 	const [longitude, setLongitude] = useState("");
 	const [positionBody, setPositionBody] = useState("");
 	const [image, setImage] = useState("");
-	const [error, setError] = useState();
 	const responseOk = useRef(false);
 	let navigate = useNavigate();
-
-	/**
-	* Redirect to the login page if without token
-	*/
-	useEffect(() => {
-		if (!token) {
-			navigate('/login')
-		}
-	},[]);
 
 	/**
 	 * Form validator (it will be also validated in the backend)
@@ -66,7 +54,7 @@ export default function CampCreate() {
 		fetch('http://127.0.0.1:8000/camps/', {
 			method: 'POST',
 			headers: {
-                'Authorization': `Token ${token}`
+                'Authorization': `Token ${props.token}`
             },
 			body: formData
 		})

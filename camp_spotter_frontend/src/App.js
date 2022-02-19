@@ -4,14 +4,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
-import ContactPage from "./pages/ContactPage";
+import MyProfilePage from "./pages/MyProfilePage";
+import EditProfilePage from "./pages/EditProfilePage";
+import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import MapPage from "./pages/MapPage";
 import CampDetailsPage from "./pages/CampDetailsPage";
 import AddCampPage from "./pages/AddCampPage";
 import ThankYouPage from "./pages/ThankYouPage";
-
 
 /**
  * Renders the whole application.
@@ -45,14 +46,21 @@ export default function App() {
 			{/* Inirialize the router and define the routing*/}
 			<Router>
 				<Routes>
-					<Route exact path="/" element={<HomePage/>} />
-					<Route exact path="/login" element={<LoginPage/>}/>
-					<Route exact path="/signup" element={<SignupPage/>}/>
-					<Route exact path="/contact" element={<ContactPage/>}/>
-					<Route exact path="/map" element={<MapPage/>}/>
-					<Route  path="/camps/:slug" element={<CampDetailsPage/>}/>
-					<Route exact path="/camps/add" element={<AddCampPage/>}/>
-					<Route exact path="/thankyou" element={<ThankYouPage/>}/>
+					<Route exact path="/" element={<HomePage />}/>
+					<Route exact path="/map" element={<MapPage />}/>
+
+					<Route exact path="/my-profile" element={<MyProfilePage />}/>
+					{/* <Route exact path="/my-camps" element={<MyCampsPage />}/> */}
+					<Route exact path="/edit-profile" element={<EditProfilePage/>}/>
+
+					<Route exact path="/login" element={<LoginPage />}/>
+					<Route exact path="/signup" element={<SignupPage />}/>
+					<Route exact path="/contact" element={<AboutUsPage />}/>
+					
+					<Route  path="/camps/:slug" element={<CampDetailsPage />}/>
+					<Route exact path="/camps/add" element={<AddCampPage />}/>
+
+					<Route exact path="/thankyou" element={<ThankYouPage />}/>
 				</Routes>
 			</Router>
 			
