@@ -37,6 +37,7 @@ export default function SearchBar() {
             <input 
             type="text" 
             list="data" 
+            style={{width: 400}}
             onChange={(e) => {
                 e.preventDefault();
                 setUserInput(e.target.value);
