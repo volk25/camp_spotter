@@ -4,7 +4,7 @@ import {GeoSearchControl} from 'leaflet-geosearch';
 
 
 //This is a component of a search bar, that will be inserted inside the main map 
-const SearchControl = (props) => {
+export default function SearchControl(props) {
    const map = useMap();
  
    useEffect(() => {
@@ -18,6 +18,5 @@ const SearchControl = (props) => {
    }, [map, props]);
  
    return null;
+   
  };
-
- export default SearchControl;
