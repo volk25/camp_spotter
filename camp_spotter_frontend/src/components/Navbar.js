@@ -49,7 +49,7 @@ export default function NavBar() {
 							{ token ?
 								<Nav>
 									<NavDropdown className="h5" title={<i class="fas fa-user-circle h4 text-white"></i>} id="basic-nav-dropdown">
-										<NavDropdown.Item className="h6" href="#">MyProfile</NavDropdown.Item>
+										<NavDropdown.Item className="h6" href="/my-profile">MyProfile</NavDropdown.Item>
 										<NavDropdown.Item className="h6" href="#">MyCamps</NavDropdown.Item>
 										<NavDropdown.Divider />
 										<NavDropdown.Item className="h6" href="" onClick = {TokenClear}>LogOut</NavDropdown.Item>
