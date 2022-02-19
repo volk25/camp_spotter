@@ -159,14 +159,14 @@ body,
   margin-top: 300px;
 }
 
-input {
+.AddReview input {
   color: white;
   background: transparent;
   width:100%;
   border: 0;
 }
 
-input::placeholder{
+.AddReview input::placeholder{
   opacity: 1;
   color: white;
 }
@@ -178,7 +178,7 @@ input::placeholder{
   }
 }
 
-input:-webkit-autofill {
+.AddReview input:-webkit-autofill {
   -webkit-animation-name: autofill;
   -webkit-animation-fill-mode: both;
 }
