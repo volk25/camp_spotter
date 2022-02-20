@@ -10,6 +10,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import CampDetailsPage from "./pages/CampDetailsPage";
+import EditCampPage from  "./pages/EditCampPage";
 import AddCampPage from "./pages/AddCampPage";
 import ThankYouPage from "./pages/ThankYouPage";
 
@@ -57,6 +58,7 @@ export default function App() {
 
 					<Route  path="/camps/:slug" element={<CampDetailsPage />}/>
 					<Route exact path="/camps/add" element={<AddCampPage />}/>
+					<Route exact path="/camps/edit/:slug" element={<EditCampPage />}/>
 
 					<Route exact path="/thankyou" element={<ThankYouPage />}/>
 				</Routes>
