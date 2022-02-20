@@ -87,7 +87,7 @@ export default function CampCreate(props) {
 
 	// Setting states for map component 
 	const MapEvents = () => {
-		useMapEvents({
+		useMapEvents({	
 			click(e) {
 				setLatitude(e.latlng.lat)
 				setLongitude(e.latlng.lng)
