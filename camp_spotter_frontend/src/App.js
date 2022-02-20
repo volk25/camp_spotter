@@ -46,7 +46,6 @@ export default function App() {
 			<Router>
 				<Routes>
 					<Route exact path="/" element={<HomePage />}/>
-					<Route exact path="/map" element={<MapPage />}/>
 
 					<Route exact path="/my-profile" element={<MyProfilePage />}/>
 					{/* <Route exact path="/my-camps" element={<MyCampsPage />}/> */}
@@ -60,7 +59,6 @@ export default function App() {
 					<Route exact path="/camps/add" element={<AddCampPage />}/>
 
 					<Route exact path="/thankyou" element={<ThankYouPage />}/>
-					<Route exact path="/" element={<HomePage />} />
 				</Routes>
 			</Router>
 			
