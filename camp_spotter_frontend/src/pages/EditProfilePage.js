@@ -66,7 +66,7 @@ export default function EditProfilePage() {
 		<div>
 
 			{/* Create a header */}
-			<h1 className="text-center text-white">Edit My Profile</h1>
+			<h1 className="text-center text-white">Edit Profile</h1>
 		
 			{/* Insert the UserUpdate component */}
 			<div>
