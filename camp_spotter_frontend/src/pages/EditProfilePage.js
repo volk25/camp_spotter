@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import UserUpdate from '../components/UserUpdate';
@@ -14,8 +14,7 @@ export default function EditProfilePage() {
 
 	// Define the identity variables/constants/states
     const [identity, setIdentity] = useState();
-    const [loadingIdentity, setLoadingIdentity] = useState(true);
-    const responseOk = useRef(false);
+    const [loading, setLoading] = useState(true);
 
 	// Define the variables/constants/states
 	let navigate = useNavigate();
@@ -52,12 +51,12 @@ export default function EditProfilePage() {
         .catch((err) => console.log(err))
 
         // Set to false the loading state
-        .finally(() => setLoadingIdentity(false));
+        .finally(() => setLoading(false));
 
     },[]);
 
     // If loading variable is still set to true, notify it to the user
-    if (loadingIdentity) {
+    if (loading) {
         return <p>Data is loading...</p>;
     }
 
