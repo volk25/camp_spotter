@@ -42,10 +42,7 @@ export default function EditProfilePage() {
 
         // Get the response in a json format and set the data to the identity state
         .then (response => response.json())
-        .then (result => {
-            console.log(result);
-            setIdentity(result);
-        })
+        .then (result => {setIdentity(result)})
 
         // Catch the error if present and console log it
         .catch((err) => console.log(err))

@@ -43,12 +43,12 @@ export default function UserUpdate(props) {
         // Set to false the loading variable
         .finally(() => setLoading(false));
 
-    },[]);
+    });
 
     // If loading variable is still set to true, notify it to the user
     if (loading) {
         return <p>Data is loading...</p>;
-    };
+    }
 
     // ######### USER UPDATE ##########
 
@@ -126,8 +126,8 @@ export default function UserUpdate(props) {
 
             {/* Show the user image and the username */}
             <div className=" mt-5 text-center">
-                <div className= "profileImage text-center">
-                    <img src={user.current.image} alt="userImage" className="rounded-circle" height="200"/>
+                <div className= "profileImage text-center position-relative">
+                    <img src={user.current.image} alt="userImage" className="rounded-circle" height="200"/>          
                 </div>
                 <div style={{ color: "white", margin: "auto" }}>
                     <h4 className="nickname text-center">{props.slug}</h4>
@@ -188,6 +188,7 @@ export default function UserUpdate(props) {
                         />
                     </Form.Group>
 
+                    {/* Confirm password group */}
                     <Form.Group className="form-group" size="lg" controlId="email">
                         <Form.Label>Confirm password</Form.Label>
                         <Form.Control
@@ -201,7 +202,7 @@ export default function UserUpdate(props) {
 
                     {/* Image upload group */}
                     <Form.Group className="form-group" size="lg">
-                        <Form.Label>Change your profile image</Form.Label>
+                        <Form.Label>Upload your profile image</Form.Label>
                         <Form.Control
                             type="file"
                             onChange={(e) => {user.current.image = e.target.files[0]}}

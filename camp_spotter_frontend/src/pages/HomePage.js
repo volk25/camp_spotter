@@ -26,6 +26,7 @@ export default function HomePage() {
 				setContent(
 					<div className="bg-success">
 						<Map finalUserInput={finalUserInput}/>
+						<div style={{ height: "100vh" }}></div>
 					</div>				
 				)
 			};
