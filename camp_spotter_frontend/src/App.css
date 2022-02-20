@@ -199,3 +199,7 @@ body,
   margin-left: auto;
   margin-right: auto;
 }
+
+.imageInput>input {
+  display: none;
+}
