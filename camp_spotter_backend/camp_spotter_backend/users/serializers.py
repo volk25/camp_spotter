@@ -52,8 +52,8 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
 
     User = get_user_model()
     image = serializers.ImageField(default='images/users/default.jpg')
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password2 = serializers.CharField(write_only=True, required=True)
+    password = serializers.CharField(write_only=True, allow_blank=True, validators=[validate_password])
+    password2 = serializers.CharField(write_only=True, allow_blank=True)
     email = serializers.EmailField(required=True, validators=[UniqueValidator(queryset=User.objects.all())])
     first_name = serializers.CharField(required=False, allow_blank=True)
     last_name = serializers.CharField(required=False, allow_blank=True)
@@ -120,7 +120,9 @@ class UserCreateUpdateSerializer(serializers.ModelSerializer):
         user_object.image = validated_data['image']
 
         # Set the password to the user object and save it
-        user_object.set_password(validated_data['password'])
+        if validated_data['password']:
+            user_object.set_password(validated_data['password'])
+
         user_object.save()
 
         return user_object
