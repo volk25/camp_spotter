@@ -13,6 +13,7 @@ import SignupPage from "./pages/SignupPage";
 import CampDetailsPage from "./pages/CampDetailsPage";
 import EditCampPage from  "./pages/EditCampPage";
 import AddCampPage from "./pages/AddCampPage";
+import MyCampsPage from "./pages/MyCampsPage"
 import ThankYouPage from "./pages/ThankYouPage";
 
 /**
@@ -51,8 +52,10 @@ export default function App() {
 					<Route exact path="/map/:coordinates" element={<MapPage />}/>
 
 					<Route exact path="/my-profile" element={<MyProfilePage />}/>
-					{/* <Route exact path="/my-camps" element={<MyCampsPage />}/> */}
 					<Route exact path="/edit-profile" element={<EditProfilePage/>}/>
+
+					<Route exact path="/my-camps" element={<MyCampsPage />}/>
+					<Route exact path="/camps/edit/:slug" element={<EditCampPage />}/>
 
 					<Route exact path="/login" element={<LoginPage />}/>
 					<Route exact path="/signup" element={<SignupPage />}/>
@@ -60,8 +63,7 @@ export default function App() {
 
 					<Route  path="/camps/:slug" element={<CampDetailsPage />}/>
 					<Route exact path="/camps/add" element={<AddCampPage />}/>
-					<Route exact path="/camps/edit/:slug" element={<EditCampPage />}/>
-
+					
 					<Route exact path="/thankyou" element={<ThankYouPage />}/>
 				</Routes>
 			</Router>
