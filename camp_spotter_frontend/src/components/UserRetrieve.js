@@ -11,11 +11,11 @@ export default function UserRetrieve(props) {
 
   // Define the user variables/constants/states
   const [user, setUser] = useState([]);
-  const [userError, setUserError] = useState();
-  const [userLoading, setUserLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  // Define what to do when the component is loaded
+  // Fetch the user details as soon as the page loads
   useEffect (() => {
+
     // Fetch the data from the API
     fetch (`http://127.0.0.1:8000/users/${props.slug}/`, {
         method: 'GET',
@@ -29,26 +29,24 @@ export default function UserRetrieve(props) {
     .then (result => setUser(result))
 
     // Catch the error if present and set it to the error variable
-    .catch((err) => setUserError(err))
+    .catch((err) => console.log(err))
 
     // Set to false the loading variable
-    .finally(() => setUserLoading(false));
+    .finally(() => setLoading(false));
 
 },[]);
 
 // If loading variable is still set to true, notify it to the user
-if (userLoading) {
+if (loading) {
     return <p>Data is loading...</p>;
 }
-// If there are no errors
-if (userError) {
-    return <p>An error occurred while loading the User Profile!</p>;
-}
 
-// If data is loaded and there are no errors, show the User Profile page
+// If data is loaded, render the page
 return (
+
   <div className="background">
-  {/* User image + User name */}
+
+  {/* Create user image and username */}
     <div className=" mt-5 text-center">
         <div className= " profileImage text-center">
           <img src={user.image} alt="userImage" className="rounded-circle" height="200"/>
@@ -58,7 +56,7 @@ return (
         </div>
     </div>
 
-    {/* User details */}
+    {/* Create user details */}
     <div className="description mt-5 fs-4 text-white">
 
         <div className="mb-3 d-flex justify-content-center">
@@ -79,14 +77,14 @@ return (
         </div>          
     </div>
 
-  {/* Edit and Delete Profile buttons */}
+    {/* Create edit and delete buttons */}
     <div className="mt-5 text-center">
-      <Link to="/edit-profile">
+      <Link to="/myprofile/edit">
         <button type="button" class="btn btn-secondary me-5">Edit Profile</button>
       </Link>
-      
-      <button type="button" class="btn btn-danger">Delete Profile</button>
-
+      <Link to="/myprofile/delete">
+        <button type="button" class="btn btn-danger">Delete Profile</button>
+      </Link>
     </div>
     
     <div style={{ height: "100vh" }}></div>

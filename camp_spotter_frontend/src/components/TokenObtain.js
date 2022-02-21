@@ -58,7 +58,7 @@ export default function TokenObtain() {
 		.then((result) => {
 			if (responseOk.current) {
 				localStorage.setItem('token', result.token)
-				navigate('/map')
+				navigate('/map/localize')
 				window.location.reload(false)
 			} else {
 				for(var i in result){

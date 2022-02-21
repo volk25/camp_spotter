@@ -5,7 +5,7 @@ import ReviewDestroy from './ReviewDestroy';
 
 /**
  * Renders the list with all the reviews of a camp after fetching the data with a GET request (all users are allowed).
- * @param {*} props slug of the camp to which the review list should belongs
+ * @param {*} props slug of the camp to which the review list belongs
  * @returns renders the component
  */
  export default function ReviewList(props) {
@@ -69,7 +69,7 @@ import ReviewDestroy from './ReviewDestroy';
     },[]);
 
 	/**
-	 * Event handler for Review deletion.
+	 * Event handler for element deletion.
 	 * @param {*} props slug of the camp and id of the review
 	 */
     function handleDelete(props) {
@@ -90,24 +90,25 @@ import ReviewDestroy from './ReviewDestroy';
             {/* Render the reviews of the camp, if some are present */}
             { reviewList.length > 0 ?
 
-                reviewList.map(review => (                      
+                reviewList.map(review => (
+
                     <div key={review.id}>  
                                         
                         <div className='d-flex justify-content-evenly mb-3'>
 
-                            {/* user image and username */}
+                            {/* Create user image and username */}
                             <div className='me-3 col-1' >
                                 <img src={review.author_image} alt='user image' width='70' height= '70' className='rounded-pill'/>
                                 <div className='text-center text-white'>{review.author}</div>
                             </div>
 
-                            {/* review title, rating and review body */}
+                            {/* Create review title, rating and review body */}
                             <div className=' mb-2 col-11'>
 
                                 {/* Create the review title and the star rating */}
                                 <div className=''>
                                     <span className='text-white fw-bold ms-4 me-3'>{review.title}</span>
-                                    { [...Array(review.rating)].map((e, i) => <i className='fas fa-star text-success'></i>)}
+                                    { [...Array(review.rating)].map((e, i) => <i className='fas fa-star text-success'/>)}
                                 </div>
 
                                 {/* Create the review body */}
@@ -118,7 +119,8 @@ import ReviewDestroy from './ReviewDestroy';
                                     { identity.username === review.author ?
                                         <button
                                         className='btn btn-outline-danger rounded-pill'
-                                        type='button' onClick={() => handleDelete({slug: props.slug, id: review.id})} >
+                                        type='button' 
+                                        onClick={() => handleDelete({slug: props.slug, id: review.id})} >
                                         Delete
                                         </button>
                                     :

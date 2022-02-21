@@ -13,8 +13,7 @@ import { GetIcon } from './Map';
 
     // Define the camp variables/constants/states
     const [campDetails, setCampDetails] = useState([]);
-    const [campError, setCampError] = useState();
-    const [campLoading, setCampLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     // Define what to do when the component is loaded
     useEffect (() => {
@@ -32,34 +31,30 @@ import { GetIcon } from './Map';
         .then (result => setCampDetails(result))
 
         // Catch the error if present and set it to the error variable
-        .catch((err) => setCampError(err))
+        .catch((err) => console.log(err))
 
         // Set to false the loading variable
-        .finally(() => setCampLoading(false));
+        .finally(() => setLoading(false));
 
     },[]);
 
     // If loading variable is still set to true, notify it to the user
-    if (campLoading) {
+    if (loading) {
         return <p>Data is loading...</p>;
     }
-    // If there are no errors
-    if (campError) {
-        return <p>An error occurred while loading the Camp details!</p>;
-    }
     
-    // If data is loaded and there are no errors, show the CampDetails page
+    // If data is loaded, render the component
     return (
         
         <div>
 
             {/* Camp image with camp name displayed on it */}
             <div className="position-relative text-center mt-5" >
-                <img src={campDetails.image} className="radius" width="100%" height= "200" alt="mainCampImage" />
+                <img src={campDetails.image} className="radius" width="100%" height= "200" alt="mainCampImage"/>
                 <div className='box bg-secondary bg-opacity-75'>
                     <div className="position-absolute  d-flex justify-content-between bottom-0 start-50 translate-middle-x  text-white fs-2 bg-secondary bg-opacity-50  w-100">
-                    <span className='ms-4'>{campDetails.title}</span>
-                    <span className='bg-success text-white rounded h3 me-4'>{campDetails.rating}</span>
+                        <span className='ms-4'>{campDetails.title}</span>
+                        <span className='bg-success text-white rounded h3 me-4'>{campDetails.rating}</span>
                     </div>
                 </div>
             </div>

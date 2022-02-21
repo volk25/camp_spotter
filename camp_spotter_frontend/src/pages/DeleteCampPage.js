@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
-import CampUpdate from '../components/CampUpdate';
+import CampDestroy from '../components/CampDestroy';
 
 /**
- * Edit camp page of the application.
+ * Delete camp page of the application.
  * @returns renders the page
  */
-export default function EditCampPage() {
+export default function DeleteCampPage() {
 
 	// Define the parameters coming from outside the component
 	const params = useParams()
@@ -20,7 +20,7 @@ export default function EditCampPage() {
 	useEffect(() => {
 		if (!token) {
 			navigate('/login')
-		}
+		};
 	},[]);
 
 	// Render the page
@@ -29,15 +29,15 @@ export default function EditCampPage() {
 		<div>
 
 			{/* Create a header */}
-			<h1 className="text-center text-white">Edit Camp</h1>
+			<h1 className="text-center text-white">Delete Camp</h1>
 		
-			{/* Insert the CampUpdate component */}
+			{/* Insert the CampDestroy component */}
 			<div className='overlay'></div>
 				<div className='campDetails position-relative'> 
 					<div>
-						<CampUpdate 
+						<CampDestroy 
 						token={token} 
-						campSlug={params.slug}
+						slug={params.slug}
 						/>
 					</div>
 			</div>

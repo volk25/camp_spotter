@@ -34,7 +34,8 @@ export default function AddCampPage() {
 		
 			{/* Insert the CampCreate component */}
 			<div>
-				<CampCreate token={token}/>
+				<CampCreate 
+				token={token}/>
 			</div>
 
 			<div style={{ height: "5vh" }}></div>

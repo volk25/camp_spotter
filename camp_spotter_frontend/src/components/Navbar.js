@@ -46,8 +46,8 @@ export default function NavBar() {
                     { token ?
                         <Nav>
                             <NavDropdown style={{width:'4vw'}} className="me-5 h5" title={<i class="fas fa-user-circle h4 text-white"></i>} id="basic-nav-dropdown">
-                                <NavDropdown.Item className="text-center h6" href="/my-profile">MyProfile</NavDropdown.Item>
-                                <NavDropdown.Item className="text-center h6" href="/my-camps">MyCamps</NavDropdown.Item>
+                                <NavDropdown.Item className="text-center h6" href="/myprofile">MyProfile</NavDropdown.Item>
+                                <NavDropdown.Item className="text-center h6" href="/mycamps">MyCamps</NavDropdown.Item>
                                 <NavDropdown.Divider className="h6" />
                                 <NavDropdown.Item className="text-center h6" href="" onClick = {TokenClear}>LogOut</NavDropdown.Item>
                             </NavDropdown>

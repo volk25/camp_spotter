@@ -1,28 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-import CampList from '../components/CampList';
+import UserUpdate from '../components/UserUpdate';
 
 /**
- * MyCamps page of the application.
+ * Edit user profile page of the application.
  * @returns renders the page
  */
-export default function MyCampsPage() {
+export default function EditMyProfilePage() {
 
 	// Define the parameters coming from outside the component
 	const token = localStorage.getItem('token')
 
-	// Define the identity variables/constants/states
-    const [identity, setIdentity] = useState();
-    const [loadingIdentity, setLoadingIdentity] = useState(true);
-    const responseOk = useRef(false);
-
 	// Define the variables/constants/states
+    const [identity, setIdentity] = useState();
+    const [loading, setLoading] = useState(true);
 	let navigate = useNavigate();
 
-	/**
-	* Redirect to the login page if without token
-	*/
+	// Redirect to the login page if without token
 	useEffect(() => {
 		if (!token) {
 			navigate('/login')
@@ -41,43 +36,36 @@ export default function MyCampsPage() {
             }
         })
 
-        // Get the response in a json format and set the data to the identity state
+        // Get the response in a json format, set the resullt to the identity state, catch the eventual error and set the loading to false
         .then (response => response.json())
-        .then (result => {
-            console.log(result);
-            setIdentity(result);
-        })
-
-        // Catch the error if present and console log it
+        .then (result => {setIdentity(result)})
         .catch((err) => console.log(err))
-
-        // Set to false the loading state
-        .finally(() => setLoadingIdentity(false));
+        .finally(() => setLoading(false));
 
     },[]);
 
     // If loading variable is still set to true, notify it to the user
-    if (loadingIdentity) {
+    if (loading) {
         return <p>Data is loading...</p>;
-    }
+    };
 
 	// Render the page
   	return(
 
 		<div>
-		<div className="overlay"></div>
 
 			{/* Create a header */}
-			<h1 className="text-center text-white position-relative">My Camps</h1>
+			<h1 className="text-center text-white">Edit Profile</h1>
 		
-			{/* Insert the MyCamps component */}
+			{/* Insert the UserUpdate component */}
 			<div>
-				<CampList
+				<UserUpdate 
+				token={token} 
 				slug={identity.slug}
 				/>
 			</div>
 
-			<div style={{ height: "100vh" }}></div>
+			<div style={{ height: "5vh" }}></div>
 
     	</div>
   	);

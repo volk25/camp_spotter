@@ -104,7 +104,7 @@ export default function UserUpdate(props) {
         // Redirect if the reponse was ok, otherwise show toasts with the errors
         .then((result) => {
             if (responseOk.current) {
-                navigate('/my-profile')
+                navigate('/myprofile')
             } else {
                 for(var i in result){
                     for(var k in result[i]){
