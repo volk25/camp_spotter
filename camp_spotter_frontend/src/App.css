@@ -159,6 +159,7 @@ body,
   margin-top: 300px;
 }
 
+/* Styles for Add Review Page */
 .AddReview input {
   color: white;
   background: transparent;
@@ -200,6 +201,27 @@ body,
   margin-right: auto;
 }
 
-.imageInput>input {
-  display: none;
+/* Styles for Edit Camp Page */
+.editCamp input {
+  color: white;
+  background: transparent;
+  width:100%;
+  border: 0;
+}
+
+.editCamp input::placeholder{
+  opacity: 1;
+  color: white;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: grey;
+    background: transparent;
+  }
+}
+
+.editCamp input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
 }

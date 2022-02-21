@@ -8,14 +8,15 @@ import LocationMarker from "./Geolocation.js"
 import SearchControl from './SearchControl.js';
 
 /**
- * Create a map, include search bar on it, load all camping spots from json and mark them with customized tent icon. 
- * @returns map with camp spots displayed on it 
+ * Map with a search bar on it.
+ * @param {*} props coordinates of the user inputted location
+ * @returns the rendered conponent
  */
 export default function Map(props) {
 
     // Define the variables/constants/states
-    const position = [52.3676, 4.9041] //position of Amsterdam at which map will always open
     const prov = new AlgoliaProvider();
+    const position = [Number(props.coordinates.split(',')[1]), Number(props.coordinates.split(',')[0])]
     const [campList, setCampList] = useState([]); 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
@@ -60,43 +61,41 @@ export default function Map(props) {
        
         <div>
 
-            {/* TEMPORARY */}
-            <h2>{props.finalUserInput}</h2>
-
             {/* Create the map and making it fit 100% of the page */}
             <MapContainer className="map" center={position} zoom={10} style={{height:"100vh", width: "100%"}}> 
-            
-            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
-                contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>  
-    
-            <LocationMarker/>
+                <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
+                    contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />  
+        
+                {/* IMPORTANT TODO add a condition for this to be present only when coordinates are not provided */}
+                <LocationMarker/>
 
-            <SearchControl 
-                provider={prov}
-                style={'bar'}
-                showMarker={true}
-                showPopup={true}
-                // maxMarkers={10}
-                retainZoomLevel={true}
-                animateZoom={true}
-                autoClose={true}
-                searchLabel={"Search"}
-                
-                keepResult={false}
-                // position={"topright"}
-            />
+                {/* Create a search bar on the map */}
+                <SearchControl 
+                    provider={prov}
+                    style={'bar'}
+                    showMarker={true}
+                    showPopup={true}
+                    // maxMarkers={10}
+                    retainZoomLevel={true}
+                    animateZoom={true}
+                    autoClose={true}
+                    searchLabel={"Search"}
+                    keepResult={false}
+                    // position={"topright"}
+                />
 
-            {/* Add markers to the map */}
-            {campList.map((camp) => (
-                <Marker position={[camp.latitude, camp.longitude]} icon={GetIcon(50)} key={camp.slug}>
-                    <Popup>
-                        <Link to ={`/camps/${camp.slug}`}>
-                        <span>
-                            {camp.title}                       
-                        </span>  
-                        </Link> 
-                    </Popup>               
-                </Marker> ))} 
+                {/* Add markers to the map */}
+                {campList.map((camp) => (
+                    <Marker position={[camp.latitude, camp.longitude]} icon={GetIcon(50)} key={camp.slug}>
+                        <Popup>
+                            <Link to ={`/camps/${camp.slug}`}>
+                            <span>
+                                {camp.title}                       
+                            </span>  
+                            </Link> 
+                        </Popup>               
+                    </Marker> ))} 
+
             </MapContainer> 
 
         </div> 
@@ -116,4 +115,4 @@ function GetIcon(_iconSize) {
         })
 }
 
-export  {GetIcon} 
+export {GetIcon} 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -11,9 +11,10 @@ import "../App.css";
 export default function Search(props) {
 
     // Define the variables/constants/states
-    const [userInput, setUserInput] = useState("");
+    const [userInput, setUserInput] = useState('')
+    const latitude = useRef();
+    const longitude = useRef();
     const [datalist, setDatalist] = useState([]);
-    const setFinalUserInput = props.setFinalUserInput
 
     // Initialize a new Map Provider
     const provider = new OpenStreetMapProvider();
@@ -29,17 +30,16 @@ export default function Search(props) {
             var labels = results.map(function(i) {
                 return i.label;
             });
-            setDatalist(labels)
+            var places = results.map(function(i) {
+                return i
+            })
+            setDatalist(labels);
+            latitude.current = places[0].x;
+            longitude.current = places[0].y;
+            
         })
-    }, [userInput])
 
-	/**
-	 * Event handler for Search event.
-	 * @param {*} props userInput
-	 */
-     function handleSearch() {
-        setFinalUserInput(userInput)
-    };
+    }, [userInput])
 
     // Render the component
     return (
@@ -62,11 +62,11 @@ export default function Search(props) {
             </datalist>
 
             {/* Add the search button */}
-            <button className='btn' type='button' onClick={handleSearch} >
+            <Link to={`/map/${latitude.current},${longitude.current}/`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" className="bi bi-search ms-2" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
-            </button>
+            </Link>
 
             {/* Add the locate-me link */}
             <Link to="/">
