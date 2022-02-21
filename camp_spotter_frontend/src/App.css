@@ -19,6 +19,10 @@
     position: relative;
   }
 
+  #basic-nav-dropdown {
+    min-width:inherit;
+  }
+
 .App-header {
   min-height: 100vh;
   display: flex;
