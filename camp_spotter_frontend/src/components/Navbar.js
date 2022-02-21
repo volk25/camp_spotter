@@ -19,17 +19,17 @@ export default function NavBar() {
 		<Navbar bg="" expand="lg">
 
 			{/* Put everything inside a container */}
-  			<Container>
+  			{/* <Container> */}
 
 				{/* Create a navbar brand and the logo */}
-    			<Navbar.Brand href="/">
+    			<Navbar.Brand className="mx-5" href="/">
             		<h1 className="navbar-logo">Campspotter<i className="fas fa-campground"></i></h1>
           		</Navbar.Brand>
 
 				{/* Create a button for toggling the dropdown menu (for menu entries on the right in md) */}
     			<Navbar.Toggle aria-controls="basic-navbar-nav" />
     				<Navbar.Collapse id="basic-navbar-nav">
-      					<Nav className="ms-auto">
+      					<Nav className="ms-auto me-5">
 
 						  	{/* Create the menu entries to be aligned on the right */}
         					<Nav.Link className="text-white h5" href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
@@ -48,11 +48,11 @@ export default function NavBar() {
 							{/* Restrict the Profile dropdown menu to be shown only with token */}
 							{ token ?
 								<Nav>
-									<NavDropdown className="h5" title={<i class="fas fa-user-circle h4 text-white"></i>} id="basic-nav-dropdown">
-										<NavDropdown.Item className="h6" href="/my-profile">MyProfile</NavDropdown.Item>
-										<NavDropdown.Item className="h6" href="#">MyCamps</NavDropdown.Item>
-										<NavDropdown.Divider />
-										<NavDropdown.Item className="h6" href="" onClick = {TokenClear}>LogOut</NavDropdown.Item>
+									<NavDropdown style={{width:'4vw'}} className="me-5 h5" title={<i class="fas fa-user-circle h4 text-white"></i>} id="basic-nav-dropdown">
+										<NavDropdown.Item className="text-center h6" href="/my-profile">MyProfile</NavDropdown.Item>
+										<NavDropdown.Item className="text-center h6" href="#">MyCamps</NavDropdown.Item>
+										<NavDropdown.Divider className="h6" />
+										<NavDropdown.Item className="text-center h6" href="" onClick = {TokenClear}>LogOut</NavDropdown.Item>
 									</NavDropdown>			
 								</Nav>
 							:
@@ -62,7 +62,7 @@ export default function NavBar() {
       					</Nav>
     				</Navbar.Collapse>
 
-  			</Container>
+  			{/* </Container> */}
 
 		</Navbar>
 
