@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import MyProfilePage from "./pages/MyProfilePage";
 import EditMyProfilePage from "./pages/EditMyProfilePage";
+// import DeleteMyProfilePage from "./pages/DeleteMyProfilePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";

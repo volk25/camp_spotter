@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import CampList from '../components/CampList';
@@ -14,15 +14,12 @@ export default function MyCampsPage() {
 
 	// Define the identity variables/constants/states
     const [identity, setIdentity] = useState();
-    const [loadingIdentity, setLoadingIdentity] = useState(true);
-    const responseOk = useRef(false);
+    const [loading, setLoadingIdentity] = useState(true);
 
 	// Define the variables/constants/states
 	let navigate = useNavigate();
 
-	/**
-	* Redirect to the login page if without token
-	*/
+	// Redirect to the login page if without token
 	useEffect(() => {
 		if (!token) {
 			navigate('/login')
@@ -41,27 +38,20 @@ export default function MyCampsPage() {
             }
         })
 
-        // Get the response in a json format and set the data to the identity state
+        // Get the response in a json format, set the resullt to the identity state, catch the eventual error and set the loading to false
         .then (response => response.json())
-        .then (result => {
-            console.log(result);
-            setIdentity(result);
-        })
-
-        // Catch the error if present and console log it
+        .then (result => setIdentity(result))
         .catch((err) => console.log(err))
-
-        // Set to false the loading state
         .finally(() => setLoadingIdentity(false));
 
     },[]);
 
     // If loading variable is still set to true, notify it to the user
-    if (loadingIdentity) {
+    if (loading) {
         return <p>Data is loading...</p>;
     }
 
-	// Render the page
+	// If everything has loaded, render the page
   	return(
 
 		<div>
