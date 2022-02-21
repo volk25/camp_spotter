@@ -48,7 +48,7 @@ export default function App() {
 			<Router>
 				<Routes>
 					<Route exact path="/" element={<HomePage />}/>
-					<Route exact path="/map/:coordinates" element={<MapPage />}/>
+					<Route exact path="/map/:positionSlug" element={<MapPage />}/>
 
 					<Route exact path="/my-profile" element={<MyProfilePage />}/>
 					{/* <Route exact path="/my-camps" element={<MyCampsPage />}/> */}

@@ -16,10 +16,18 @@ export default function Map(props) {
 
     // Define the variables/constants/states
     const prov = new AlgoliaProvider();
-    const position = [Number(props.coordinates.split(',')[1]), Number(props.coordinates.split(',')[0])]
     const [campList, setCampList] = useState([]); 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
+
+    // Set the initial position
+    function initialPosition() {
+        if (props.position){
+            return([props.position.latitude, props.position.longitude])
+        } else {
+            return([52.3676, 4.9041])
+        }
+    };
 
     // Fetch the camp list as soon as the page is loaded
     useEffect (() => {
@@ -62,12 +70,12 @@ export default function Map(props) {
         <div>
 
             {/* Create the map and making it fit 100% of the page */}
-            <MapContainer className="map" center={position} zoom={10} style={{height:"100vh", width: "100%"}}> 
+            <MapContainer className="map" center={[initialPosition()[0], initialPosition()[1]]} zoom={10} style={{height:"100vh", width: "100%"}}> 
                 <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
                     contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />  
         
-                {/* IMPORTANT TODO add a condition for this to be present only when coordinates are not provided */}
-                <LocationMarker/>
+                {/* Localize the user if no position has been passed from the search page */}
+                { props.position === null ? <LocationMarker /> : <></> }
 
                 {/* Create a search bar on the map */}
                 <SearchControl 
