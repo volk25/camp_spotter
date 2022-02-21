@@ -29,7 +29,7 @@ import ReviewCreate from '../components/ReviewCreate';
                 </div>
 
                 {/* Insert the list with reviews of the camp, if present */}
-                <div className='text-white fw-bold fs-2 mb-5'>Reviews</div>
+                <div className='text-white fw-bold fs-2 mb-3'>Reviews</div>
                 <div>
                     <ReviewList slug={params.slug}/>
                 </div>
