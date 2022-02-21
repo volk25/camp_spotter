@@ -69,12 +69,12 @@ return (
               <div className="fw-bold" >Date joined:</div>
             </div>
               
-              <div>
-                <div className="ms-5">{user.first_name}</div>
-                <div className="ms-5">{user.last_name}</div>
-                <div className="ms-5">{user.email}</div>
-                <div className="ms-5">{user.date_joined.slice(0,10)}</div>
-              </div>
+            <div>
+              <div className="ms-5">{user.first_name}</div>
+              <div className="ms-5">{user.last_name}</div>
+              <div className="ms-5">{user.email}</div>
+              <div className="ms-5">{user.date_joined.slice(0,10)}</div>
+            </div>
               
         </div>          
     </div>
