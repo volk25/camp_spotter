@@ -77,6 +77,9 @@ body,
   position: relative;
   top: -400px;
 }
+.contact {
+  text-align: left !important;
+}
 /* Styles for Add Camp page */
 .addcampForm {
     margin: 0 auto;
@@ -228,4 +231,14 @@ body,
 .editCamp input:-webkit-autofill {
   -webkit-animation-name: autofill;
   -webkit-animation-fill-mode: both;
+}
+
+.dropdown-menu {
+  min-width: inherit !important;
+  left: -30px !important;
+  background-color: #055d3d !important;
+}
+
+.btn-success {
+  background-color: #055d3d !important;
 }

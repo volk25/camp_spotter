@@ -45,9 +45,8 @@ if (loading) {
 return (
 
   <div className="background">
-
   {/* Create user image and username */}
-    <div className=" mt-5 text-center">
+    <div className=" mt-5 text-center ">
         <div className= " profileImage text-center">
           <img src={user.image} alt="userImage" className="rounded-circle" height="200"/>
         </div>
@@ -89,6 +88,6 @@ return (
     
     <div style={{ height: "100vh" }}></div>
   </div>
-  
+
 );
 };

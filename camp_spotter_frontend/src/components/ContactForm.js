@@ -75,7 +75,7 @@ export default function ContactForm() {
 
 				{/* Name input group */}
 				<Form.Group className="form-group" size="lg" controlId="name">
-					<Form.Label>Name *</Form.Label>
+					<Form.Label> Name *</Form.Label>
 					<Form.Control
 						autoFocus
 						type="text"
