@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import Rating from '@mui/material/Rating';
 import "../App.css";
 import ReviewDestroy from './ReviewDestroy';
 
@@ -103,12 +104,12 @@ import ReviewDestroy from './ReviewDestroy';
                             </div>
 
                             {/* Create review title, rating and review body */}
-                            <div className=' mb-2 col-11'>
+                            <div className="mb-2 col-11">
 
                                 {/* Create the review title and the star rating */}
-                                <div className=''>
-                                    <span className='text-white fw-bold ms-4 me-3'>{review.title}</span>
-                                    { [...Array(review.rating)].map((e, i) => <i className='fas fa-star text-success'/>)}
+                                <div className="d-flex justify-content-between me-3">
+                                    <div className='text-white fw-bold ms-4 me-3'>{review.title}</div>
+                                    <Rating className="" name="read-only" size="small" value={review.rating} readOnly />
                                 </div>
 
                                 {/* Create the review body */}

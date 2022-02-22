@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import "../App.css";
+import Rating from '@mui/material/Rating';
 import { MapContainer, TileLayer, Marker} from 'react-leaflet';
+import "../App.css";
 import { GetIcon } from './Map';
 
 /**
@@ -53,8 +54,8 @@ import { GetIcon } from './Map';
                 <img src={campDetails.image} className="radius" width="100%" height= "200" alt="mainCampImage"/>
                 <div className='box bg-secondary bg-opacity-75'>
                     <div className="position-absolute  d-flex justify-content-between bottom-0 start-50 translate-middle-x  text-white fs-2 bg-secondary bg-opacity-50  w-100">
-                        <span className='ms-4'>{campDetails.title}</span>
-                        <span className='bg-success text-white rounded h3 me-4 mt-2 ps-2 pe-2'>{campDetails.rating}</span>
+                        <div className='ms-4'>{campDetails.title}</div>
+                        <Rating className='me-3 mt-2' name="read-only" precision={0.5} value={campDetails.rating} readOnly />
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
+import Rating from '@mui/material/Rating';
 import Button from "react-bootstrap/Button";
 import "../App.css";
 
@@ -101,9 +102,16 @@ import "../App.css";
                         <div className=' mb-2 col-11'>
                             <div className='text-white fw-bold ms-3 me-3 reviewInput d-flex justify-content-between'>
                                 <input className='fw-bold' type='title' value={title} placeholder='Fill in your title' onChange={(e) => setTitle(e.target.value)}/>
-                                <input className='fw-bold' type='rating' value={rating} placeholder='Rate this camp (1-5)' onChange={(e) => setRating(e.target.value)}/>
+                                <Rating
+                                className="mt-1"
+                                name="simple-controlled"
+                                color="#055d3d"
+                                size="small"
+                                value={rating}
+                                onChange={(event, newValue) => setRating(newValue)}
+                                />
                             </div>
-                            <div  className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3'>
+                            <div className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3'>
                                 <input type='body' value={body} placeholder='Your message' onChange={(e) => setBody(e.target.value)}/>
                             </div>
                         </div>
