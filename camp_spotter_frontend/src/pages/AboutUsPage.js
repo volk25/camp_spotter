@@ -22,7 +22,7 @@ export default function AboutUsPage() {
 
       {/* About us text */}
       <div className="text-white  text-center mt-5 h5 w-50 aboutUs">
-      While being a true nature lovers and loving camping, we realized that there are not enough reliable information sources about where to stay overnight in a truly wild and beautiful place, but also a safe one.  And we mean places, where you will not be surrounded with lots of other tents and campers. We wanted to create a community of camping lovers, who will not only share their favorite wild camping spots, but also will be able to interact and comment/review those spots, where they have previously stayed.  And all this in order to inspire other people to spend some time close to the nature and wake up with a stunning view. That’s why we decided to build an application which sets the basis for a great start.
+      Are you a camping lover? Do you truly love nature, enjoy hiking and eager to explore and/or share amazing camping spots? Than Camp Spotter is the right place for you!  We are a community of camping lovers, and here we share our favourite wild camping spots with the world. Spots, were you will not be surrounded with lots of tents and campers around you.  Places, where you will be able to be alone and enjoy the power of nature.  Join us today!
       </div>
 
       {/* Insert the contact form */}
