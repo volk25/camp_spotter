@@ -16,20 +16,13 @@ export default function AboutUsPage() {
 
       {/* About Us Text */}
       <div className="background text-center text-white mt-5">
+      
         <h1 className="contact-header">About Us</h1>
       </div>
 
       {/* About us text */}
-      <div className="text-white mt-5 h5 w-50 aboutUs">
-        Magna sint do non ipsum duis velit quis ea magna enim tempor aute
-        sit deserunt. Officia veniam sint voluptate eiusmod nostrud sunt
-        deserunt labore cillum elit est deserunt ut. Occaecat aute duis
-        aliqua ad. Ullamco in enim enim laboris esse incididunt amet. Ad
-        deserunt ut cupidatat id veniam velit elit labore occaecat
-        occaecat incididunt consequat ipsum. Voluptate aliqua ea cupidatat
-        reprehenderit dolore enim occaecat officia commodo voluptate ut
-        veniam. Nostrud ea aliqua proident eu ea irure do sit dolor
-        proident esse culpa.
+      <div className="text-white  text-center mt-5 h5 w-50 aboutUs">
+      Are you a camping lover? Do you truly love nature, enjoy hiking and eager to explore and/or share amazing camping spots? Than Camp Spotter is the right place for you!  We are a community of camping lovers, and here we share our favourite wild camping spots with the world. Spots, were you will not be surrounded with lots of tents and campers around you.  Places, where you will be able to be alone and enjoy the power of nature.  Join us today!
       </div>
 
       {/* Insert the contact form */}

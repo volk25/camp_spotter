@@ -29,14 +29,14 @@ export default function NavBar() {
                 <Nav className="ms-auto me-5">
 
                     {/* Create the menu entries to be aligned on the right */}
-                    <Nav.Link className="text-white h5" href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
-                    <Nav.Link className="text-white h5" href="/contact">About Us</Nav.Link>
+                    <Nav.Link className="text-white  text-center  mt-2 h5 " href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
+                    <Nav.Link className="text-white  text-center mt-2 h5" href="/contact">About Us</Nav.Link>
 
                     {/* Restrict the Login and Signup to be shown only without token */}
                     { !token ?
                         <Nav>
-                            <Nav.Link className="text-white h5" href="/login">Login</Nav.Link>
-                            <Nav.Link className="text-white h5" href="/signup">Signup</Nav.Link>
+                            <Nav.Link className="text-white  mt-2 h5" href="/login">Login</Nav.Link>
+                            <Nav.Link className="text-white mt-2 h5" href="/signup">Signup</Nav.Link>
                         </Nav>
                     :
                         <></>
@@ -45,7 +45,7 @@ export default function NavBar() {
                     {/* Restrict the Profile dropdown menu to be shown only with token */}
                     { token ?
                         <Nav>
-                            <NavDropdown style={{width:'4vw'}} className="text-center me-3 h5" title={<i class=" fas fa-user-circle h4 text-white"/>} id="basic-nav-dropdown">
+                            <NavDropdown style={{width:'4vw'}} className="text-center me-3 h5" title={<i class="  mt-2 fas fa-user-circle h4 text-white"/>} id="basic-nav-dropdown">
                                 <NavDropdown.Item className="text-center text-white h6" href="/myprofile">MyProfile</NavDropdown.Item>
                                 <NavDropdown.Item className="text-center text-white h6" href="/mycamps">MyCamps</NavDropdown.Item>
                                 <NavDropdown.Divider className="text-white h6" />
