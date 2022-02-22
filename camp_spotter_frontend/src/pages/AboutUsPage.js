@@ -32,8 +32,8 @@ export default function AboutUsPage() {
       </div>
 
       {/* Insert the contact form */}
-      <div className="background text-center text-white mt-5">
-        <h1 className="contact-header">Contact</h1>
+      <div className="background  text-white mt-5">
+        <h1 className="contact-header text-center">Contact</h1>
         <ContactForm />
         <div style={{ height: "100vh" }}></div>
       </div>

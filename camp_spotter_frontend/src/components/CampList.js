@@ -43,22 +43,24 @@ export default function CampList(props) {
     // If data is loaded, render the component
     return (
         <div className="container w-50 mt-5 position-relative">
+
+            <div className="text-white mt-5 mb-5 h5 text-center">Here you can edit or delete your submitted camps.</div>
        
             {camps.length > 0 ?               
-                camps.map(camp => (
+                camps.map(camp => (   /* d-flex justify-content-between */
 
-                    <div className="text-white d-flex justify-content-between mb-5" key={camp.slug}>
+                    <div className="text-white row mb-4  p-3 radius bg-secondary bg-opacity-50" key={camp.slug}>
 
                         {/* Create the camp title link */}
-                        <Link to={`/camps/${camp.slug}`} style={{ color: '#055d3d' }}>
+                        <Link to={`/camps/${camp.slug}`} style={{ color: '#fff' }} className="col-4">
                             <div className="h4 fw-bold">{camp.title}</div>
                         </Link>
 
                         {/* Create the created_on info */}
-                        <div className="h5">Created on: <span className="ms-1">{camp.created_on.slice(0,10)}</span></div>
+                        <div className="h5 col-5">Created on: <span className="ms-1">{camp.created_on.slice(0,10)}</span></div>
 
                         {/* Create edit and delete links */}
-                        <div>
+                        <div className="col-3">
                             <Link to={`/camps/${camp.slug}/edit`}>
                                 <button type="button" class="btn btn-secondary me-2">Edit</button>
                             </Link>

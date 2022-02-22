@@ -55,7 +55,6 @@ export default function MyProfilePage() {
   	return(
 
 		<div>
-
 			{/* Create a header */}
 			<h1 className="text-center text-white">My Profile</h1>
 		
@@ -68,7 +67,7 @@ export default function MyProfilePage() {
 			</div>
 
 			<div style={{ height: "5vh" }}></div>
+		</div>
 
-    	</div>
   	);
 };

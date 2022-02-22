@@ -54,7 +54,7 @@ import { GetIcon } from './Map';
                 <div className='box bg-secondary bg-opacity-75'>
                     <div className="position-absolute  d-flex justify-content-between bottom-0 start-50 translate-middle-x  text-white fs-2 bg-secondary bg-opacity-50  w-100">
                         <span className='ms-4'>{campDetails.title}</span>
-                        <span className='bg-success text-white rounded h3 me-4'>{campDetails.rating}</span>
+                        <span className='bg-success text-white rounded h3 me-4 mt-2 ps-2 pe-2'>{campDetails.rating}</span>
                     </div>
                 </div>
             </div>

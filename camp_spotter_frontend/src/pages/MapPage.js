@@ -28,7 +28,7 @@ export default function MapPage() {
 	// Render the page
 	return(
 		
-		<div className="bg-success">
+		<div className="bg-success mt-0">
 			<Map position={searchPosition()}/>
 		</div>
 	
