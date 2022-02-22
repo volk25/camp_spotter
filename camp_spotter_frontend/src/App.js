@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import MyProfilePage from "./pages/MyProfilePage";
 import EditMyProfilePage from "./pages/EditMyProfilePage";
-// import DeleteMyProfilePage from "./pages/DeleteMyProfilePage";
+import DeleteMyProfilePage from "./pages/DeleteMyProfilePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
@@ -54,8 +54,8 @@ export default function App() {
 					<Route exact path="/map/:positionSlug" element={<MapPage />}/>
 
 					<Route exact path="/myprofile" element={<MyProfilePage />}/>
-					<Route exact path="/myprofile/edit" element={<EditMyProfilePage/>}/>
-					{/* <Route exact path="/myprofile/delete" element={<DeleteMyProfilePage/>}/> */}
+					<Route exact path="/myprofile/edit" element={<EditMyProfilePage />}/>
+					<Route exact path="/myprofile/delete" element={<DeleteMyProfilePage />}/>
 
 					<Route exact path="/mycamps" element={<MyCampsPage />}/>
 					<Route exact path="/camps/add" element={<AddCampPage />}/>
