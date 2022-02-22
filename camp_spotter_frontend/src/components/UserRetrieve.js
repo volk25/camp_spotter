@@ -44,7 +44,7 @@ if (loading) {
 // If data is loaded, render the page
 return (
 
-  <div className="background">
+  <div className="background ">
   {/* Create user image and username */}
     <div className=" mt-5 text-center ">
         <div className= " profileImage text-center">
@@ -56,24 +56,27 @@ return (
     </div>
 
     {/* Create user details */}
-    <div className="description mt-5 fs-4 text-white">
+    <div className= "test mt-5 fs-4 text-white container">
 
-        <div className="mb-3 d-flex justify-content-center">
-            <div>
-              <div className="fw-bold" >First Name:</div>
-              <div className="fw-bold" >Last Name:</div>
-              <div className="fw-bold">Email:</div>
-              <div className="fw-bold" >Date joined:</div>
-            </div>
-              
-            <div>
-              <div className="ms-5">{user.first_name}</div>
-              <div className="ms-5">{user.last_name}</div>
-              <div className="ms-5">{user.email}</div>
-              <div className="ms-5">{user.date_joined.slice(0,10)}</div>
-            </div>
-              
-        </div>          
+        <div className="mb-3  d-flex justify-content-between">
+            <div className="fw-bold" >First Name:</div>
+            <span className="ms-5">{user.first_name}</span>
+        </div>
+
+        <div className="mb-3 d-flex justify-content-between">
+            <div className="fw-bold text-left" >Last Name:</div>
+            <span className="ms-5">{user.last_name}</span>        
+        </div>
+
+        <div className="mb-3 d-flex justify-content-between">
+            <div className="fw-bold text-left" >Email: </div>
+            <span className="ms-5">{user.email}</span>          
+        </div>
+        
+        <div className="mb-3 d-flex justify-content-between">
+            <div className="fw-bold" >Date joined:</div>
+            <span className="ms-5">{user.date_joined.slice(0,10)}</span>
+        </div>      
     </div>
 
     {/* Create edit and delete buttons */}
