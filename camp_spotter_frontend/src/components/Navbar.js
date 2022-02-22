@@ -1,6 +1,6 @@
 import React from "react";
 import TokenClear from './TokenClear';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 import "../App.css";
 
@@ -26,7 +26,7 @@ export default function NavBar() {
             {/* Create a button for toggling the dropdown menu (for menu entries on the right in md) */}
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ms-auto me-3">
+                <Nav className="ms-auto me-5">
 
                     {/* Create the menu entries to be aligned on the right */}
                     <Nav.Link className="text-white h5" href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
@@ -45,7 +45,7 @@ export default function NavBar() {
                     {/* Restrict the Profile dropdown menu to be shown only with token */}
                     { token ?
                         <Nav>
-                            <NavDropdown style={{width:'4vw'}} className="text-center me-5 h5" title={<i class=" fas fa-user-circle h4 text-white"></i>} id="basic-nav-dropdown">
+                            <NavDropdown style={{width:'4vw'}} className="text-center me-3 h5" title={<i class=" fas fa-user-circle h4 text-white"/>} id="basic-nav-dropdown">
                                 <NavDropdown.Item className="text-center text-white h6" href="/myprofile">MyProfile</NavDropdown.Item>
                                 <NavDropdown.Item className="text-center text-white h6" href="/mycamps">MyCamps</NavDropdown.Item>
                                 <NavDropdown.Divider className="text-white h6" />
