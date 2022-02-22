@@ -78,7 +78,7 @@ import ReviewDestroy from './ReviewDestroy';
         window.location.reload(false)
     };
 
-    // If loading variable is still set to true, notify it to the user
+    // If loading states are still set to true, notify it to the user
     if (loadingReviewList || loadingIdentity) {
         return <p>Data is loading...</p>;
     }

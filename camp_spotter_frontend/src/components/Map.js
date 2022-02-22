@@ -18,14 +18,13 @@ export default function Map(props) {
     const prov = new AlgoliaProvider();
     const [campList, setCampList] = useState([]); 
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState();
 
     // Set the initial position
     function initialPosition() {
         if (props.position){
             return([props.position.latitude, props.position.longitude])
         } else {
-            return([52.3676, 4.9041])
+            return([52.3676, 4.9041]) // Amsterdam coordinates to be used before location is determined
         }
     };
 
@@ -47,8 +46,8 @@ export default function Map(props) {
             toast.success('Welcome! Here you can browse to your perfect camping spot, have fun!')
         })
         
-        // Catch the error if present and set it to the error variable
-        .catch((err) => setError(err))
+        // Catch the error if present and console log it
+        .catch((err) => console.log(err))
 
         // Set to false the loading variable
         .finally(() => setLoading(false));
@@ -59,12 +58,8 @@ export default function Map(props) {
     if (loading) {
         return <p>Data is loading...</p>;
     }
-    //if json doesn't have an array, this error will be displayed on the screen. For map function to work, json has to be an array
-    if (error || !Array.isArray(campList)) {
-    return <p>There was an error loading your data!</p>;
-    }
    
-    // If data is loaded and there are no errors, show the map page
+    // If data is loaded, show the map page
     return (
        
         <div>
@@ -97,12 +92,15 @@ export default function Map(props) {
                     <Marker position={[camp.latitude, camp.longitude]} icon={GetIcon(50)} key={camp.slug}>
                         <Popup>
                             <Link to ={`/camps/${camp.slug}`}>
-                            <span>
-                                {camp.title}                       
-                            </span>  
+                                <div className="position-relative">
+                                    <img src={camp.image} alt={`${camp.title} image`} width='200' height= '170' 
+                                    style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)" }} />
+                                    <div className="position-absolute text-center bottom-0 start-50 translate-middle-x text-white fw-bold h6">{camp.title}</div>  
+                                </div>
                             </Link> 
                         </Popup>               
-                    </Marker> ))} 
+                    </Marker> 
+                ))} 
 
             </MapContainer> 
 

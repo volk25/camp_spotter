@@ -31,10 +31,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
-html,
-body,
-#app,
-#app > div {
+html, body, #app, #app > div {
   height: 100%;
 }
 
@@ -43,8 +40,6 @@ body,
 }
 }
 
-
-/* Styles for CampDetails page  */
 .overlay {
   position:absolute;
   min-height: 100%;
@@ -55,22 +50,59 @@ body,
   -webkit-filter: blur(4px);
 }
 
+/* Styles of the Navbar */
+.dropdown-menu {
+  min-width: inherit !important;
+  left: -30px !important;
+  background-color: #055d3d !important;
+}
+
+/* Styles of the MapPage */
 .leaflet-container {
   height: 20vh;
 }
+.leaflet-popup-content-wrapper{
+  background-color: rgba(0,0,0,0.0);
+  box-shadow: none;
+  padding-left: 270px;
+}
+.leaflet-popup-tip {
+  background-color: rgba(0,0,0,0.0);
+  box-shadow: none;
+  height: 5%;
+}
 
+/* Styles of the CampDetailsPage */
 .campDetails {
     max-width: 800px;
     font-family: 'Reem Kufi', sans-serif;
     margin:auto;
-
 }
-
 .radius {
   border-radius: 10px;
 }
+.AddReview input {
+  color: white;
+  background: transparent;
+  width:100%;
+  border: 0;
+}
+.AddReview input::placeholder{
+  opacity: 1;
+  color: white;
+}
+@-webkit-keyframes autofill {
+  to {
+    color: grey;
+    background: transparent;
+  }
+}
+.AddReview input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
 
-/* Styles for Contact page */
+/* Styles for ContactPage */
 .Contact form {
   margin: 0 auto;
   max-width: 500px;
@@ -80,172 +112,130 @@ body,
 .contact {
   text-align: left !important;
 }
-/* Styles for Add Camp page */
+
+/* Styles of the AddCampPage */
 .addcampForm {
-    margin: 0 auto;
-    max-width: 700px;
-    position: relative;
+  margin: 0 auto;
+  max-width: 700px;
+  position: relative;
 }
-/* Styles for Signup page */
+
+/* Styles of the SignupPage */
 .form {
-      margin: 0 auto;
-      max-width: 500px;
-      position: relative;
-    }
-    .form-group {
-      color: white;
-      margin-bottom: 10px;
-    }
-    .bottom-text {
-      color: white;
-      text-align: center;
-      position: relative;
-      font-size: 1.2em;
-    }
-    .signup-header {
-      color: white;
-      text-align: center;
-    }
+  margin: 0 auto;
+  max-width: 500px;
+  position: relative;
+}
+.form-group {
+  color: white;
+  margin-bottom: 10px;
+}
+.bottom-text {
+  color: white;
+  text-align: center;
+  position: relative;
+  font-size: 1.2em;
+}
+.signup-header {
+  color: white;
+  text-align: center;
+}
 
-    /* Styles for Login page */
-    .Login form {
-      margin: 0 auto;
-      max-width: 400px;
-      position: relative;
-      top: -250px;
-    }
-    .form-group {
-      color: white;
-    }
-    .login-header {
-      color: white;
-      text-align: center;
-    }
+/* Styles of the LoginPage */
+.Login form {
+  margin: 0 auto;
+  max-width: 400px;
+  position: relative;
+  top: -250px;
+}
+.form-group {
+  color: white;
+}
+.login-header {
+  color: white;
+  text-align: center;
+}
 
-/* Styles for Navbar */
-    
+/* Styles of the Navbar */   
 .navbar-logo {
   color: white;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
   align-self: flex-start;
-  }
+}
+.fa-campground {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}   
+.nav-links {
+  color: white;
+  text-decoration: none;
+  padding: o.5rem 1 rem;
+}
+.nav-links:hover {
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+.fa-bars {
+  color: white;
+}
+.nav-mobile {
+  display: none;
+}
+.menu-icon {
+  display: none;
+}
 
-    .fa-campground {
-      margin-left: 0.5rem;
-      font-size: 1.6rem;
-    }
-    
-    .nav-links {
-      color: white;
-      text-decoration: none;
-      padding: o.5rem 1 rem;
-    }
-    
-    .nav-links:hover {
-      background-color: white;
-      border-radius: 4px;
-      transition: all 0.2s ease-out;
-    }
-    
-    .fa-bars {
-      color: white;
-    }
-    
-    .nav-mobile {
-      display: none;
-    }
-    
-    .menu-icon {
-      display: none;
-    }
-
- /* Styles for searchbar on the home page  */
- .search-bar {
+/* Styles of the HomePage  */
+.search-bar {
   margin-top: 300px;
 }
 
-/* Styles for Add Review Page */
-.AddReview input {
-  color: white;
-  background: transparent;
-  width:100%;
-  border: 0;
-}
-
-.AddReview input::placeholder{
-  opacity: 1;
-  color: white;
-}
-
-@-webkit-keyframes autofill {
-  to {
-    color: grey;
-    background: transparent;
-  }
-}
-
-.AddReview input:-webkit-autofill {
-  -webkit-animation-name: autofill;
-  -webkit-animation-fill-mode: both;
-}
-
-/* Stylings of the AboutUs page */
-
+/* Style of the AboutUsPage */
 .profileform {
   color: white;
 }
-
 .aboutUs {
   margin-left: auto;
   margin-right: auto;
 }
-
 .userUpdate {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Styles for Edit Camp Page */
+/* Styles for EditCampPage */
 .editCamp input {
   color: white;
   background: transparent;
   width:100%;
   border: 0;
 }
-
 .editCamp input::placeholder{
   opacity: 1;
   color: white;
 }
-
 @-webkit-keyframes autofill {
   to {
     color: grey;
     background: transparent;
   }
 }
-
 .editCamp input:-webkit-autofill {
   -webkit-animation-name: autofill;
   -webkit-animation-fill-mode: both;
 }
 
-.dropdown-menu {
-  min-width: inherit !important;
-  left: -30px !important;
-  background-color: #055d3d !important;
-}
-
+/* Styles of ???????????? */
 .btn-success {
   background-color: #055d3d !important;
 }
 .test {
   max-width: 400px !important;
 }
-
 .mapPage {
   background-color: #055d3d !important;
 }

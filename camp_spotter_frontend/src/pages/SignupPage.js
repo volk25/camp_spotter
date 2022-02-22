@@ -4,11 +4,11 @@ import "../App.css";
 import UserCreate from '../components/UserCreate';
 
 /**
-* Signup page of the application.
-* The following components are used:
-* - UserCreate
-* @returns renders the page
-*/
+ * Signup page of the application.
+ * The following components are used:
+ * - UserCreate
+ * @returns renders the page
+ */
 export default function SignupPage() {
 
 	// Render the page

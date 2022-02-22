@@ -39,7 +39,7 @@ import { GetIcon } from './Map';
 
     },[]);
 
-    // If loading variable is still set to true, notify it to the user
+    // If loading state is still set to true, notify it to the user
     if (loading) {
         return <p>Data is loading...</p>;
     }
@@ -53,7 +53,7 @@ import { GetIcon } from './Map';
             <div className="position-relative text-center mt-5" >
                 <img src={campDetails.image} className="radius" width="100%" height= "200" alt="mainCampImage"/>
                 <div className='box bg-secondary bg-opacity-75'>
-                    <div className="position-absolute  d-flex justify-content-between bottom-0 start-50 translate-middle-x  text-white fs-2 bg-secondary bg-opacity-50  w-100">
+                    <div className="position-absolute d-flex justify-content-between bottom-0 start-50 translate-middle-x text-white fs-2 bg-secondary bg-opacity-50 w-100">
                         <div className='ms-4'>{campDetails.title}</div>
                         <Rating className='me-3 mt-2' name="read-only" precision={0.5} value={campDetails.rating} readOnly />
                     </div>

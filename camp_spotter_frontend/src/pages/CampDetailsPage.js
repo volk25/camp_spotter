@@ -39,12 +39,12 @@ import ReviewCreate from '../components/ReviewCreate';
         .finally(() => setLoading(false));
     },[]);
 
-    // If loading variable is still set to true, notify it to the user
+    // If loading state is still set to true, notify it to the user
     if (loading) {
         return <p>Data is loading...</p>;
     }
 
-    // Render the page
+    // If everything has loaded, render the page
     return (
         
         <div> 

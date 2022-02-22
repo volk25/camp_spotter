@@ -7,10 +7,10 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
-* Renders the review-create form, sends the form data in the body of a POST request (only with token).
-* @param {*} props slug of the camp to which the review should belong
-* @returns renders the component
-*/
+ * Renders the review-create form, sends the form data in the body of a POST request (only with token).
+ * @param {*} props slug of the camp to which the review should belong
+ * @returns renders the component
+ */
  export default function ReviewCreate(props) {
 
     // Define the parameters coming from outside the component
@@ -23,17 +23,17 @@ import "../App.css";
     const responseOk = useRef(false);
    
     /**
-    * Review form validator
-    * @returns
-    */
+     * Review form validator
+     * @returns
+     */
     function validateReviewForm() {
         return title.length > 0 && body.length > 0;
     };
 
     /**
-    * Event handler for Review submission
-    * @param {*} event
-    */
+     * Event handler for Review submission
+     * @param {*} event
+     */
     function handleReviewSubmit(event) {
 
         event.preventDefault();
