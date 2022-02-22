@@ -2,7 +2,9 @@ import React from "react";
 import Search from "../components/Search";
 
 /**
-* Render the Home page. 
+* Render the Home page.
+* The following components are used:
+* - Search
 * @returns renders the page
 */
 export default function HomePage() {

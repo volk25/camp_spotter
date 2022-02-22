@@ -4,9 +4,11 @@ import "../App.css";
 import CampCreate from '../components/CampCreate';
 
 /**
- * Add camp page of the application.
- * @returns renders the page
- */
+* Add camp page of the application.
+* The following components are used:
+* - CampCreate
+* @returns renders the page
+*/
 export default function AddCampPage() {
 
 	// Define the parameters coming from outside the component
@@ -15,9 +17,7 @@ export default function AddCampPage() {
 	// Define the variables/constants/states
 	let navigate = useNavigate();
 
-	/**
-	* Redirect to the login page if without token
-	*/
+	// Redirect to the login page if without token
 	useEffect(() => {
 		if (!token) {
 			navigate('/login')

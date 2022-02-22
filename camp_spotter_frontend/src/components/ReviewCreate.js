@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -19,37 +19,8 @@ import "../App.css";
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [rating, setRating] = useState("");
-    const [identity, setIdentity] = useState();
-    const [loadingIdentity, setLoadingIdentity] = useState(true);
     const responseOk = useRef(false);
-
-    // Fetch data about the user identity
-    useEffect (() => {
-
-        // Fetch the data from the API
-        fetch ('http://127.0.0.1:8000/identity/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${token}`,
-            }
-        })
-
-        // Get the response in a json format and set the data to the identity state
-        .then (response => response.json())
-        .then (result => {
-            console.log(result);
-            setIdentity(result);
-        })
-
-        // Catch the error if present and console log it
-        .catch((err) => console.log(err))
-
-        // Set to false the loading state
-        .finally(() => setLoadingIdentity(false));
-
-    },[]);
-    
+   
     /**
     * Review form validator
     * @returns
@@ -107,11 +78,6 @@ import "../App.css";
 
     };
 
-    // If loading variable is still set to true, notify it to the user
-    if (loadingIdentity) {
-        return <p>Data is loading...</p>;
-    };
-
     // Render the component
     return (
         
@@ -127,18 +93,18 @@ import "../App.css";
 
                         {/* Create the user image and username */}
                         <div className='me-3 col-1' >
-                            <img src={identity.image} alt='user image' width='70' height= '70' className='rounded-pill'/>
-                            <div className='text-center text-white'>{identity.username}</div>
+                            <img src={props.identity.image} alt='user image' width='70' height= '70' className='rounded-pill'/>
+                            <div className='text-center text-white'>{props.identity.username}</div>
                         </div>
 
                         {/* Create the review title, rating and body */}
                         <div className=' mb-2 col-11'>
                             <div className='text-white fw-bold ms-3 me-3 reviewInput d-flex justify-content-between'>
-                                <input className='fw-bold' type='title' value={title} placeholder='Fill in your title' onChange={(e) => setTitle(e.target.value)}></input> 
-                                <input className='fw-bold' type='rating' value={rating} placeholder='Rate this camp (1-5)' onChange={(e) => setRating(e.target.value)}></input> 
+                                <input className='fw-bold' type='title' value={title} placeholder='Fill in your title' onChange={(e) => setTitle(e.target.value)}/>
+                                <input className='fw-bold' type='rating' value={rating} placeholder='Rate this camp (1-5)' onChange={(e) => setRating(e.target.value)}/>
                             </div>
                             <div  className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3'>
-                                <input type='body' value={body} placeholder='Your message' onChange={(e) => setBody(e.target.value)}></input> 
+                                <input type='body' value={body} placeholder='Your message' onChange={(e) => setBody(e.target.value)}/>
                             </div>
                         </div>
 

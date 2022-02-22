@@ -4,19 +4,19 @@ import "../App.css";
 import CampList from '../components/CampList';
 
 /**
- * MyCamps page of the application.
- * @returns renders the page
- */
+* MyCamps page of the application.
+* The following components are used:
+* - CampList
+* @returns renders the page
+*/
 export default function MyCampsPage() {
 
 	// Define the parameters coming from outside the component
 	const token = localStorage.getItem('token')
 
-	// Define the identity variables/constants/states
+	// Define the variables/constants/states
     const [identity, setIdentity] = useState();
     const [loading, setLoadingIdentity] = useState(true);
-
-	// Define the variables/constants/states
 	let navigate = useNavigate();
 
 	// Redirect to the login page if without token
@@ -26,10 +26,8 @@ export default function MyCampsPage() {
 		}
 	},[]);
 
-	// Fetch data about the user identity
+	// At page loading fetch data about the user identity, set it to the identity state, log eventual errors and set loading to false
     useEffect (() => {
-
-        // Fetch the data from the API
         fetch ('http://127.0.0.1:8000/identity/', {
             method: 'POST',
             headers: {
@@ -37,13 +35,10 @@ export default function MyCampsPage() {
                 'Authorization': `Token ${token}`,
             }
         })
-
-        // Get the response in a json format, set the resullt to the identity state, catch the eventual error and set the loading to false
         .then (response => response.json())
         .then (result => setIdentity(result))
         .catch((err) => console.log(err))
         .finally(() => setLoadingIdentity(false));
-
     },[]);
 
     // If loading variable is still set to true, notify it to the user

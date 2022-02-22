@@ -12,8 +12,8 @@ import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import CampDetailsPage from "./pages/CampDetailsPage";
-import EditCampPage from  "./pages/EditCampPage";
-import DeleteCampPage from  "./pages/DeleteCampPage";
+import EditCampPage from "./pages/EditCampPage";
+import DeleteCampPage from "./pages/DeleteCampPage";
 import AddCampPage from "./pages/AddCampPage";
 import MyCampsPage from "./pages/MyCampsPage"
 import ThankYouPage from "./pages/ThankYouPage";
@@ -47,27 +47,32 @@ export default function App() {
 			</div>
 
 
-			{/* Inirialize the router and define the routing*/}
+			{/* Initialize the router and define the routing*/}
 			<Router>
 				<Routes>
+
+					{/* Genearal purpose pages */}
 					<Route exact path="/" element={<HomePage />}/>
 					<Route exact path="/map/:positionSlug" element={<MapPage />}/>
+					<Route exact path="/contact" element={<AboutUsPage />}/>
+					<Route exact path="/thankyou" element={<ThankYouPage />}/>
 
+					{/* Authorization pages */}
+					<Route exact path="/login" element={<LoginPage />}/>
+					<Route exact path="/signup" element={<SignupPage />}/>
+
+					{/* User profile pages */}
 					<Route exact path="/myprofile" element={<MyProfilePage />}/>
 					<Route exact path="/myprofile/edit" element={<EditMyProfilePage />}/>
 					<Route exact path="/myprofile/delete" element={<DeleteMyProfilePage />}/>
 
+					{/* Camps pages */}
 					<Route exact path="/mycamps" element={<MyCampsPage />}/>
 					<Route exact path="/camps/add" element={<AddCampPage />}/>
 					<Route exact path="/camps/:slug" element={<CampDetailsPage />}/>
 					<Route exact path="/camps/:slug/edit" element={<EditCampPage />}/>
 					<Route exact path="/camps/:slug/delete" element={<DeleteCampPage />}/>
 
-					<Route exact path="/login" element={<LoginPage />}/>
-					<Route exact path="/signup" element={<SignupPage />}/>
-					<Route exact path="/contact" element={<AboutUsPage />}/>
-
-					<Route exact path="/thankyou" element={<ThankYouPage />}/>
 				</Routes>
 			</Router>
 			

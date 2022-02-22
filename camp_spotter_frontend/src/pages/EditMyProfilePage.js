@@ -4,9 +4,11 @@ import "../App.css";
 import UserUpdate from '../components/UserUpdate';
 
 /**
- * Edit user profile page of the application.
- * @returns renders the page
- */
+* Edit user profile page of the application.
+* The following components are used:
+* - UserUpdate
+* @returns renders the page
+*/
 export default function EditMyProfilePage() {
 
 	// Define the parameters coming from outside the component

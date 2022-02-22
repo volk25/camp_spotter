@@ -4,9 +4,11 @@ import "../App.css";
 import CampUpdate from '../components/CampUpdate';
 
 /**
- * Edit camp page of the application.
- * @returns renders the page
- */
+* Edit camp page of the application.
+* The following components are used:
+* - CampUpdate
+* @returns renders the page
+*/
 export default function EditCampPage() {
 
 	// Define the parameters coming from outside the component

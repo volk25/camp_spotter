@@ -4,9 +4,11 @@ import "../App.css";
 import CampDestroy from '../components/CampDestroy';
 
 /**
- * Delete camp page of the application.
- * @returns renders the page
- */
+* Delete camp page of the application.
+* The following components are used:
+* - CampDestroy
+* @returns renders the page
+*/
 export default function DeleteCampPage() {
 
 	// Define the parameters coming from outside the component

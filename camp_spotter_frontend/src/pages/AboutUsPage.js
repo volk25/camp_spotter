@@ -1,11 +1,12 @@
 import React from "react";
 import ContactForm from "../components/ContactForm";
-import { Card, Button } from "react-bootstrap";
 
 /**
- * Render the contact page.
- * @returns renders the page
- */
+* Render the contact page.
+*  * The following components are used:
+* - ContactForm
+* @returns renders the page
+*/
 export default function AboutUsPage() {
 
   // Render the page

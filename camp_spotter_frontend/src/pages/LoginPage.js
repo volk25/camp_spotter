@@ -3,9 +3,11 @@ import "../App.css";
 import TokenObtain from '../components/TokenObtain';
 
 /**
- * Render the login page.
- * @returns renders the login page
- */
+* Render the login page.
+* The following components are used:
+* - TokenObtain
+* @returns renders the login page
+*/
 export default function LoginPage() {
 
 	// Render the page

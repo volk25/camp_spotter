@@ -1,12 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import UserRetrieve from '../components/UserRetrieve';
 
 /**
- * Add User profile page of the application.
- * @returns renders the page
- */
+* Add User profile page of the application.
+* The following components are used:
+* - UserRetrieve
+* @returns renders the page
+*/
 export default function MyProfilePage() {
 
 	// Define the parameters coming from outside the component
@@ -15,8 +17,6 @@ export default function MyProfilePage() {
 	// Define the identity variables/constants/states
     const [identity, setIdentity] = useState();
     const [loading, setLoading] = useState(true);
-
-	// Define the variables/constants/states
 	let navigate = useNavigate();
 
 	// Redirect to the login page if without token
@@ -26,10 +26,8 @@ export default function MyProfilePage() {
 		}
 	},[]);
 
-	// Fetch data about the user identity
+	// At page loading fetch data about the user identity, set it to the identity state, log eventual errors and set loading to false
     useEffect (() => {
-
-        // Fetch the data from the API
         fetch ('http://127.0.0.1:8000/identity/', {
             method: 'POST',
             headers: {
@@ -37,13 +35,10 @@ export default function MyProfilePage() {
                 'Authorization': `Token ${token}`,
             }
         })
-
-        // Get the response in a json format, set the resullt to the identity state, catch the eventual error and set the loading to false
         .then (response => response.json())
         .then (result => setIdentity(result))
         .catch((err) => console.log(err))
         .finally(() => setLoading(false));
-
     },[]);
 
     // If loading variable is still set to true, notify it to the user

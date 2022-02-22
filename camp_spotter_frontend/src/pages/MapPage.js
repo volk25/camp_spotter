@@ -3,9 +3,11 @@ import Map from "../components/Map";
 import { useParams } from 'react-router-dom'
 
 /**
- * Render the Map page. 
- * @returns renders the page
- */
+* Render the Map page. 
+* The following components are used:
+* - Map
+* @returns renders the page
+*/
 export default function MapPage() {
 
 	// Define the parameters coming from outside
