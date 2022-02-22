@@ -46,7 +46,6 @@ export default function App() {
 				<NavBar/>
 			</div>
 
-
 			{/* Initialize the router and define the routing*/}
 			<Router>
 				<Routes>
