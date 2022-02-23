@@ -68,7 +68,7 @@ import { GetIcon } from './Map';
                 <div className= 'radius p-3 mb-2 bg-secondary bg-opacity-50 text-white h6 w-50'>
                     {campDetails.position_body}
                 </div>  
-                <div className='w-50 ms-2 radius bg-secondary bg-opacity-50 h6'>
+                <div className=' campDescMap w-50 ms-2 radius bg-secondary bg-opacity-50 h6'>
                     <MapContainer className="map" center={[campDetails.latitude, campDetails.longitude]} zoom={20} style={{height:"30vh"}}> 
                         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
                             contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>  
