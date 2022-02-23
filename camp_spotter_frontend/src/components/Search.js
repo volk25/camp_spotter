@@ -75,8 +75,6 @@ export default function Search() {
                 </svg>
             </Link>
 
-            <div style={{ height: "70vh" }}></div>
-
         </div>
    
     )

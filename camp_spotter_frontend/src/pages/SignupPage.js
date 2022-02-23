@@ -7,6 +7,7 @@ import NavBar from "../components/NavBar";
 /**
  * Signup page of the application.
  * The following components are used:
+ * - Navbar
  * - UserCreate
  * @returns renders the page
  */

@@ -5,11 +5,12 @@ import CampList from '../components/CampList';
 import NavBar from "../components/NavBar";
 
 /**
-* MyCamps page of the application.
-* The following components are used:
-* - CampList
-* @returns renders the page
-*/
+ * MyCamps page of the application.
+ * The following components are used:
+ * - Navbar
+ * - CampList
+ * @returns renders the page
+ */
 export default function MyCampsPage() {
 
 	// Define the parameters coming from outside the component

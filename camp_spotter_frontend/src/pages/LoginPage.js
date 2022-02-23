@@ -4,11 +4,12 @@ import TokenObtain from '../components/TokenObtain';
 import NavBar from "../components/NavBar";
 
 /**
-* Render the login page.
-* The following components are used:
-* - TokenObtain
-* @returns renders the login page
-*/
+ * Render the login page.
+ * The following components are used:
+ * - Navbar
+ * - TokenObtain
+ * @returns renders the login page
+ */
 export default function LoginPage() {
 
 	// Render the page

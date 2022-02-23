@@ -3,11 +3,12 @@ import ContactForm from "../components/ContactForm";
 import NavBar from "../components/NavBar";
 
 /**
-* Render the contact page.
-*  * The following components are used:
-* - ContactForm
-* @returns renders the page
-*/
+ * Render the contact page.
+ *  * The following components are used:
+ * - Navbar
+ * - ContactForm
+ * @returns renders the page
+ */
 export default function AboutUsPage() {
 
   // Render the page

@@ -3,11 +3,12 @@ import Search from "../components/Search";
 import NavBar from "../components/NavBar";
 
 /**
-* Render the Home page.
-* The following components are used:
-* - Search
-* @returns renders the page
-*/
+ * Render the Home page.
+ * The following components are used:
+ * - Navbar
+ * - Search
+ * @returns renders the page
+ */
 export default function HomePage() {
 
 	// Render the page
@@ -17,13 +18,14 @@ export default function HomePage() {
 			
 			{/* Render the Navbar component */}
 			<div className='position-relative'>
-				<NavBar/>
+				<NavBar />
 			</div>
 
-			
-
+			{/* Render the search component */}
 			<Search />
+
 			<div style={{ height: "100vh" }}></div>
+
 		</div>
 	
 	)

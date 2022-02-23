@@ -5,11 +5,12 @@ import CampUpdate from '../components/CampUpdate';
 import NavBar from "../components/NavBar";
 
 /**
-* Edit camp page of the application.
-* The following components are used:
-* - CampUpdate
-* @returns renders the page
-*/
+ * Edit camp page of the application.
+ * The following components are used:
+ * - Navbar
+ * - CampUpdate
+ * @returns renders the page
+ */
 export default function EditCampPage() {
 
 	// Define the parameters coming from outside the component

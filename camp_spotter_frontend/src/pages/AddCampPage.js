@@ -5,11 +5,12 @@ import CampCreate from '../components/CampCreate';
 import NavBar from "../components/NavBar";
 
 /**
-* Add camp page of the application.
-* The following components are used:
-* - CampCreate
-* @returns renders the page
-*/
+ * Add camp page of the application.
+ * The following components are used:
+ * - Navbar
+ * - CampCreate
+ * @returns renders the page
+ */
 export default function AddCampPage() {
 
 	// Define the parameters coming from outside the component

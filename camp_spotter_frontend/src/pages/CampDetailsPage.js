@@ -9,6 +9,7 @@ import NavBar from "../components/NavBar";
 /**
  * Render the camp details page.
  * The following components are used:
+ * - Navbar
  * - CampRetrieve
  * - ReviewList
  * - ReviewCreate 

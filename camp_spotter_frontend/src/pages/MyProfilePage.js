@@ -5,11 +5,12 @@ import UserRetrieve from '../components/UserRetrieve';
 import NavBar from "../components/NavBar";
 
 /**
-* Add User profile page of the application.
-* The following components are used:
-* - UserRetrieve
-* @returns renders the page
-*/
+ * Add User profile page of the application.
+ * The following components are used:
+ * - Navbar
+ * - UserRetrieve
+ * @returns renders the page
+ */
 export default function MyProfilePage() {
 
 	// Define the parameters coming from outside the component

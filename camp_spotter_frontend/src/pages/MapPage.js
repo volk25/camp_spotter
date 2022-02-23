@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom'
 import NavBar from "../components/NavBar";
 
 /**
-* Render the Map page. 
-* The following components are used:
-* - Map
-* @returns renders the page
-*/
+ * Render the Map page. 
+ * The following components are used:
+ * - Navbar
+ * - Map
+ * @returns renders the page
+ */
 export default function MapPage() {
 
 	// Define the parameters coming from outside
