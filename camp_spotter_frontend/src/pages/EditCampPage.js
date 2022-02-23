@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 import CampUpdate from '../components/CampUpdate';
+import NavBar from "../components/NavBar";
 
 /**
 * Edit camp page of the application.
@@ -29,12 +30,18 @@ export default function EditCampPage() {
   	return(
 
 		<div>
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
+
+			<div className='overlay'></div>
 
 			{/* Create a header */}
-			<h1 className="text-center text-white">Edit Camp</h1>
+			<h1 className="text-center text-white position-relative">Edit Camp</h1>
 		
 			{/* Insert the CampUpdate component */}
-			<div className='overlay'></div>
+			
 				<div className='campDetails position-relative'> 
 					<div>
 						<CampUpdate 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import UserDestroy from '../components/UserDestroy';
+import NavBar from "../components/NavBar";
 
 /**
  * Delete user page of the application.
@@ -50,12 +51,18 @@ export default function DeleteMyProfilePage() {
   	return(
 
 		<div>
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
+
+			<div className='overlay'></div>
 
 			{/* Create a header */}
-			<h1 className="text-center text-white">Delete Profile</h1>
+			<h1 className="text-center text-white position-relative">Delete Profile</h1>
 		
 			{/* Insert the UserDestroy component */}
-			<div className='overlay'></div>
+			
 				<div className='campDetails position-relative'> 
 					<div>
 						<UserDestroy 

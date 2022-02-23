@@ -239,3 +239,7 @@ html, body, #app, #app > div {
 .mapPage {
   background-color: #055d3d !important;
 }
+
+.navbar {
+  padding: 0 !important;
+}

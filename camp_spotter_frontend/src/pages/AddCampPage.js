@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import CampCreate from '../components/CampCreate';
+import NavBar from "../components/NavBar";
 
 /**
 * Add camp page of the application.
@@ -28,6 +29,11 @@ export default function AddCampPage() {
   	return(
 
 		<div>
+		
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
 
 			{/* Create a header */}
 			<h1 className="text-center text-white">Add Camp</h1>

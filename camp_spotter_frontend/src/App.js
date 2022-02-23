@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
-import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import MyProfilePage from "./pages/MyProfilePage";
@@ -39,12 +38,7 @@ export default function App() {
 			rtl={false}
 			pauseOnFocusLoss
 			pauseOnHover
-			/>
-
-			{/* Render the Navbar component */}
-			<div className='position-relative'>
-				<NavBar/>
-			</div>
+			/>			
 
 			{/* Initialize the router and define the routing*/}
 			<Router>

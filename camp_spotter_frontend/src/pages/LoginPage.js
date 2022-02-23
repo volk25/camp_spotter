@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import TokenObtain from '../components/TokenObtain';
+import NavBar from "../components/NavBar";
 
 /**
 * Render the login page.
@@ -14,6 +15,10 @@ export default function LoginPage() {
 	return (
 
 		<div className="Login">
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
 
 			{/* Create a header */}
 			<h1 className="login-header mt-5">Login</h1>
