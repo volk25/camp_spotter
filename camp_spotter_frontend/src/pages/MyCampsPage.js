@@ -58,6 +58,7 @@ export default function MyCampsPage() {
 			{/* Insert the MyCamps component */}
 			<div>
 				<CampList
+				token={token}
 				slug={identity.slug}
 				/>
 			</div>

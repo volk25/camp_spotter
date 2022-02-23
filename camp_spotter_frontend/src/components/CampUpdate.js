@@ -147,25 +147,23 @@ export default function CampUpdate(props) {
                 <Form.Group className="form-group mt-5" size="lg" controlId="title">
                     <Form.Label>Camp Name *</Form.Label>
                     <Form.Control
-                        autoFocus
-                        type="text"
-                        defaultValue={camp.current.title}
-                        placeholder="Please enter the name of the camp"
-                        onChange={(e) => {camp.current.title = e.target.value}}
-                    />
+                    autoFocus
+                    type="text"
+                    defaultValue={camp.current.title}
+                    placeholder="Please enter the name of the camp"
+                    onChange={(e) => {camp.current.title = e.target.value}}/>
                 </Form.Group>
 
                 {/* Camp main description input group */}
                 <Form.Group className="form-group" size="lg" controlId="mainBody">
                     <Form.Label>Camp Description *</Form.Label>
                     <Form.Control
-                        autoFocus
-                        type="text"
-                        defaultValue={camp.current.main_body}
-                        style={{ height: 100}}
-                        placeholder="Please give a short description of this camp here"
-                        onChange={(e) => {camp.current.main_body = e.target.value}}
-                    />
+                    autoFocus
+                    type="text"
+                    defaultValue={camp.current.main_body}
+                    style={{ height: 100}}
+                    placeholder="Please give a short description of this camp here"
+                    onChange={(e) => {camp.current.main_body = e.target.value}}/>
                 </Form.Group>
 
                 {/* Map pin input group */}
@@ -183,27 +181,31 @@ export default function CampUpdate(props) {
                 <Form.Group className="form-group" size="lg" controlId="locationdescription">
                     <Form.Label>Camp Location Description</Form.Label>
                     <Form.Control
-                        autoFocus
-                        type="text"
-                        defaultValue={camp.current.position_body}
-                        style={{ height: 80}}
-                        placeholder="Please describe in a few sentence how to find this spot"
-                        onChange={(e) => {camp.current.position_body = e.target.value}}
-                    />
+                    autoFocus
+                    type="text"
+                    defaultValue={camp.current.position_body}
+                    style={{ height: 80}}
+                    placeholder="Please describe in a few sentence how to find this spot"
+                    onChange={(e) => {camp.current.position_body = e.target.value}}/>
                 </Form.Group>
 
                 {/* Image upload group */}
                 <Form.Group className="form-group" size="lg" controlId="image">
                     <Form.Label>Change camp photo</Form.Label>
                     <Form.Control
-                        type="file"
-                        onChange={(e) => {camp.current.image = e.target.value}}
-                    />
+                    type="file"
+                    onChange={(e) => {camp.current.image = e.target.value}}/>
                 </Form.Group>
 
                 {/* Submit button froup */}
                 <div className="text-center button mb-5">
-                    <Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Submit</Button>
+                    <Button 
+                    size="lg" 
+                    type="submit" 
+                    disabled={!validateForm()} 
+                    className="mt-3 btn-success">
+                    Submit
+                    </Button>
                 </div>
 
             </Form>

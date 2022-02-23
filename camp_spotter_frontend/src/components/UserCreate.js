@@ -6,8 +6,8 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
- * Renders the user-create form, sends the form data in the body of a POST request (all users are allowed).
- * @returns user create component
+ * Render the user-create form, send the form data in the body of a POST request (all users are allowed).
+ * @returns renders the component
  */
 export default function UserCreate() {
 
@@ -92,79 +92,72 @@ export default function UserCreate() {
 				<Form.Group className="form-group mt-3" size="lg" controlId="username">
 					<Form.Label>Username *</Form.Label>
 					<Form.Control
-						autoFocus
-						type="username"
-						value={username}
-						placeholder="Please enter your username"
-						onChange={(e) => setUsername(e.target.value)}
-					/>
+					autoFocus
+					type="username"
+					value={username}
+					placeholder="Please enter your username"
+					onChange={(e) => setUsername(e.target.value)}/>
 				</Form.Group>
 
 				{/* First name input group */}
 				<Form.Group className="form-group" size="lg" controlId="firstname">
 					<Form.Label>First Name</Form.Label>
 					<Form.Control
-						autoFocus
-						type="text"
-						value={firstname}
-						placeholder="Please enter your first name"
-						onChange={(e) => setFirstName(e.target.value)}
-					/>
+					autoFocus
+					type="text"
+					value={firstname}
+					placeholder="Please enter your first name"
+					onChange={(e) => setFirstName(e.target.value)}/>
 				</Form.Group>
 
 				{/* Last name input group */}
 				<Form.Group className="form-group" size="lg" controlId="lastname">
 					<Form.Label>Last Name</Form.Label>
 					<Form.Control
-						autoFocus
-						type="text"
-						value={lastname}
-						placeholder="Please enter your last name"
-						onChange={(e) => setLastName(e.target.value)}
-					/>
+					autoFocus
+					type="text"
+					value={lastname}
+					placeholder="Please enter your last name"
+					onChange={(e) => setLastName(e.target.value)}/>
 				</Form.Group>
 
 				{/* Email input form */}
 				<Form.Group className="form-group" size="lg" controlId="email">
 					<Form.Label>Email *</Form.Label>
 					<Form.Control
-						autoFocus
-						type="text"
-						value={email}
-						placeholder="Please enter your email address"
-						onChange={(e) => setEmail(e.target.value)}
-					/>
+					autoFocus
+					type="text"
+					value={email}
+					placeholder="Please enter your email address"
+					onChange={(e) => setEmail(e.target.value)}/>
 				</Form.Group> 
 
 				{/* Password input group */}
 				<Form.Group className="form-group" size="lg" controlId="password">
 					<Form.Label>Password *</Form.Label>
 					<Form.Control
-						type="password"
-						value={password}
-						placeholder="Please create your password"
-						onChange={(e) => setPassword(e.target.value)}
-					/>
+					type="password"
+					value={password}
+					placeholder="Please create your password"
+					onChange={(e) => setPassword(e.target.value)}/>
 				</Form.Group>
 
 				{/* Password confirmation input group */}
 				<Form.Group className="form-group" size="lg" controlId="password2">
 					<Form.Label>Confirm Password *</Form.Label>
 					<Form.Control
-						type="password"
-						value={password2}
-						placeholder="Please repeat your password"
-						onChange={(e) => setPassword2(e.target.value)}
-					/>
+					type="password"
+					value={password2}
+					placeholder="Please repeat your password"
+					onChange={(e) => setPassword2(e.target.value)}/>
 				</Form.Group> 
 
 				{/* Image upload group */}
 				<Form.Group className="form-group" size="lg">
 					<Form.Label>Upload your profile image</Form.Label>
 					<Form.Control
-						type="file"
-						onChange={(e) => setImage(e.target.files[0])}
-					/>
+					type="file"
+					onChange={(e) => setImage(e.target.files[0])}/>
 				</Form.Group>
 
 				{/* Required fields warning */}
@@ -174,7 +167,13 @@ export default function UserCreate() {
 
 				{/* Signup button group */}
 				<div className="text-center button mb-5">
-					<Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Signup</Button>
+					<Button 
+					size="lg" 
+					type="submit" 
+					disabled={!validateForm()} 
+					className="mt-3 btn-success">
+					Signup
+					</Button>
 				</div>
 
       		</Form>

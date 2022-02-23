@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import "../App.css";
 import { useParams } from 'react-router-dom'
+import "../App.css";
 import CampRetrieve from '../components/CampRetrieve';
 import ReviewList from '../components/ReviewList';
 import ReviewCreate from '../components/ReviewCreate';
@@ -63,19 +62,19 @@ import ReviewCreate from '../components/ReviewCreate';
                 <div className='text-white fw-bold fs-2 mb-3'>Reviews</div>
                 <div>
                     <ReviewList 
-                    slug={params.slug} 
+                    token={token}
+                    identity={identity}
+                    slug={params.slug}
                     />
                 </div>
 
                 {/* Insert an add-review section  */}
                 <div className='text-white fw-bold fs-2 mb-3 mt-3'>Add your review</div>
-                <div>
-                    <ReviewCreate 
-                    slug={params.slug}
-                    identity={identity}
-                    />
-                </div>
-                            
+                <ReviewCreate 
+                token={token}
+                slug={params.slug}
+                identity={identity}/>
+      
             </div> 
             <div style={{ height: "50vh" }}></div>
 

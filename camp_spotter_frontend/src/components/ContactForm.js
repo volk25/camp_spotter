@@ -77,36 +77,33 @@ export default function ContactForm() {
 				<Form.Group className="form-group" size="lg" controlId="name">
 					<Form.Label> Name *</Form.Label>
 					<Form.Control
-						autoFocus
-						type="text"
-						value={name}
-						placeholder="Enter your name here"
-						onChange={(e) => setName(e.target.value)}
-					/>
+					autoFocus
+					type="text"
+					value={name}
+					placeholder="Enter your name here"
+					onChange={(e) => setName(e.target.value)}/>
 				</Form.Group>
 
 				{/* Email input group */}
 				<Form.Group className="form-group" size="lg" controlId="email">
 					<Form.Label>Email *</Form.Label>
 					<Form.Control
-						autoFocus
-						type="email"
-						value={email}
-						placeholder="Enter your email address here"
-						onChange={(e) => setEmail(e.target.value)}
-					/>
+					autoFocus
+					type="email"
+					value={email}
+					placeholder="Enter your email address here"
+					onChange={(e) => setEmail(e.target.value)}/>
 				</Form.Group>
 
 				{/* Message input group */}
 				<Form.Group className="form-group" size="lg" controlId="message" >
 					<Form.Label>Enter your message *</Form.Label>
 					<Form.Control
-						type="text"
-						value={message}
-						componentClass="textarea" 
-						style={{ height: 300}}
-						onChange={(e) => setMessage(e.target.value)}
-					/>
+					type="text"
+					value={message}
+					componentClass="textarea" 
+					style={{ height: 300}}
+					onChange={(e) => setMessage(e.target.value)}/>
 				</Form.Group>
 
 				{/* Required fields warning */}
@@ -116,7 +113,13 @@ export default function ContactForm() {
 
 				{/* Send button group */}
 				<div className="text-center">
-					<Button block size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Send message</Button>
+					<Button 
+					block size="lg" 
+					type="submit" 
+					disabled={!validateForm()} 
+					className="mt-3 btn-success">
+					Send message
+					</Button>
 				</div>
 
 			</Form>

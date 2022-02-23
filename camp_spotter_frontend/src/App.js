@@ -7,13 +7,11 @@ import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import MyProfilePage from "./pages/MyProfilePage";
 import EditMyProfilePage from "./pages/EditMyProfilePage";
-import DeleteMyProfilePage from "./pages/DeleteMyProfilePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import CampDetailsPage from "./pages/CampDetailsPage";
 import EditCampPage from "./pages/EditCampPage";
-import DeleteCampPage from "./pages/DeleteCampPage";
 import AddCampPage from "./pages/AddCampPage";
 import MyCampsPage from "./pages/MyCampsPage"
 import ThankYouPage from "./pages/ThankYouPage";
@@ -63,14 +61,12 @@ export default function App() {
 					{/* User profile pages */}
 					<Route exact path="/myprofile" element={<MyProfilePage />}/>
 					<Route exact path="/myprofile/edit" element={<EditMyProfilePage />}/>
-					<Route exact path="/myprofile/delete" element={<DeleteMyProfilePage />}/>
 
 					{/* Camps pages */}
 					<Route exact path="/mycamps" element={<MyCampsPage />}/>
 					<Route exact path="/camps/add" element={<AddCampPage />}/>
 					<Route exact path="/camps/:slug" element={<CampDetailsPage />}/>
 					<Route exact path="/camps/:slug/edit" element={<EditCampPage />}/>
-					<Route exact path="/camps/:slug/delete" element={<DeleteCampPage />}/>
 
 				</Routes>
 			</Router>

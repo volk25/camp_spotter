@@ -7,7 +7,8 @@ import "../App.css";
 
 /**
  * Render the user update component.
- * @param {*} props token and slug of the requested user
+ * @param {string} token token of the current user
+ * @param {string} slug slug of the user to be edited
  * @returns renders the component
  */
 export default function UserUpdate(props) {
@@ -144,74 +145,74 @@ export default function UserUpdate(props) {
                     <Form.Group className="form-group" size="lg" controlId="firstname">
                         <Form.Label>First Name</Form.Label>
                         <Form.Control
-                            autoFocus
-                            type="text"
-                            defaultValue={user.current.first_name}
-                            placeholder="Please enter your first name"
-                            onChange={(e) => {user.current.first_name = e.target.value}}
-                        />
+                        autoFocus
+                        type="text"
+                        defaultValue={user.current.first_name}
+                        placeholder="Please enter your first name"
+                        onChange={(e) => {user.current.first_name = e.target.value}}/>
                     </Form.Group>
 
                     {/* Last name input group */}
                     <Form.Group className="form-group" size="lg" controlId="lastname">
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control
-                            autoFocus
-                            type="text"
-                            defaultValue={user.current.last_name}
-                            placeholder="Please enter your last name"
-                            onChange={(e) => {user.current.last_name = e.target.value}}
-                        />
+                        autoFocus
+                        type="text"
+                        defaultValue={user.current.last_name}
+                        placeholder="Please enter your last name"
+                        onChange={(e) => {user.current.last_name = e.target.value}}/>
                     </Form.Group>
 
                     {/* Email input form */}
                     <Form.Group className="form-group" size="lg" controlId="email">
                         <Form.Label>Email</Form.Label>
                         <Form.Control
-                            autoFocus
-                            type="text"
-                            defaultValue={user.current.email}
-                            placeholder="Please enter your email address"
-                            onChange={(e) => {user.current.email = e.target.value}}
-                        />
+                        autoFocus
+                        type="text"
+                        defaultValue={user.current.email}
+                        placeholder="Please enter your email address"
+                        onChange={(e) => {user.current.email = e.target.value}}/>
                     </Form.Group> 
 
                     {/* Password input form */}
                     <Form.Group className="form-group" size="lg" controlId="email">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
-                            autoFocus
-                            type="text"
-                            defaultValue={user.current.password}
-                            placeholder="Please change your password if required"
-                            onChange={(e) => {user.current.password = e.target.value}}
-                        />
+                        autoFocus
+                        type="text"
+                        defaultValue={user.current.password}
+                        placeholder="Please change your password if required"
+                        onChange={(e) => {user.current.password = e.target.value}}/>
                     </Form.Group>
 
                     {/* Confirm password group */}
                     <Form.Group className="form-group" size="lg" controlId="email">
                         <Form.Label>Confirm password</Form.Label>
                         <Form.Control
-                            autoFocus
-                            type="text"
-                            defaultValue={user.current.password2}
-                            placeholder="Please confirm your new password"
-                            onChange={(e) => {user.current.password2 = e.target.value}}
-                        />
+                        autoFocus
+                        type="text"
+                        defaultValue={user.current.password2}
+                        placeholder="Please confirm your new password"
+                        onChange={(e) => {user.current.password2 = e.target.value}}/>
                     </Form.Group>
 
                     {/* Image upload group */}
                     <Form.Group className="form-group" size="lg">
                         <Form.Label>Upload your profile image</Form.Label>
                         <Form.Control
-                            type="file"
-                            onChange={(e) => {user.current.image = e.target.files[0]}}
-                        />
+                        type="file"
+                        onChange={(e) => {user.current.image = e.target.files[0]}}/>
                     </Form.Group>
 
                     {/* Submit button group */}
                     <div className="text-center button mb-5">  
-                        <Button size="lg" type="submit"  disabled={!validateForm()} className="mt-3 btn-success">Submit</Button>
+                        <Button 
+                        size="lg" 
+                        type="submit" 
+                        disabled={!validateForm()} 
+                        className="mt-3 btn-success">
+                        Submit
+                        </Button>
                     </div>
 
                 </Form> 

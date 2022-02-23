@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import Rating from '@mui/material/Rating';
@@ -7,14 +6,13 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
- * Renders the review-create form, sends the form data in the body of a POST request (only with token).
- * @param {*} props slug of the camp to which the review should belong
+ * Renders the review-create form, sends the form data with a POST request (only with token).
+ * @param {string} token token of the current user
+ * @param {object} identity identity of the current user
+ * @param {string} slug slug of the camp to which the review belongs
  * @returns renders the component
  */
  export default function ReviewCreate(props) {
-
-    // Define the parameters coming from outside the component
-    const token = localStorage.getItem('token')
 
     // Define the add review variables/constants/states
     const [title, setTitle] = useState("");
@@ -43,7 +41,7 @@ import "../App.css";
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization': `Token ${token}`
+                'Authorization': `Token ${props.token}`
             },
             body: JSON.stringify({
                 title: title,
@@ -85,7 +83,7 @@ import "../App.css";
         <div>
 
             {/* Restrict the possibility to leave reviews only with token */}
-            { token ? 
+            { props.token ? 
             
                 <div className='AddReview'>
 
@@ -108,8 +106,7 @@ import "../App.css";
                                 color="#055d3d"
                                 size="small"
                                 value={rating}
-                                onChange={(event, newValue) => setRating(newValue)}
-                                />
+                                onChange={(event, newValue) => setRating(newValue)}/>
                             </div>
                             <div className= 'bg-secondary bg-opacity-50 text-white rounded-pill p-3'>
                                 <input type='body' value={body} placeholder='Your message' onChange={(e) => setBody(e.target.value)}/>
@@ -120,7 +117,14 @@ import "../App.css";
 
                     {/* Submit button */}
                     <div className="text-center">
-                        <Button size="lg" type="submit" disabled={!validateReviewForm()} onClick={handleReviewSubmit} className="mt-3 btn-success">Submit</Button>
+                        <Button 
+                        size="lg" 
+                        type="submit" 
+                        disabled={!validateReviewForm()} 
+                        onClick={handleReviewSubmit} 
+                        className="mt-3 btn-success">
+                        Submit
+                        </Button>
                     </div>
 
                 </div>

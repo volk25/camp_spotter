@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import "../App.css";
 
 /**
- * Renders the authentication form, sends the form data in the body of a POST request (all users are allowed).
+ * Render the login-form, sends the form data with a POST request (all users are allowed).
  * @returns stores in localStorage the token
  */
 export default function TokenObtain() {
