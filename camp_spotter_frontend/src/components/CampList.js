@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import DeleteCampDialog from '../dialogs/DeleteCampDialog';
 
 /**
- * Renders the list with all the camps of a user after fetching the data with a GET request (all users are allowed).
- * @param {*} props slug of the user to which the camp list belongs
+ * Render the list with all the camps of a user after fetching the data with a GET request (all users are allowed).
+ * The following components are used:
+ * - DeleteCampDialog
+ * @param {string} token token of the current user
+ * @param {string} slug slug of the user to which the camp list belongs
  * @returns renders the component
  */
 export default function CampList(props) {
 
-    // Define the camp variables/constants/states
+    // Define the camp list variables/constants/states
     const [camps, setCamps] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    // Define the dialog variables/constants/states
+    const [openDialog, setOpenDialog] = useState(false);
+    const [slugDialog, setSlugDialog] = useState();
 
     // Fetch the camp list as soon as the page is loaded
     useEffect (() => {
@@ -35,6 +43,16 @@ export default function CampList(props) {
 
     },[]);
 
+    /**
+	 * Event handler for opening deletion dialog
+     * @param {string} slug slug of the camp to be deleted
+     * @returns calls the function for camp deletion
+	 */
+    function handleOpenDialog(props) {
+        setSlugDialog(props.slug);
+        setOpenDialog(true);
+    };
+
     // If loading variable is still set to true, notify it to the user
     if (loading) {
         return <p>Data is loading...</p>;
@@ -47,7 +65,7 @@ export default function CampList(props) {
             <div className="text-white mt-5 mb-5 h5 text-center">Here you can edit or delete your submitted camps.</div>
        
             {camps.length > 0 ?               
-                camps.map(camp => (   /* d-flex justify-content-between */
+                camps.map(camp => (
 
                     <div className="text-white row mb-4  p-3 radius bg-secondary bg-opacity-50" key={camp.slug}>
 
@@ -64,18 +82,27 @@ export default function CampList(props) {
                             <Link to={`/camps/${camp.slug}/edit`}>
                                 <button type="button" class="btn btn-secondary me-2">Edit</button>
                             </Link>
-                            <Link to={`/camps/${camp.slug}/delete`}>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </Link>
+                            <button 
+                            type="button" 
+                            class="btn btn-danger" 
+                            onClick={() => handleOpenDialog({slug: camp.slug})}>
+                                Delete
+                            </button>
                         </div>
                     </div>
                 ))
 
-            /* If user didn't create any camps: */
             :
-            <div className='text-white fw-italic fs-5'>You didn't add any camps yet...</div>       
+                <div className='text-white text-center fw-italic fs-5'>You didn't add any camps yet...</div>       
             }
+
+            {/* Delete camp dialog */}
+            <DeleteCampDialog 
+            openDialog={openDialog} 
+            setOpenDialog={setOpenDialog} 
+            slug={slugDialog} 
+            token={props.token}/>
 
         </div>
     )
-}
+};

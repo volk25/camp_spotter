@@ -2,49 +2,27 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Rating from '@mui/material/Rating';
 import "../App.css";
-import ReviewDestroy from './ReviewDestroy';
+import DeleteReviewDialog from '../dialogs/DeleteReviewDialog';
 
 /**
  * Renders the list with all the reviews of a camp after fetching the data with a GET request (all users are allowed).
- * @param {*} props slug of the camp to which the review list belongs
+ * The following components are used:
+ * - DeleteReviewDialog
+ * @param {string} token token of the current user
+ * @param {object} identity identity of the current user
+ * @param {string} slug slug of the camp to which the review list belongs
  * @returns renders the component
  */
  export default function ReviewList(props) {
 
-    // Define the parameters coming from outside the component
-    const token = localStorage.getItem('token')
-
     // Define the review list variables/constants/states
-    const [identity, setIdentity] = useState()
     const [reviewList, setReviewList] = useState([]);
-    const [loadingIdentity, setLoadingIdentity] = useState(true);
-    const [loadingReviewList, setLoadingReviewList] = useState(true);
+    const [loading, setLoading] = useState(true);
 
-    // Fetch data about the user identity
-    useEffect (() => {
-
-        // Fetch the data from the API
-        fetch ('http://127.0.0.1:8000/identity/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${token}`,
-            }
-        })
-
-        // Get the response in a json format and set the data to the identity state
-        .then (response => response.json())
-        .then (result => {
-            setIdentity(result);
-        })
-
-        // Catch the error if present and console log it
-        .catch((err) => console.log(err))
-
-        // Set to false the loading state
-        .finally(() => setLoadingIdentity(false));
-
-    },[]);
+    // Define the dialog variables/constants/states
+    const [openDialog, setOpenDialog] = useState(false);
+    const [slugDialog, setSlugDialog] = useState();
+    const [idDialog, setIdDialog] = useState();
 
     // Fetch data about review list
     useEffect (() => {
@@ -65,25 +43,29 @@ import ReviewDestroy from './ReviewDestroy';
         .catch((err) => console.log(err))
 
         // Set to false the loading variable
-        .finally(() => setLoadingReviewList(false));
+        .finally(() => setLoading(false));
 
     },[]);
 
-	/**
-	 * Event handler for element deletion.
-	 * @param {*} props slug of the camp and id of the review
+    /**
+	 * Event handler for opening deletion dialog
+     * @param {string} slug slug of the camp to which belongs the review
+     * @param {number} id id of the review to be deleted
+     * 
+     * @returns calls the function for camp deletion
 	 */
-    function handleDelete(props) {
-        ReviewDestroy({slug: props.slug, id: props.id});
-        window.location.reload(false)
+     function handleOpenDialog(props) {
+        setSlugDialog(props.slug);
+        setIdDialog(props.id);
+        setOpenDialog(true);
     };
 
-    // If loading states are still set to true, notify it to the user
-    if (loadingReviewList || loadingIdentity) {
+    // If loading state is still set to true, notify it to the user
+    if (loading) {
         return <p>Data is loading...</p>;
     }
 
-    // Render the component
+    // If everything has been loaded, render the component
     return (
         
         <div> 
@@ -109,7 +91,11 @@ import ReviewDestroy from './ReviewDestroy';
                                 {/* Create the review title and the star rating */}
                                 <div className="d-flex justify-content-between me-3">
                                     <div className='text-white fw-bold ms-4 me-3'>{review.title}</div>
-                                    <Rating className="" name="read-only" size="small" value={review.rating} readOnly />
+                                    <Rating 
+                                    name="read-only" 
+                                    size="small" 
+                                    value={review.rating} 
+                                    readOnly />
                                 </div>
 
                                 {/* Create the review body */}
@@ -117,26 +103,40 @@ import ReviewDestroy from './ReviewDestroy';
                                     <span>{review.body}</span>
 
                                     {/* If the current user is the author of the review create the delete button */}
-                                    { identity.username === review.author ?
+                                    { props.identity.username === review.author ?
                                         <button
                                         className='btn btn-outline-danger rounded-pill'
                                         type='button' 
-                                        onClick={() => handleDelete({slug: props.slug, id: review.id})} >
-                                        Delete
+                                        onClick={() => handleOpenDialog({slug: props.slug, id: review.id, token: props.token})}>
+                                            Delete
                                         </button>
                                     :
                                         <></>
                                     }
 
                                 </div>
+
                             </div>
-                        </div>    
+
+                        </div> 
+
                     </div>  
+
                 ))
+
             :
 
                 <div className='text-white fw-italic fs-5'>This camp site has no reviews yet...</div>
-            }
+
+            };
+
+            {/* Delete review dialog */}
+            <DeleteReviewDialog 
+            openDialog={openDialog} 
+            setOpenDialog={setOpenDialog}
+            token={props.token} 
+            slug={slugDialog}
+            id={idDialog}/>
 
         </div>
     )

@@ -1,7 +1,7 @@
 import "../App.css";
 
 /**
- * Clear the localStorage and reload the page (all in frontend)
+ * Clear the localStorage and reload the page (all in frontend).
  * @returns clears the localStorage
  */
 export default function TokenClear() {
@@ -11,5 +11,4 @@ export default function TokenClear() {
 	localStorage.clear();
 	window.location.reload(false);
 
-	return 
 };

@@ -132,12 +132,18 @@ export default function CampCreate(props) {
 				{/* Map pin input group */}
 				<div>
 					<div className='mt-2 mb-2 text-white'>Click on map to set the exact location of the camp *</div>
-					<MapContainer className="map" center={[ 52.3676, 4.9041]} zoom={20} style={{height:"30vh"}}> 
-						<TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
-							contributors'url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>  
+					<MapContainer 
+					className="map" 
+					center={[52.3676, 4.9041]} 
+					zoom={20} 
+					style={{height:"30vh"}}> 
+						<TileLayer 
+						attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>  
 						<MapEvents/>
-						<Marker position={[latitude, longitude]} icon={GetIcon(50)}/>
-						<LocationMarker/>
+						<Marker 
+						position={[latitude, longitude]} 
+						icon={GetIcon(50)}/>
 					</MapContainer>
 				</div>
 
@@ -150,8 +156,7 @@ export default function CampCreate(props) {
 						value={positionBody}
 						style={{ height: 80}}
 						placeholder="Please describe in a few sentence how to find this spot"
-						onChange={(e) => setPositionBody(e.target.value)}
-					/>
+						onChange={(e) => setPositionBody(e.target.value)}/>
 				</Form.Group>
 
 				{/* Image upload group */}
@@ -159,8 +164,7 @@ export default function CampCreate(props) {
 					<Form.Label>Upload camp photo</Form.Label>
 					<Form.Control
 						type="file"
-						onChange={(e) => setImage(e.target.files[0])}
-					/>
+						onChange={(e) => setImage(e.target.files[0])}/>
 				</Form.Group>
 
 				{/* Required fields warning */}
@@ -170,7 +174,13 @@ export default function CampCreate(props) {
 
 				{/* Submit button froup */}
 				<div className="text-center button mb-5">
-					<Button size="lg" type="submit" disabled={!validateForm()} className="mt-3 btn-success">Submit</Button>
+					<Button 
+					size="lg" 
+					type="submit" 
+					disabled={!validateForm()} 
+					className="mt-3 btn-success">
+					Submit
+					</Button>
 				</div>
 
 			</Form>

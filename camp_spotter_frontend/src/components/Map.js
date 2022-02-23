@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react' ;
+import React, {useEffect, useState} from 'react';
+import { Link } from "react-router-dom";
 import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import { AlgoliaProvider } from 'leaflet-geosearch';
-import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import LocationMarker from "./Geolocation.js"
 import SearchControl from './SearchControl.js';
 
 /**
- * Map with a search bar on it.
- * @param {*} props coordinates of the user inputted location
- * @returns the rendered conponent
+ * Render the map component.
+ * @param {object} position coordinates of the user inputted location
+ * @returns renders the conponent
  */
 export default function Map(props) {
 
@@ -74,17 +74,17 @@ export default function Map(props) {
 
                 {/* Create a search bar on the map */}
                 <SearchControl 
-                    provider={prov}
-                    style={'bar'}
-                    showMarker={true}
-                    showPopup={true}
-                    // maxMarkers={10}
-                    retainZoomLevel={true}
-                    animateZoom={true}
-                    autoClose={true}
-                    searchLabel={"Search"}
-                    keepResult={false}
-                    // position={"topright"}
+                provider={prov}
+                style={'bar'}
+                showMarker={true}
+                showPopup={true}
+                // maxMarkers={10}
+                retainZoomLevel={true}
+                animateZoom={true}
+                autoClose={true}
+                searchLabel={"Search"}
+                keepResult={false}
+                // position={"topright"}
                 />
 
                 {/* Add markers to the map */}

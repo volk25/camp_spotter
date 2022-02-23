@@ -5,10 +5,9 @@ import "../App.css";
 
 /**
  * Renders the search bar with search and locate-me buttons..
- * @param {*} props setFinalUserInput function
  * @returns renders the component
  */
-export default function Search(props) {
+export default function Search() {
 
     // Define the variables/constants/states
     const [userInput, setUserInput] = useState('')

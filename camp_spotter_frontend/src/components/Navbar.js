@@ -20,7 +20,7 @@ export default function NavBar() {
 
             {/* Create a navbar brand and the logo */}
             <Navbar.Brand className="mx-5" href="/">
-                <h1 className="navbar-logo">Campspotter<i className="fas fa-campground"></i></h1>
+                <h1 className="navbar-logo">Campspotter<i className="fas fa-campground"/></h1>
             </Navbar.Brand>
 
             {/* Create a button for toggling the dropdown menu (for menu entries on the right in md) */}
