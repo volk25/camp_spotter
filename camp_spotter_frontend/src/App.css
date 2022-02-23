@@ -243,3 +243,8 @@ html, body, #app, #app > div {
 .navbar {
   padding: 0 !important;
 }
+
+.leaflet-marker-icon {
+  filter: drop-shadow(7px 7px 9px gray);
+}
+

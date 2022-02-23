@@ -94,7 +94,8 @@ export default function Map(props) {
                             <Link to ={`/camps/${camp.slug}`}>
                                 <div className="position-relative">
                                     <img src={camp.image} alt={`${camp.title} image`} width='200' height= '170' 
-                                    style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)" }} />
+                                    style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)"}}  className="tentIcon"/>
+                                    <img src={require('../images/Icons/cut.png')} width='260' height= '230' className='bottom-0 start-50 translate-middle-x position-absolute'/>
                                     <div className="position-absolute text-center bottom-0 start-50 translate-middle-x text-white fw-bold h6">{camp.title}</div>  
                                 </div>
                             </Link> 
@@ -117,7 +118,7 @@ export default function Map(props) {
 function GetIcon(_iconSize) {
     return  L.icon({
             iconUrl: require("../images/Icons/tent_icon_for_map.png"),
-            iconSize: [_iconSize]
+            iconSize: [_iconSize],
         })
 }
 
