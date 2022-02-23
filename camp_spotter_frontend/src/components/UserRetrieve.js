@@ -47,7 +47,7 @@ return (
   <div className="background ">
   {/* Create user image and username */}
     <div className=" mt-5 text-center ">
-        <div className= " profileImage text-center">
+        <div className= " profileImage text-center rounded-circle">
           <img src={user.image} alt="userImage" className="rounded-circle" height="200"/>
         </div>
         <div style={{ color: "white", margin: "auto" }}>
@@ -56,7 +56,7 @@ return (
     </div>
 
     {/* Create user details */}
-    <div className= "test mt-5 fs-4 text-white container">
+    <div className= "test mt-5 fs-4 text-white container bg-secondary bg-opacity-50 radius p-3">
 
         <div className="mb-3  d-flex justify-content-between">
             <div className="fw-bold" >First Name:</div>
