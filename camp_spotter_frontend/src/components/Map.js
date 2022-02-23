@@ -89,14 +89,30 @@ export default function Map(props) {
 
                 {/* Add markers to the map */}
                 {campList.map((camp) => (
-                    <Marker position={[camp.latitude, camp.longitude]} icon={GetIcon(50)} key={camp.slug}>
+                    <Marker 
+                    position={[camp.latitude, camp.longitude]} 
+                    icon={GetIcon(50)} 
+                    key={camp.slug}>
                         <Popup>
                             <Link to ={`/camps/${camp.slug}`}>
                                 <div className="position-relative">
-                                    <img src={camp.image} alt={`${camp.title} image`} width='200' height= '170' 
-                                    style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)"}}  className="tentIcon"/>
-                                    <img src={require('../images/Icons/cut.png')} width='260' height= '230' className='bottom-0 start-50 translate-middle-x position-absolute'/>
-                                    <div className="position-absolute text-center bottom-0 start-50 translate-middle-x text-white fw-bold h6">{camp.title}</div>  
+                                    <img 
+                                    className="tentIcon"
+                                    src={camp.image} 
+                                    alt={`${camp.title} image`} 
+                                    width='200' 
+                                    height= '170' 
+                                    style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)"}}/>
+                                    <img 
+                                    className='bottom-0 start-50 translate-middle-x position-absolute'
+                                    src={require('../images/Icons/cut.png')} 
+                                    width='260' 
+                                    height= '230'/>
+                                    <div 
+                                    className="position-absolute text-center bottom-1 start-50 translate-middle-x fw-bold h6"
+                                    style={{ color: "#055d3d" }}>
+                                    {camp.title}
+                                    </div>  
                                 </div>
                             </Link> 
                         </Popup>               
