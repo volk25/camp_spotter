@@ -47,8 +47,8 @@ return (
   <div className="background ">
   {/* Create user image and username */}
     <div className=" mt-5 text-center ">
-        <div className= " profileImage text-center rounded-circle">
-          <img src={user.image} alt="userImage" className="rounded-circle" height="200"/>
+        <div className= "text-center">
+          <img src={user.image} alt="userImage" className="rounded-circle  profileImage" height="200" width="200"/>
         </div>
         <div style={{ color: "white", margin: "auto" }}>
           <h4 className="nickname text-center">{props.slug}</h4>

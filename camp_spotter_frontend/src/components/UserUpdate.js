@@ -127,7 +127,7 @@ export default function UserUpdate(props) {
             {/* Show the user image and the username */}
             <div className=" mt-5 text-center">
                 <div className= "profileImage text-center position-relative">
-                    <img src={user.current.image} alt="userImage" className="rounded-circle" height="200"/>          
+                    <img src={user.current.image} alt="userImage" className="rounded-circle" height="200" width="200"/>          
                 </div>
                 <div style={{ color: "white", margin: "auto" }}>
                     <h4 className="nickname text-center">{props.slug}</h4>

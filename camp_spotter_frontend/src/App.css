@@ -190,9 +190,13 @@ html, body, #app, #app > div {
 
 /* Styles of the HomePage  */
 .search-bar {
-  margin-top: 300px;
+  margin-top: 200px;
 }
 
+.adventure {
+  font-size: 300%;
+  font-family: "Reem Kufi", sans-serif;
+}
 /* Style of the AboutUsPage */
 .profileform {
   color: white;
@@ -248,7 +252,6 @@ html, body, #app, #app > div {
   filter: drop-shadow(7px 7px 9px gray);
 }
 
-.profileImage img {
-  object-fit: cover;
-  border-radius: 50%  !important ;
+img{
+    object-fit: cover;
 }

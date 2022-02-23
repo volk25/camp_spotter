@@ -44,12 +44,14 @@ export default function Search(props) {
     return (
 
         <div className='search-bar text-center'>
+            <div className=' adventure fw-bold text-white text-center mb-5'>Your adventure begins here</div>
 
             {/* Create the input field and its suggestions*/}
             <input 
             type="text" 
             list="data" 
             style={{width: 400}}
+            placeholder="Search you perfect camp spot"
             onChange={(e) => {
                 e.preventDefault();
                 setUserInput(e.target.value);
