@@ -56,8 +56,6 @@ export default function DeleteMyProfilePage() {
 				<NavBar/>
 			</div>
 
-			<div className='overlay'></div>
-
 			{/* Create a header */}
 			<h1 className="text-center text-white position-relative">Delete Profile</h1>
 		

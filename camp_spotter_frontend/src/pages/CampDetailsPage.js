@@ -54,7 +54,6 @@ import NavBar from "../components/NavBar";
 				<NavBar/>
 			</div>
 
-            <div className='overlay'></div>
             <div className='campDetails position-relative'>           
  
                 {/* General details of the camp of the camp */}

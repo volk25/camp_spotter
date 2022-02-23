@@ -54,8 +54,7 @@ export default function MyCampsPage() {
 			{/* Render the Navbar component */}
 			<div className='position-relative'>
 					<NavBar/>
-				</div>
-			<div className="overlay"></div>
+			</div>
 
 			{/* Create a header */}
 			<h1 className="text-center text-white position-relative">My Camps</h1>

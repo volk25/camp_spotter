@@ -36,8 +36,6 @@ export default function DeleteCampPage() {
 				<NavBar/>
 			</div>
 
-			<div className='overlay'></div>
-
 			{/* Create a header */}
 			<h1 className="text-center text-white position-relative">Delete Camp</h1>
 		

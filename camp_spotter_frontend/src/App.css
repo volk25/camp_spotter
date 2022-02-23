@@ -40,15 +40,7 @@ html, body, #app, #app > div {
 }
 }
 
-.overlay {
-  position:absolute;
-  min-height: 100%;
-  min-width: 100%;
-  background: url(./images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg) no-repeat
-  center center fixed;
-  filter: blur(8px);
-  -webkit-filter: blur(4px);
-}
+
 
 /* Styles of the Navbar */
 .dropdown-menu {
