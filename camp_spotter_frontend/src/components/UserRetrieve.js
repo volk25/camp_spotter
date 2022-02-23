@@ -72,9 +72,19 @@ export default function UserRetrieve(props) {
 					<h4 className="nickname text-center">{props.slug}</h4>
 				</div>
 			</div>
+  <div className="background ">
+  {/* Create user image and username */}
+    <div className=" mt-5 text-center ">
+        <div className= "text-center">
+          <img src={user.image} alt="userImage" className="rounded-circle  profileImage" height="200" width="200"/>
+        </div>
+        <div style={{ color: "white", margin: "auto" }}>
+          <h4 className="nickname text-center">{props.slug}</h4>
+        </div>
+    </div>
 
-			{/* Create user details */}
-			<div className= "test mt-5 fs-4 text-white container">
+    {/* Create user details */}
+    <div className= "test mt-5 fs-4 text-white container bg-secondary bg-opacity-50 radius p-3">
 
 				<div className="mb-3  d-flex justify-content-between">
 					<div className="fw-bold" >First Name:</div>
@@ -83,18 +93,18 @@ export default function UserRetrieve(props) {
 
 				<div className="mb-3 d-flex justify-content-between">
 					<div className="fw-bold text-left" >Last Name:</div>
-					<span className="ms-5">{user.last_name}</span>        
+					<span className="ms-5">{user.last_name}</span>
 				</div>
 
 				<div className="mb-3 d-flex justify-content-between">
 					<div className="fw-bold text-left" >Email: </div>
-					<span className="ms-5">{user.email}</span>          
+					<span className="ms-5">{user.email}</span>
 				</div>
-			
+
 				<div className="mb-3 d-flex justify-content-between">
 					<div className="fw-bold" >Date joined:</div>
 					<span className="ms-5">{user.date_joined.slice(0,10)}</span>
-				</div> 
+				</div>
 
 			</div>
 
@@ -103,21 +113,21 @@ export default function UserRetrieve(props) {
 				<Link to="/myprofile/edit">
 					<button type="button" class="btn btn-secondary me-5">Edit</button>
 				</Link>
-				<button 
-				type="button" 
-				class="btn btn-danger" 
+				<button
+				type="button"
+				class="btn btn-danger"
 				onClick={() => handleOpenDialog()}>
 					Delete
 				</button>
 			</div>
 
 			{/* Delete user dialog */}
-			<DeleteUserDialog 
-			openDialog={openDialog} 
-			setOpenDialog={setOpenDialog} 
+			<DeleteUserDialog
+			openDialog={openDialog}
+			setOpenDialog={setOpenDialog}
 			slug={slugDialog}
 			token={props.token}/>
-		
+
 			<div style={{ height: "100vh" }}></div>
 
 		</div>

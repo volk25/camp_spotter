@@ -4,6 +4,7 @@ import "../App.css";
 import CampRetrieve from '../components/CampRetrieve';
 import ReviewList from '../components/ReviewList';
 import ReviewCreate from '../components/ReviewCreate';
+import NavBar from "../components/NavBar";
 
 /**
  * Render the camp details page.
@@ -47,8 +48,11 @@ import ReviewCreate from '../components/ReviewCreate';
     return (
         
         <div> 
+            {/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
 
-            <div className='overlay'></div>
             <div className='campDetails position-relative'>           
  
                 {/* General details of the camp of the camp */}

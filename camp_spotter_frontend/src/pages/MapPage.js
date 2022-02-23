@@ -1,6 +1,7 @@
 import React from "react";
 import Map from "../components/Map";
 import { useParams } from 'react-router-dom'
+import NavBar from "../components/NavBar";
 
 /**
 * Render the Map page. 
@@ -31,6 +32,11 @@ export default function MapPage() {
 	return(
 		
 		<div className="mt-0">
+			{/* Render the Navbar component */}
+			<div className='position-relative  mt-0 mb-0  p-0 mapPage'>
+				<NavBar/>
+			</div>
+
 			<Map position={searchPosition()}/>
 		</div>
 	

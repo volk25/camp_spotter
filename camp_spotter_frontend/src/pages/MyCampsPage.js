@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import CampList from '../components/CampList';
+import NavBar from "../components/NavBar";
 
 /**
 * MyCamps page of the application.
@@ -50,7 +51,10 @@ export default function MyCampsPage() {
   	return(
 
 		<div>
-		<div className="overlay"></div>
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+					<NavBar/>
+			</div>
 
 			{/* Create a header */}
 			<h1 className="text-center text-white position-relative">My Camps</h1>

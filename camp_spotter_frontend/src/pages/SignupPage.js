@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import UserCreate from '../components/UserCreate';
+import NavBar from "../components/NavBar";
 
 /**
  * Signup page of the application.
@@ -15,6 +16,10 @@ export default function SignupPage() {
   	return(
 
     	<div>
+			{/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
 
 			{/* Create a header */}
 			<h1 className="signup-header text-center text-white">Signup</h1>

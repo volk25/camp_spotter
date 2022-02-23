@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import NavBar from "../components/NavBar";
 
 /**
 * Render the contact page.
@@ -13,6 +14,11 @@ export default function AboutUsPage() {
   return (
 
     <div>
+
+      {/* Render the Navbar component */}
+			<div className='position-relative'>
+				<NavBar/>
+			</div>
 
       {/* About Us Text */}
       <div className="background text-center text-white mt-5">

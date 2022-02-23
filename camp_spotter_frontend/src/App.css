@@ -40,15 +40,7 @@ html, body, #app, #app > div {
 }
 }
 
-.overlay {
-  position:absolute;
-  min-height: 100%;
-  min-width: 100%;
-  background: url(./images/lesly-derksen-F4fH5dAfZnE-unsplash.jpg) no-repeat
-  center center fixed;
-  filter: blur(8px);
-  -webkit-filter: blur(4px);
-}
+
 
 /* Styles of the Navbar */
 .dropdown-menu {
@@ -60,6 +52,10 @@ html, body, #app, #app > div {
 /* Styles of the MapPage */
 .leaflet-container {
   height: 20vh;
+}
+
+.campDescMap .leaflet-container  {
+  border-radius: 10px;
 }
 .leaflet-popup-content-wrapper{
   background-color: rgba(0,0,0,0.0);
@@ -178,6 +174,10 @@ html, body, #app, #app > div {
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
+
+.dropdown-menu :hover{ 
+  color:#055d3d !important;
+}
 .fa-bars {
   color: white;
 }
@@ -190,9 +190,13 @@ html, body, #app, #app > div {
 
 /* Styles of the HomePage  */
 .search-bar {
-  margin-top: 300px;
+  margin-top: 200px;
 }
 
+.adventure {
+  font-size: 300%;
+  font-family: "Reem Kufi", sans-serif;
+}
 /* Style of the AboutUsPage */
 .profileform {
   color: white;
@@ -238,4 +242,16 @@ html, body, #app, #app > div {
 }
 .mapPage {
   background-color: #055d3d !important;
+}
+
+.navbar {
+  padding: 0 !important;
+}
+
+.leaflet-marker-icon {
+  filter: drop-shadow(7px 7px 9px gray);
+}
+
+img{
+    object-fit: cover;
 }
