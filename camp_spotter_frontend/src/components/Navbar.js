@@ -29,7 +29,8 @@ export default function NavBar() {
                 <Nav className="ms-auto me-5">
 
                     {/* Create the menu entries to be aligned on the right */}
-                    <Nav.Link className="text-white  text-center  mt-2 h5 " href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
+                    <Nav.Link className="text-white  text-center  mt-2 h5" href="/map/localize">Map</Nav.Link>
+                    <Nav.Link className="text-white  text-center  mt-2 h5" href={ token ? "/camps/add" : "/login" }>Add Camp</Nav.Link>
                     <Nav.Link className="text-white  text-center mt-2 h5" href="/contact">About Us</Nav.Link>
 
                     {/* Restrict the Login and Signup to be shown only without token */}
